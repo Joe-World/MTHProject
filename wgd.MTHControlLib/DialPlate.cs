@@ -89,7 +89,7 @@ namespace wgd.MTHControlLib
 
         #region 内环设计
         //温度环
-        private float tempScale = 0.8f;
+        private float tempScale = 0.6f;
         [Browsable(true)]
         [Category("自定义属性")]
         [Description("设置或者获取温度环比例,默认低于1.0f")]
@@ -121,7 +121,7 @@ namespace wgd.MTHControlLib
         }
 
         //湿度环
-        private float humidityScale = 0.4f;
+        private float humidityScale = 0.35f;
         [Browsable(true)]
         [Category("自定义属性")]
         [Description("设置或者获取湿度环比例,默认低于1.0f")]
@@ -333,8 +333,10 @@ namespace wgd.MTHControlLib
 
                 graphics.DrawString(text, this.Font, new SolidBrush(this.ForeColor), rectangle, stringFormat);
             }
+
             //绘制实际温度环
             pen = new Pen(tempColor, InThinkness);
+            //真实温度与量程低限的差，根据比例显示度数
             float sweepAngle = (temp - rangeMin) / (rangeMax - rangeMin) * 180.0f;
 
             float xx = this.Width * tempScale * 0.5f * (-1.0f);
