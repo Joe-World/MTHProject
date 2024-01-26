@@ -29,8 +29,17 @@ namespace wgd.MTHControlLib
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // DialPlate
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
+            this.Name = "DialPlate";
+            this.Size = new System.Drawing.Size(183, 117);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

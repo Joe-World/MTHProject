@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +43,7 @@ namespace wgd.MTHControlLib
             }
         }
 
-        private Color ringColor = Color.FromArgb(187, 184, 196);
+        private Color ringColor = Color.FromArgb(187, 187, 187);
         [Browsable(true)]
         [Category("自定义属性")]
         [Description("设置或者获取圆环整体颜色")]
@@ -88,7 +89,7 @@ namespace wgd.MTHControlLib
 
         #region 内环设计
         //温度环
-        private float tempScale = 0.6f;
+        private float tempScale = 0.8f;
         [Browsable(true)]
         [Category("自定义属性")]
         [Description("设置或者获取温度环比例,默认低于1.0f")]
@@ -120,7 +121,7 @@ namespace wgd.MTHControlLib
         }
 
         //湿度环
-        private float humidityScale = 0.35f;
+        private float humidityScale = 0.4f;
         [Browsable(true)]
         [Category("自定义属性")]
         [Description("设置或者获取湿度环比例,默认低于1.0f")]
@@ -352,5 +353,8 @@ namespace wgd.MTHControlLib
 
         }
 
+
     }
 }
+
+

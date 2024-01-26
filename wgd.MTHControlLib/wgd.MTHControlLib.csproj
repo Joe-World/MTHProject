@@ -69,6 +69,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DialPlate.resx">
+      <DependentUpon>DialPlate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NaviButton.resx">
       <DependentUpon>NaviButton.cs</DependentUpon>
     </EmbeddedResource>
