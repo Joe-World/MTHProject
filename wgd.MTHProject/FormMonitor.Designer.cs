@@ -38,6 +38,7 @@ namespace wgd.MTHProject
             this.thmControl3 = new wgd.MTHControlLib.THMControl();
             this.thmControl2 = new wgd.MTHControlLib.THMControl();
             this.thmControl1 = new wgd.MTHControlLib.THMControl();
+            this.checkBoxPro1 = new wgd.MTHControlLib.CheckBoxPro();
             this.SuspendLayout();
             // 
             // naviButton2
@@ -150,12 +151,27 @@ namespace wgd.MTHProject
             this.thmControl1.Temp = "0.0";
             this.thmControl1.Title = "1#站点";
             // 
+            // checkBoxPro1
+            // 
+            this.checkBoxPro1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxPro1.BoxBackColor = System.Drawing.Color.White;
+            this.checkBoxPro1.CheckBoxWidth = 20;
+            this.checkBoxPro1.ForeColor = System.Drawing.Color.White;
+            this.checkBoxPro1.Location = new System.Drawing.Point(812, 343);
+            this.checkBoxPro1.Name = "checkBoxPro1";
+            this.checkBoxPro1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
+            this.checkBoxPro1.Size = new System.Drawing.Size(135, 33);
+            this.checkBoxPro1.TabIndex = 8;
+            this.checkBoxPro1.Text = "1号站点温度";
+            this.checkBoxPro1.UseVisualStyleBackColor = false;
+            // 
             // FormMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::wgd.MTHProject.Properties.Resources.mainpanel_bg;
             this.ClientSize = new System.Drawing.Size(1394, 724);
+            this.Controls.Add(this.checkBoxPro1);
             this.Controls.Add(this.naviButton2);
             this.Controls.Add(this.naviButton1);
             this.Controls.Add(this.thmControl4);
@@ -183,5 +199,6 @@ namespace wgd.MTHProject
         private MTHControlLib.THMControl thmControl4;
         private MTHControlLib.NaviButton naviButton1;
         private MTHControlLib.NaviButton naviButton2;
+        private MTHControlLib.CheckBoxPro checkBoxPro1;
     }
 }

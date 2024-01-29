@@ -76,6 +76,8 @@ namespace wgd.MTHControlLib
         protected override void OnPaint(PaintEventArgs pevent)
         {
             base.OnPaint(pevent);
+            // 确保窗体的背景被正确绘制，然后再添加或覆盖其他的绘制内容
+            base.OnPaintBackground(pevent);
 
             Graphics graphics = pevent.Graphics;
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
@@ -84,14 +86,15 @@ namespace wgd.MTHControlLib
             Rectangle boxTangle = new Rectangle(3, (this.Height - checkBoxWidth) / 2, checkBoxWidth, checkBoxWidth);
             Rectangle textTangle = new Rectangle(boxTangle.Right + 3, 0, Width - boxTangle.Right - 6, this.Height);
 
-            SolidBrush solid = new SolidBrush(selectedColor);
+
+            SolidBrush solid = new SolidBrush(boxBackColor);
             graphics.FillRectangle(solid, boxTangle);
             Pen pen = new Pen(Color.LightGray);
             graphics.DrawRectangle(pen, boxTangle);
             if (this.CheckState == CheckState.Checked)
             {
                 // 画勾选
-                DrawSelected(graphics,textTangle,SelectedColor);
+                DrawSelected(graphics,boxTangle,SelectedColor);
             }
 
             // 绘制文本
