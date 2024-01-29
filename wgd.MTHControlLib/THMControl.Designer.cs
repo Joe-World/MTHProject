@@ -146,7 +146,7 @@ namespace wgd.MTHControlLib
             // 
             this.dialPlate.AlarmAngle = 120F;
             this.dialPlate.AlarmColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(184)))), ((int)(((byte)(196)))));
-            this.dialPlate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
+            this.dialPlate.BackColor = System.Drawing.Color.Transparent;
             this.dialPlate.ForeColor = System.Drawing.Color.White;
             this.dialPlate.Humidity = 0F;
             this.dialPlate.HumidityColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(184)))), ((int)(((byte)(196)))));

@@ -15,6 +15,13 @@ namespace wgd.MTHControlLib
         public THMControl()
         {
             InitializeComponent();
+
+            //设置控件样式
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.DoubleBuffer, true);
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            this.SetStyle(ControlStyles.Selectable, true);
+            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
         }
 
         private string title = "1#站点";

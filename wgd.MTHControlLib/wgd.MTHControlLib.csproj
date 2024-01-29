@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckBoxPro.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckBoxPro.Designer.cs">
+      <DependentUpon>CheckBoxPro.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialPlate.cs">
       <SubType>UserControl</SubType>
     </Compile>
