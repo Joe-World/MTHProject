@@ -29,6 +29,7 @@ namespace wgd.MTHProject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMonitor));
             SeeSharpTools.JY.GUI.StripChartXSeries stripChartXSeries1 = new SeeSharpTools.JY.GUI.StripChartXSeries();
             this.naviButton2 = new wgd.MTHControlLib.NaviButton();
@@ -52,6 +53,10 @@ namespace wgd.MTHProject
             this.checkBoxPro10 = new wgd.MTHControlLib.CheckBoxPro();
             this.checkBoxPro11 = new wgd.MTHControlLib.CheckBoxPro();
             this.checkBoxPro12 = new wgd.MTHControlLib.CheckBoxPro();
+            this.ListInfo = new System.Windows.Forms.ListView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // naviButton2
@@ -296,7 +301,7 @@ namespace wgd.MTHProject
             this.stripChartX1.NextTimeStamp = new System.DateTime(((long)(0)));
             this.stripChartX1.ScrollType = SeeSharpTools.JY.GUI.StripChartX.StripScrollType.Cumulation;
             this.stripChartX1.SeriesCount = 1;
-            this.stripChartX1.Size = new System.Drawing.Size(638, 262);
+            this.stripChartX1.Size = new System.Drawing.Size(660, 251);
             this.stripChartX1.SplitView = false;
             this.stripChartX1.StartIndex = 0;
             this.stripChartX1.TabIndex = 9;
@@ -496,12 +501,48 @@ namespace wgd.MTHProject
             this.checkBoxPro12.Text = "5#站点温度";
             this.checkBoxPro12.UseVisualStyleBackColor = false;
             // 
+            // ListInfo
+            // 
+            this.ListInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(28)))), ((int)(((byte)(68)))));
+            this.ListInfo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.ListInfo.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.ListInfo.HideSelection = false;
+            this.ListInfo.Location = new System.Drawing.Point(704, 536);
+            this.ListInfo.Name = "ListInfo";
+            this.ListInfo.ShowItemToolTips = true;
+            this.ListInfo.Size = new System.Drawing.Size(661, 155);
+            this.ListInfo.SmallImageList = this.imageList1;
+            this.ListInfo.TabIndex = 22;
+            this.ListInfo.UseCompatibleStateImageBehavior = false;
+            this.ListInfo.View = System.Windows.Forms.View.Details;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "info.png");
+            this.imageList1.Images.SetKeyName(1, "warning.png");
+            this.imageList1.Images.SetKeyName(2, "error.png");
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "日志时间";
+            this.columnHeader1.Width = 200;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "日志内容";
+            this.columnHeader2.Width = 200;
+            // 
             // FormMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::wgd.MTHProject.Properties.Resources.mainpanel_bg;
             this.ClientSize = new System.Drawing.Size(1394, 724);
+            this.Controls.Add(this.ListInfo);
             this.Controls.Add(this.checkBoxPro9);
             this.Controls.Add(this.checkBoxPro10);
             this.Controls.Add(this.checkBoxPro11);
@@ -555,5 +596,9 @@ namespace wgd.MTHProject
         private MTHControlLib.CheckBoxPro checkBoxPro10;
         private MTHControlLib.CheckBoxPro checkBoxPro11;
         private MTHControlLib.CheckBoxPro checkBoxPro12;
+        private System.Windows.Forms.ListView ListInfo;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
