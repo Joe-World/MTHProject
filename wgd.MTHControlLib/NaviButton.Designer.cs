@@ -51,7 +51,7 @@ namespace wgd.MTHControlLib
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::wgd.MTHControlLib.Properties.Resources.selected_btn;
+            this.BackgroundImage = global::wgd.MTHControlLib.Properties.Resources.unselected_btn;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.LabTitle);
             this.DoubleBuffered = true;
