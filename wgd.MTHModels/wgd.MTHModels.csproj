@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="config\Device.cs" />
+    <Compile Include="config\Group.cs" />
+    <Compile Include="config\Variable.cs" />
     <Compile Include="FormNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
