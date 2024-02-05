@@ -100,7 +100,7 @@ namespace wgd.MTHProject
                         Control ct = mainPanel.Controls[i];
                         if (ct is Form form)
                         {
-                            if(form.Text != FormNames.集中监控.ToString() && form.Text != formNames.ToString())
+                            if (form.Text != FormNames.集中监控.ToString() && form.Text != formNames.ToString())
                             {
                                 form.Close();
                             }
@@ -129,7 +129,7 @@ namespace wgd.MTHProject
         private void CommonNaviButton_Click(object sender, EventArgs e)
         {
             if (sender is NaviButton navi)
-            {    
+            {
                 if (Enum.IsDefined(typeof(FormNames), navi.TitleName))
                 {
                     //拿到导航按钮对应的窗体枚举值
@@ -156,5 +156,42 @@ namespace wgd.MTHProject
             }
         }
         #endregion
+
+
+        #region 通过窗体MouseDown、MouseMove、MouseUp事件实现窗体移动
+        Point point; //鼠标按下时的点
+        bool isMoving = false;//标识是否拖动
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            point = e.Location;//按下的点
+            isMoving = true;//启动拖动
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && isMoving)
+            {
+                Point pNew = new Point(e.Location.X - point.X, e.Location.Y - point.Y);
+                //Location = new Point(Location.X + pNew.X, Location.Y + pNew.Y);
+                Location += new Size(pNew);
+            }
+        }
+
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            isMoving = false;//停止
+        }
+        #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormMsgBoxWithAck msgForm = new FormMsgBoxWithAck("确认退出系统？", "系统提示");
+            msgForm.SureClick += (s, ee) =>
+            {
+                this.Close();
+            };
+            msgForm.ShowDialog();
+        }
     }
 }

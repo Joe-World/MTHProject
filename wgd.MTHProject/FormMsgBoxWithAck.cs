@@ -21,9 +21,10 @@ namespace wgd.MTHProject
             this.LblTitle.Text = title;
         }
 
-
+        public event EventHandler SureClick;
         private void BtnSure_Click(object sender, EventArgs e)
         {
+            SureClick?.Invoke(sender, e);
             this.DialogResult = DialogResult.OK;
         }
 
@@ -37,23 +38,32 @@ namespace wgd.MTHProject
             this.DialogResult = DialogResult.Cancel;
         }
 
-        #region 无边框拖动
-        private Point mPoint;
+       
 
-        private void Panel_MouseDown(object sender, MouseEventArgs e)
+        //通过窗体MouseDown、MouseMove、MouseUp事件实现窗体移动
+        Point point; //鼠标按下时的点
+        bool isMoving = false;//标识是否拖动
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-            mPoint = new Point(e.X, e.Y);
+            point = e.Location;//按下的点
+            isMoving = true;//启动拖动
         }
 
-        private void Panel_MouseMove(object sender, MouseEventArgs e)
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && isMoving)
             {
-                this.Location = new Point(this.Location.X + e.X - mPoint.X, this.Location.Y + e.Y - mPoint.Y);
+                Point pNew = new Point(e.Location.X - point.X, e.Location.Y - point.Y);
+                //Location = new Point(Location.X + pNew.X, Location.Y + pNew.Y);
+                Location += new Size(pNew);
             }
         }
-        #endregion
 
-        
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            isMoving = false;//停止
+        }
+
     }
 }

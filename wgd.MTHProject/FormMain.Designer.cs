@@ -31,6 +31,12 @@ namespace wgd.MTHProject
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.TopPanel = new System.Windows.Forms.Panel();
+            this.naviButton6 = new wgd.MTHControlLib.NaviButton();
+            this.naviButton5 = new wgd.MTHControlLib.NaviButton();
+            this.naviButton4 = new wgd.MTHControlLib.NaviButton();
+            this.naviButton3 = new wgd.MTHControlLib.NaviButton();
+            this.naviButton2 = new wgd.MTHControlLib.NaviButton();
+            this.naviButton1 = new wgd.MTHControlLib.NaviButton();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,12 +53,6 @@ namespace wgd.MTHProject
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.CorePanel = new wgd.MTHControlLib.PanelPro();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.naviButton6 = new wgd.MTHControlLib.NaviButton();
-            this.naviButton5 = new wgd.MTHControlLib.NaviButton();
-            this.naviButton4 = new wgd.MTHControlLib.NaviButton();
-            this.naviButton3 = new wgd.MTHControlLib.NaviButton();
-            this.naviButton2 = new wgd.MTHControlLib.NaviButton();
-            this.naviButton1 = new wgd.MTHControlLib.NaviButton();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -80,6 +80,93 @@ namespace wgd.MTHProject
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Size = new System.Drawing.Size(1440, 140);
             this.TopPanel.TabIndex = 0;
+            this.TopPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.TopPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.TopPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
+            // 
+            // naviButton6
+            // 
+            this.naviButton6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton6.BackgroundImage")));
+            this.naviButton6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.naviButton6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton6.IsSelected = false;
+            this.naviButton6.Location = new System.Drawing.Point(1281, 80);
+            this.naviButton6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton6.Name = "naviButton6";
+            this.naviButton6.Size = new System.Drawing.Size(104, 46);
+            this.naviButton6.TabIndex = 8;
+            this.naviButton6.TitleName = "用户管理";
+            this.naviButton6.Click += new System.EventHandler(this.CommonNaviButton_Click);
+            // 
+            // naviButton5
+            // 
+            this.naviButton5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton5.BackgroundImage")));
+            this.naviButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.naviButton5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton5.IsSelected = false;
+            this.naviButton5.Location = new System.Drawing.Point(1139, 80);
+            this.naviButton5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton5.Name = "naviButton5";
+            this.naviButton5.Size = new System.Drawing.Size(104, 46);
+            this.naviButton5.TabIndex = 7;
+            this.naviButton5.TitleName = "历史趋势";
+            this.naviButton5.Click += new System.EventHandler(this.CommonNaviButton_Click);
+            // 
+            // naviButton4
+            // 
+            this.naviButton4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton4.BackgroundImage")));
+            this.naviButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.naviButton4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton4.IsSelected = false;
+            this.naviButton4.Location = new System.Drawing.Point(986, 80);
+            this.naviButton4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton4.Name = "naviButton4";
+            this.naviButton4.Size = new System.Drawing.Size(104, 46);
+            this.naviButton4.TabIndex = 6;
+            this.naviButton4.TitleName = "报警追溯";
+            this.naviButton4.Click += new System.EventHandler(this.CommonNaviButton_Click);
+            // 
+            // naviButton3
+            // 
+            this.naviButton3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton3.BackgroundImage")));
+            this.naviButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.naviButton3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton3.IsSelected = false;
+            this.naviButton3.Location = new System.Drawing.Point(354, 80);
+            this.naviButton3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton3.Name = "naviButton3";
+            this.naviButton3.Size = new System.Drawing.Size(104, 46);
+            this.naviButton3.TabIndex = 5;
+            this.naviButton3.TitleName = "配方管理";
+            this.naviButton3.Click += new System.EventHandler(this.CommonNaviButton_Click);
+            // 
+            // naviButton2
+            // 
+            this.naviButton2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton2.BackgroundImage")));
+            this.naviButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.naviButton2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton2.IsSelected = false;
+            this.naviButton2.Location = new System.Drawing.Point(203, 80);
+            this.naviButton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton2.Name = "naviButton2";
+            this.naviButton2.Size = new System.Drawing.Size(104, 46);
+            this.naviButton2.TabIndex = 4;
+            this.naviButton2.TitleName = "参数设置";
+            this.naviButton2.Click += new System.EventHandler(this.CommonNaviButton_Click);
+            // 
+            // naviButton1
+            // 
+            this.naviButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton1.BackgroundImage")));
+            this.naviButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.naviButton1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton1.IsSelected = false;
+            this.naviButton1.Location = new System.Drawing.Point(46, 80);
+            this.naviButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton1.Name = "naviButton1";
+            this.naviButton1.Size = new System.Drawing.Size(104, 46);
+            this.naviButton1.TabIndex = 2;
+            this.naviButton1.TitleName = "集中监控";
+            this.naviButton1.Click += new System.EventHandler(this.CommonNaviButton_Click);
             // 
             // button1
             // 
@@ -94,6 +181,7 @@ namespace wgd.MTHProject
             this.button1.Size = new System.Drawing.Size(112, 43);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -269,90 +357,6 @@ namespace wgd.MTHProject
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(1394, 724);
             this.MainPanel.TabIndex = 0;
-            // 
-            // naviButton6
-            // 
-            this.naviButton6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton6.BackgroundImage")));
-            this.naviButton6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.naviButton6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.naviButton6.IsSelected = false;
-            this.naviButton6.Location = new System.Drawing.Point(1281, 80);
-            this.naviButton6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.naviButton6.Name = "naviButton6";
-            this.naviButton6.Size = new System.Drawing.Size(104, 46);
-            this.naviButton6.TabIndex = 8;
-            this.naviButton6.TitleName = "用户管理";
-            this.naviButton6.Click += new System.EventHandler(this.CommonNaviButton_Click);
-            // 
-            // naviButton5
-            // 
-            this.naviButton5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton5.BackgroundImage")));
-            this.naviButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.naviButton5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.naviButton5.IsSelected = false;
-            this.naviButton5.Location = new System.Drawing.Point(1139, 80);
-            this.naviButton5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.naviButton5.Name = "naviButton5";
-            this.naviButton5.Size = new System.Drawing.Size(104, 46);
-            this.naviButton5.TabIndex = 7;
-            this.naviButton5.TitleName = "历史趋势";
-            this.naviButton5.Click += new System.EventHandler(this.CommonNaviButton_Click);
-            // 
-            // naviButton4
-            // 
-            this.naviButton4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton4.BackgroundImage")));
-            this.naviButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.naviButton4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.naviButton4.IsSelected = false;
-            this.naviButton4.Location = new System.Drawing.Point(986, 80);
-            this.naviButton4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.naviButton4.Name = "naviButton4";
-            this.naviButton4.Size = new System.Drawing.Size(104, 46);
-            this.naviButton4.TabIndex = 6;
-            this.naviButton4.TitleName = "报警追溯";
-            this.naviButton4.Click += new System.EventHandler(this.CommonNaviButton_Click);
-            // 
-            // naviButton3
-            // 
-            this.naviButton3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton3.BackgroundImage")));
-            this.naviButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.naviButton3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.naviButton3.IsSelected = false;
-            this.naviButton3.Location = new System.Drawing.Point(354, 80);
-            this.naviButton3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.naviButton3.Name = "naviButton3";
-            this.naviButton3.Size = new System.Drawing.Size(104, 46);
-            this.naviButton3.TabIndex = 5;
-            this.naviButton3.TitleName = "配方管理";
-            this.naviButton3.Click += new System.EventHandler(this.CommonNaviButton_Click);
-            // 
-            // naviButton2
-            // 
-            this.naviButton2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton2.BackgroundImage")));
-            this.naviButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.naviButton2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.naviButton2.IsSelected = false;
-            this.naviButton2.Location = new System.Drawing.Point(203, 80);
-            this.naviButton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.naviButton2.Name = "naviButton2";
-            this.naviButton2.Size = new System.Drawing.Size(104, 46);
-            this.naviButton2.TabIndex = 4;
-            this.naviButton2.TitleName = "参数设置";
-            this.naviButton2.Click += new System.EventHandler(this.CommonNaviButton_Click);
-            // 
-            // naviButton1
-            // 
-            this.naviButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton1.BackgroundImage")));
-            this.naviButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.naviButton1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.naviButton1.IsSelected = false;
-            this.naviButton1.Location = new System.Drawing.Point(46, 80);
-            this.naviButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.naviButton1.Name = "naviButton1";
-            this.naviButton1.Size = new System.Drawing.Size(104, 46);
-            this.naviButton1.TabIndex = 2;
-            this.naviButton1.TitleName = "集中监控";
-            this.naviButton1.Click += new System.EventHandler(this.CommonNaviButton_Click);
             // 
             // FormMain
             // 
