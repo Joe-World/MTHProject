@@ -31,15 +31,15 @@ namespace wgd.MTHProject
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormParamSet));
             this.MainPanel = new wgd.MTHControlLib.PanelPromax();
-            this.naviButton1 = new wgd.MTHControlLib.NaviButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.BtnGroupConfig = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.naviButton1 = new wgd.MTHControlLib.NaviButton();
             this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@ namespace wgd.MTHProject
             this.MainPanel.BackgroundImage = global::wgd.MTHProject.Properties.Resources.mainpanel_bg;
             this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MainPanel.Controls.Add(this.button4);
-            this.MainPanel.Controls.Add(this.button3);
+            this.MainPanel.Controls.Add(this.BtnGroupConfig);
             this.MainPanel.Controls.Add(this.button2);
             this.MainPanel.Controls.Add(this.button1);
             this.MainPanel.Controls.Add(this.textBox2);
@@ -63,39 +63,58 @@ namespace wgd.MTHProject
             this.MainPanel.Size = new System.Drawing.Size(1394, 724);
             this.MainPanel.TabIndex = 0;
             // 
-            // naviButton1
+            // button4
             // 
-            this.naviButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton1.BackgroundImage")));
-            this.naviButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.naviButton1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.naviButton1.IsSelected = false;
-            this.naviButton1.Location = new System.Drawing.Point(39, 32);
-            this.naviButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.naviButton1.Name = "naviButton1";
-            this.naviButton1.Size = new System.Drawing.Size(99, 32);
-            this.naviButton1.TabIndex = 0;
-            this.naviButton1.TitleName = "通信配置";
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(1267, 30);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(113, 36);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "变量配置";
+            this.button4.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // BtnGroupConfig
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(171, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "IP地址配置";
+            this.BtnGroupConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.BtnGroupConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGroupConfig.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.BtnGroupConfig.ForeColor = System.Drawing.Color.White;
+            this.BtnGroupConfig.Location = new System.Drawing.Point(1112, 30);
+            this.BtnGroupConfig.Name = "BtnGroupConfig";
+            this.BtnGroupConfig.Size = new System.Drawing.Size(113, 36);
+            this.BtnGroupConfig.TabIndex = 7;
+            this.BtnGroupConfig.Text = "通信组配置";
+            this.BtnGroupConfig.UseVisualStyleBackColor = false;
+            this.BtnGroupConfig.Click += new System.EventHandler(this.BtnGroupConfig_Click);
             // 
-            // textBox1
+            // button2
             // 
-            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.textBox1.Location = new System.Drawing.Point(304, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 29);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "127.0.0.1";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(957, 30);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(113, 36);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "取消设置";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(802, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 36);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "确认设置";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // textBox2
             // 
@@ -118,57 +137,39 @@ namespace wgd.MTHProject
             this.label2.TabIndex = 3;
             this.label2.Text = "端口号设置";
             // 
-            // button1
+            // textBox1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(802, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 36);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "确认设置";
-            this.button1.UseVisualStyleBackColor = false;
+            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.textBox1.Location = new System.Drawing.Point(304, 34);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 29);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "127.0.0.1";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button2
+            // label1
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(957, 30);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 36);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "取消设置";
-            this.button2.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(171, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 23);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "IP地址配置";
             // 
-            // button3
+            // naviButton1
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1112, 30);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 36);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "通信组配置";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(1267, 30);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 36);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "变量配置";
-            this.button4.UseVisualStyleBackColor = false;
+            this.naviButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("naviButton1.BackgroundImage")));
+            this.naviButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.naviButton1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton1.IsSelected = false;
+            this.naviButton1.Location = new System.Drawing.Point(39, 32);
+            this.naviButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton1.Name = "naviButton1";
+            this.naviButton1.Size = new System.Drawing.Size(99, 32);
+            this.naviButton1.TabIndex = 0;
+            this.naviButton1.TitleName = "通信配置";
             // 
             // FormParamSet
             // 
@@ -192,7 +193,7 @@ namespace wgd.MTHProject
         private MTHControlLib.PanelPromax MainPanel;
         private MTHControlLib.NaviButton naviButton1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BtnGroupConfig;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox2;

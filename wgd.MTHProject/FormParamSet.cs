@@ -16,5 +16,10 @@ namespace wgd.MTHProject
         {
             InitializeComponent();
         }
+
+        private void BtnGroupConfig_Click(object sender, EventArgs e)
+        {
+            new FormGroupConfig().ShowDialog();
+        }
     }
 }

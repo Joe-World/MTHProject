@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MiniExcel, Version=1.31.3.0, Culture=neutral, PublicKeyToken=e7310002a53eac39, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MiniExcel.dll</HintPath>
+    </Reference>
     <Reference Include="SeeSharpTools.JY.GUI, Version=1.4.4.533, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\SeeSharpTools.JY.GUI.dll</HintPath>

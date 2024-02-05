@@ -30,33 +30,35 @@ namespace wgd.MTHProject
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelPro1 = new wgd.MTHControlLib.PanelPro();
+            this.CmbStoreArea = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.BtnAdd = new System.Windows.Forms.Button();
+            this.TextRemark = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DgvData = new System.Windows.Forms.DataGridView();
             this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Length = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StoreArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.NumLength = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NumStart = new System.Windows.Forms.NumericUpDown();
+            this.TextGroupName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelPro1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumLength)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumStart)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,18 +70,18 @@ namespace wgd.MTHProject
             this.panelPro1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(79)))), ((int)(((byte)(150)))));
             this.panelPro1.BorderWidth = 1;
             this.panelPro1.BottomGap = 1;
+            this.panelPro1.Controls.Add(this.CmbStoreArea);
             this.panelPro1.Controls.Add(this.button3);
             this.panelPro1.Controls.Add(this.button1);
-            this.panelPro1.Controls.Add(this.button4);
-            this.panelPro1.Controls.Add(this.textBox3);
+            this.panelPro1.Controls.Add(this.BtnAdd);
+            this.panelPro1.Controls.Add(this.TextRemark);
             this.panelPro1.Controls.Add(this.label6);
-            this.panelPro1.Controls.Add(this.dataGridView1);
-            this.panelPro1.Controls.Add(this.textBox2);
+            this.panelPro1.Controls.Add(this.DgvData);
             this.panelPro1.Controls.Add(this.label5);
-            this.panelPro1.Controls.Add(this.numericUpDown2);
+            this.panelPro1.Controls.Add(this.NumLength);
             this.panelPro1.Controls.Add(this.label4);
-            this.panelPro1.Controls.Add(this.numericUpDown1);
-            this.panelPro1.Controls.Add(this.textBox1);
+            this.panelPro1.Controls.Add(this.NumStart);
+            this.panelPro1.Controls.Add(this.TextGroupName);
             this.panelPro1.Controls.Add(this.label3);
             this.panelPro1.Controls.Add(this.label2);
             this.panelPro1.Controls.Add(this.panel1);
@@ -91,6 +93,14 @@ namespace wgd.MTHProject
             this.panelPro1.Size = new System.Drawing.Size(967, 636);
             this.panelPro1.TabIndex = 0;
             this.panelPro1.TopGap = 1;
+            // 
+            // CmbStoreArea
+            // 
+            this.CmbStoreArea.FormattingEnabled = true;
+            this.CmbStoreArea.Location = new System.Drawing.Point(829, 82);
+            this.CmbStoreArea.Name = "CmbStoreArea";
+            this.CmbStoreArea.Size = new System.Drawing.Size(121, 29);
+            this.CmbStoreArea.TabIndex = 16;
             // 
             // button3
             // 
@@ -118,27 +128,28 @@ namespace wgd.MTHProject
             this.button1.Text = "删除通信组";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // BtnAdd
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(527, 135);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 36);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "新增通信组";
-            this.button4.UseVisualStyleBackColor = false;
+            this.BtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAdd.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.BtnAdd.ForeColor = System.Drawing.Color.White;
+            this.BtnAdd.Location = new System.Drawing.Point(527, 135);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(113, 36);
+            this.BtnAdd.TabIndex = 13;
+            this.BtnAdd.Text = "新增通信组";
+            this.BtnAdd.UseVisualStyleBackColor = false;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
-            // textBox3
+            // TextRemark
             // 
-            this.textBox3.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.textBox3.Location = new System.Drawing.Point(129, 139);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(369, 29);
-            this.textBox3.TabIndex = 12;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TextRemark.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.TextRemark.Location = new System.Drawing.Point(129, 139);
+            this.TextRemark.Name = "TextRemark";
+            this.TextRemark.Size = new System.Drawing.Size(369, 29);
+            this.TextRemark.TabIndex = 12;
+            this.TextRemark.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -151,15 +162,15 @@ namespace wgd.MTHProject
             this.label6.TabIndex = 11;
             this.label6.Text = "备注说明";
             // 
-            // dataGridView1
+            // DgvData
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(30)))), ((int)(((byte)(78)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.DgvData.AllowUserToAddRows = false;
+            this.DgvData.AllowUserToDeleteRows = false;
+            this.DgvData.AllowUserToResizeColumns = false;
+            this.DgvData.AllowUserToResizeRows = false;
+            this.DgvData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(30)))), ((int)(((byte)(78)))));
+            this.DgvData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DgvData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(30)))), ((int)(((byte)(78)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -167,24 +178,44 @@ namespace wgd.MTHProject
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeight = 40;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvData.ColumnHeadersHeight = 40;
+            this.DgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupName,
             this.Start,
             this.Length,
             this.StoreArea,
             this.Remark});
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView1.Location = new System.Drawing.Point(25, 198);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(925, 409);
-            this.dataGridView1.TabIndex = 10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(30)))), ((int)(((byte)(78)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(30)))), ((int)(((byte)(78)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvData.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DgvData.EnableHeadersVisualStyles = false;
+            this.DgvData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DgvData.Location = new System.Drawing.Point(25, 198);
+            this.DgvData.Name = "DgvData";
+            this.DgvData.ReadOnly = true;
+            this.DgvData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(40)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(40)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.DgvData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DgvData.RowTemplate.Height = 32;
+            this.DgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvData.Size = new System.Drawing.Size(925, 409);
+            this.DgvData.TabIndex = 10;
+            this.DgvData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvData_CellFormatting);
+            this.DgvData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DgvData_RowPostPaint);
             // 
             // GroupName
             // 
@@ -230,15 +261,6 @@ namespace wgd.MTHProject
             this.Remark.ReadOnly = true;
             this.Remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.textBox2.Location = new System.Drawing.Point(822, 81);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(129, 29);
-            this.textBox2.TabIndex = 9;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -250,18 +272,18 @@ namespace wgd.MTHProject
             this.label5.TabIndex = 8;
             this.label5.Text = "存储区名称";
             // 
-            // numericUpDown2
+            // NumLength
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(589, 81);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.NumLength.Location = new System.Drawing.Point(596, 81);
+            this.NumLength.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(94, 29);
-            this.numericUpDown2.TabIndex = 7;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.NumLength.Name = "NumLength";
+            this.NumLength.Size = new System.Drawing.Size(94, 29);
+            this.NumLength.TabIndex = 7;
+            this.NumLength.Value = new decimal(new int[] {
             100,
             0,
             0,
@@ -272,39 +294,39 @@ namespace wgd.MTHProject
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 12.5F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(500, 84);
+            this.label4.Location = new System.Drawing.Point(535, 84);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 23);
+            this.label4.Size = new System.Drawing.Size(44, 23);
             this.label4.TabIndex = 6;
-            this.label4.Text = "起始地址";
+            this.label4.Text = "长度";
             // 
-            // numericUpDown1
+            // NumStart
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(365, 81);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.NumStart.Location = new System.Drawing.Point(383, 81);
+            this.NumStart.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(94, 29);
-            this.numericUpDown1.TabIndex = 5;
+            this.NumStart.Name = "NumStart";
+            this.NumStart.Size = new System.Drawing.Size(94, 29);
+            this.NumStart.TabIndex = 5;
             // 
-            // textBox1
+            // TextGroupName
             // 
-            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.textBox1.Location = new System.Drawing.Point(129, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(109, 29);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TextGroupName.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.TextGroupName.Location = new System.Drawing.Point(129, 81);
+            this.TextGroupName.Name = "TextGroupName";
+            this.TextGroupName.Size = new System.Drawing.Size(109, 29);
+            this.TextGroupName.TabIndex = 4;
+            this.TextGroupName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12.5F);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(277, 84);
+            this.label3.Location = new System.Drawing.Point(287, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 23);
             this.label3.TabIndex = 3;
@@ -335,6 +357,8 @@ namespace wgd.MTHProject
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(29)))), ((int)(((byte)(84)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("微软雅黑", 16F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
@@ -344,6 +368,7 @@ namespace wgd.MTHProject
             this.button2.TabIndex = 7;
             this.button2.Text = "X";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -370,9 +395,9 @@ namespace wgd.MTHProject
             this.Text = "FormGroupConfig";
             this.panelPro1.ResumeLayout(false);
             this.panelPro1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumLength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumStart)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -385,24 +410,24 @@ namespace wgd.MTHProject
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TextRemark;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DataGridView DgvData;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown NumLength;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.NumericUpDown NumStart;
+        private System.Windows.Forms.TextBox TextGroupName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BtnAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Start;
         private System.Windows.Forms.DataGridViewTextBoxColumn Length;
         private System.Windows.Forms.DataGridViewTextBoxColumn StoreArea;
         private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
+        private System.Windows.Forms.ComboBox CmbStoreArea;
     }
 }

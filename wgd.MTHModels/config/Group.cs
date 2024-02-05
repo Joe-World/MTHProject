@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace thinger.MTHModels
+namespace wgd.MTHModels
 {
     public class Group
     {

@@ -67,9 +67,9 @@ namespace wgd.MTHProject
             this.LbLContent.BackColor = System.Drawing.Color.Transparent;
             this.LbLContent.Font = new System.Drawing.Font("微软雅黑", 12.5F);
             this.LbLContent.ForeColor = System.Drawing.Color.White;
-            this.LbLContent.Location = new System.Drawing.Point(4, 99);
+            this.LbLContent.Location = new System.Drawing.Point(4, 65);
             this.LbLContent.Name = "LbLContent";
-            this.LbLContent.Size = new System.Drawing.Size(439, 47);
+            this.LbLContent.Size = new System.Drawing.Size(439, 112);
             this.LbLContent.TabIndex = 3;
             this.LbLContent.Text = "是否确定退出系统？";
             this.LbLContent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
