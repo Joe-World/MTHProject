@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniExcelLibs.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,10 +32,9 @@ namespace wgd.MTHModels
         public string Remark { get; set; }
 
         /// <summary>
-        /// 变量集合
+        ///  变量集合 minexcel读取写入无关，忽略此属性
         /// </summary>
-        /// 
-        /*[ExcelIgnore]*/
+        [ExcelIgnore]
         public List<Variable> VarList { get; set; }
     }
 }

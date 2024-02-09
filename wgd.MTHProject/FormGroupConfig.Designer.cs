@@ -34,8 +34,8 @@ namespace wgd.MTHProject
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelPro1 = new wgd.MTHControlLib.PanelPro();
             this.CmbStoreArea = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ModifyBtn = new System.Windows.Forms.Button();
+            this.DeleteBtn = new System.Windows.Forms.Button();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.TextRemark = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -71,8 +71,8 @@ namespace wgd.MTHProject
             this.panelPro1.BorderWidth = 1;
             this.panelPro1.BottomGap = 1;
             this.panelPro1.Controls.Add(this.CmbStoreArea);
-            this.panelPro1.Controls.Add(this.button3);
-            this.panelPro1.Controls.Add(this.button1);
+            this.panelPro1.Controls.Add(this.ModifyBtn);
+            this.panelPro1.Controls.Add(this.DeleteBtn);
             this.panelPro1.Controls.Add(this.BtnAdd);
             this.panelPro1.Controls.Add(this.TextRemark);
             this.panelPro1.Controls.Add(this.label6);
@@ -102,31 +102,33 @@ namespace wgd.MTHProject
             this.CmbStoreArea.Size = new System.Drawing.Size(121, 29);
             this.CmbStoreArea.TabIndex = 16;
             // 
-            // button3
+            // ModifyBtn
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(837, 135);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 36);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "修改通信组";
-            this.button3.UseVisualStyleBackColor = false;
+            this.ModifyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.ModifyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ModifyBtn.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.ModifyBtn.ForeColor = System.Drawing.Color.White;
+            this.ModifyBtn.Location = new System.Drawing.Point(837, 135);
+            this.ModifyBtn.Name = "ModifyBtn";
+            this.ModifyBtn.Size = new System.Drawing.Size(113, 36);
+            this.ModifyBtn.TabIndex = 15;
+            this.ModifyBtn.Text = "修改通信组";
+            this.ModifyBtn.UseVisualStyleBackColor = false;
+            this.ModifyBtn.Click += new System.EventHandler(this.ModifyBtn_Click);
             // 
-            // button1
+            // DeleteBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(682, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 36);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "删除通信组";
-            this.button1.UseVisualStyleBackColor = false;
+            this.DeleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteBtn.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.DeleteBtn.ForeColor = System.Drawing.Color.White;
+            this.DeleteBtn.Location = new System.Drawing.Point(682, 135);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(113, 36);
+            this.DeleteBtn.TabIndex = 14;
+            this.DeleteBtn.Text = "删除通信组";
+            this.DeleteBtn.UseVisualStyleBackColor = false;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // BtnAdd
             // 
@@ -209,11 +211,13 @@ namespace wgd.MTHProject
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.DgvData.RowHeadersWidth = 55;
             this.DgvData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.DgvData.RowTemplate.Height = 32;
+            this.DgvData.RowTemplate.Height = 40;
             this.DgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvData.Size = new System.Drawing.Size(925, 409);
             this.DgvData.TabIndex = 10;
+            this.DgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvData_CellClick);
             this.DgvData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvData_CellFormatting);
             this.DgvData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DgvData_RowPostPaint);
             // 
@@ -423,8 +427,8 @@ namespace wgd.MTHProject
         private System.Windows.Forms.TextBox TextGroupName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ModifyBtn;
+        private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Button BtnAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Start;
