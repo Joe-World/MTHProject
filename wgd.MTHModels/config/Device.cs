@@ -9,7 +9,7 @@ namespace wgd.MTHModels
     public class Device
     {
         /// <summary>
-        /// id地址
+        /// ip地址
         /// </summary>
         public string IPAddress { get; set; }
 

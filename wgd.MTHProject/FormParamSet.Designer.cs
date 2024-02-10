@@ -31,7 +31,7 @@ namespace wgd.MTHProject
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormParamSet));
             this.MainPanel = new wgd.MTHControlLib.PanelPromax();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BtnVariable = new System.Windows.Forms.Button();
             this.BtnGroupConfig = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@ namespace wgd.MTHProject
             this.MainPanel.BackColor = System.Drawing.Color.Transparent;
             this.MainPanel.BackgroundImage = global::wgd.MTHProject.Properties.Resources.mainpanel_bg;
             this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MainPanel.Controls.Add(this.button4);
+            this.MainPanel.Controls.Add(this.BtnVariable);
             this.MainPanel.Controls.Add(this.BtnGroupConfig);
             this.MainPanel.Controls.Add(this.button2);
             this.MainPanel.Controls.Add(this.button1);
@@ -63,18 +63,19 @@ namespace wgd.MTHProject
             this.MainPanel.Size = new System.Drawing.Size(1394, 724);
             this.MainPanel.TabIndex = 0;
             // 
-            // button4
+            // BtnVariable
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(1267, 30);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 36);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "变量配置";
-            this.button4.UseVisualStyleBackColor = false;
+            this.BtnVariable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.BtnVariable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVariable.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.BtnVariable.ForeColor = System.Drawing.Color.White;
+            this.BtnVariable.Location = new System.Drawing.Point(1267, 30);
+            this.BtnVariable.Name = "BtnVariable";
+            this.BtnVariable.Size = new System.Drawing.Size(113, 36);
+            this.BtnVariable.TabIndex = 8;
+            this.BtnVariable.Text = "变量配置";
+            this.BtnVariable.UseVisualStyleBackColor = false;
+            this.BtnVariable.Click += new System.EventHandler(this.BtnVariable_Click);
             // 
             // BtnGroupConfig
             // 
@@ -192,7 +193,7 @@ namespace wgd.MTHProject
 
         private MTHControlLib.PanelPromax MainPanel;
         private MTHControlLib.NaviButton naviButton1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BtnVariable;
         private System.Windows.Forms.Button BtnGroupConfig;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;

@@ -21,5 +21,10 @@ namespace wgd.MTHProject
         {
             new FormGroupConfig().ShowDialog();
         }
+
+        private void BtnVariable_Click(object sender, EventArgs e)
+        {
+            new FormVariableConfig().ShowDialog();
+        }
     }
 }
