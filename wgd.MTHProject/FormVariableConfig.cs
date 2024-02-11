@@ -18,15 +18,26 @@ namespace wgd.MTHProject
         {
             InitializeComponent();
 
-            this.CmbGroupName.DataSource = new string[] { "输入线圈", "输出线圈", "输入寄存器", "输出寄存器" };
+            TotalGroup = GetAllGroup();
+            if (TotalGroup.Count > 0)
+            {
+                foreach (var item in TotalGroup)
+                {
+                    this.CmbGroupName.Items.Add(item.GroupName);
+                }
+                this.CmbGroupName.SelectedIndex = 0;
+            }
+            this.CmbDataType.DataSource = Enum.GetNames(typeof(DataType));
             this.DgvData.AutoGenerateColumns = false;
 
-            /*TotalGroup = GetAllGroup();
-            RefeGroup();*/
+            TotalVar = GetAllVar();
+            RefeVar();
         }
 
-       /* private List<Group> TotalGroup = new List<Group>();
+        private List<Group> TotalGroup = new List<Group>();
+        private List<Variable> TotalVar = new List<Variable>();
         private string GroupPath = Application.StartupPath + "\\Config\\Group.xlsx";
+        private string VarPath = Application.StartupPath + "\\Config\\Var.xlsx";
 
         private List<Group> GetAllGroup()
         {
@@ -40,13 +51,25 @@ namespace wgd.MTHProject
                 return new List<Group>();
             }
         }
-        private void RefeGroup()
+        private List<Variable> GetAllVar()
+        {
+            // 防止空集合异常
+            try
+            {
+                return MiniExcel.Query<Variable>(VarPath).ToList();
+            }
+            catch (Exception)
+            {
+                return new List<Variable>();
+            }
+        }
+        private void RefeVar()
         {
             // 不要给dasouce一个空集合
-            if (TotalGroup != null && TotalGroup.Count > 0)
+            if (TotalVar != null && TotalVar.Count > 0)
             {
                 this.DgvData.DataSource = null;
-                this.DgvData.DataSource = TotalGroup;
+                this.DgvData.DataSource = TotalVar;
             }
             else
             {
@@ -54,59 +77,54 @@ namespace wgd.MTHProject
             }
         }
 
-        private bool GroupNameIsExit(string gruopName)
+        private bool VarIsExit(string varName)
         {
-            return TotalGroup.FindAll(g => g.GroupName == gruopName).ToList().Count > 0;
+            return TotalVar.FindAll(v => v.VarName == varName).ToList().Count > 0;
         }
+
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            // 获取通信组名称
-            string groupName = this.TextGroupName.Text.Trim();
-            
-            // 判空
-            if (groupName.Length == 0)
+            string varName = this.TextVarName.Text.Trim();
+            if (this.TextVarName.Text.Trim().Length == 0)
             {
-                new FormMsgBoxWithoutAck("通信组名称不能为空！", "添加通信组").Show();
+                new FormMsgBoxWithoutAck("变量名不能为空!", "添加变量").Show();
                 return;
             }
-            // 通信组名称判断重复
-            if (GroupNameIsExit(groupName))
+            if (VarIsExit(varName))
             {
-                new FormMsgBoxWithoutAck("通信组名称已经存在！", "添加通信组").Show();
+                new FormMsgBoxWithoutAck("变量名已经存在!", "添加变量").Show();
                 return;
             }
-            
-
-            // 创建通信组实例
-            TotalGroup.Add(new Group()
+            TotalVar.Add(new Variable()
             {
-                GroupName = groupName,
+                VarName = this.TextVarName.Text.Trim(),
                 Start = (ushort)this.NumStart.Value,
-                Length = (ushort)this.NumStart.Value,
-                StoreArea = this.CmbGroupName.Text.Trim(),
+                OffsetOrLength = Convert.ToUInt16(this.NumLength.Value),
+                DataType = this.CmbDataType.Text.Trim(),
+                GroupName = this.CmbGroupName.Text.Trim(),
+                PosAlarm = this.CheckPosAlarm.Checked,
+                NegAlarm = this.CheckNegAlarm.Checked,
+                Scale = Convert.ToSingle(this.NumScale.Value),
+                Offset = Convert.ToSingle(this.NumOffset.Value),
                 Remark = this.TextRemark.Text.Trim()
             });
 
             try
             {
-                MiniExcel.SaveAs(GroupPath, TotalGroup, overwriteFile: true);
-                *//*new FormMsgBoxWithoutAck("添加通信组成功", "添加通信组").Show();*//*
+                MiniExcel.SaveAs(VarPath, TotalVar, overwriteFile: true);
+                /*new FormMsgBoxWithoutAck("添加变量成功!", "添加变量").Show();*/
                 //刷新数据
-                RefeGroup();
+                RefeVar();
             }
             catch (Exception ex)
             {
-                new FormMsgBoxWithoutAck("添加通信组失败：" + ex.Message, "添加通信组").Show();
+                new FormMsgBoxWithoutAck("添加变量失败!：" + ex.Message, "添加变量").Show();
             }
         }
 
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
-        
+
         /// <summary>
         /// 行绘制 生成行号，选中单元格效果
         /// </summary>
@@ -135,7 +153,7 @@ namespace wgd.MTHProject
         /// <param name="e"></param>
         private void DgvData_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            *//*// 假设你要检查的列索引为 0  
+            /*// 假设你要检查的列索引为 0  
             if (e.ColumnIndex == 4) // 修改为你需要检查的列索引  
             {
                 // 检查单元格的值是否为DBNull或者空字符串  
@@ -144,7 +162,7 @@ namespace wgd.MTHProject
                     // 如果值为空，则设置单元格的值为 "-"  
                     e.Value = "--";
                 }
-            }*//*
+            }*/
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
                 if (e.Value == null || e.Value.ToString().Length == 0)
@@ -156,47 +174,48 @@ namespace wgd.MTHProject
 
 
 
-       
+
         private void DgvData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // 点击标题会是 -1
             if (e.RowIndex >= 0)
             {
-                Group group = TotalGroup[e.RowIndex];
-                if (group != null)
+                var variable = TotalVar[e.RowIndex];
+                if (variable != null)
                 {
-                    this.TextGroupName.Text = group.GroupName;
-                    this.NumStart.Value = group.Start;
-                    this.NumStart.Value = group.Length;
-                    this.CmbGroupName.Text = group.StoreArea;
-                    this.TextRemark.Text = group.Remark;
+                    this.TextVarName.Text = variable.VarName;
+                    this.TextRemark.Text = variable.Remark;
+                    this.CmbGroupName.Text = variable.GroupName;
+                    this.NumStart.Text = variable.Start.ToString();
+                    this.NumLength.Text = variable.OffsetOrLength.ToString();
+                    this.CmbDataType.Text = variable.DataType;
+                    this.CheckPosAlarm.Checked = variable.PosAlarm;
+                    this.CheckNegAlarm.Checked = variable.NegAlarm;
+                    this.NumScale.Value = Convert.ToDecimal(variable.Scale);
+                    this.NumOffset.Value = Convert.ToDecimal(variable.Offset);
                 }
             }
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            // 获取通信组名称
-            string groupName = this.TextGroupName.Text.Trim();
-
-            
-            if (!GroupNameIsExit(groupName))
+            string VariableName = this.TextVarName.Text.Trim();
+            if (!VarIsExit(VariableName))
             {
-                new FormMsgBoxWithoutAck("通信组不存在！", "删除通信组").Show();
+                new FormMsgBoxWithoutAck("变量不存在", "删除变量").Show();
                 return;
             }
-
-            TotalGroup.RemoveAll(g => g.GroupName == groupName);
+            TotalVar.RemoveAll(c => c.VarName == VariableName);
 
             try
             {
-                MiniExcel.SaveAs(GroupPath, TotalGroup, overwriteFile: true);
-                //刷新数据
-                RefeGroup();
+                MiniExcel.SaveAs(VarPath, TotalVar, overwriteFile: true);
+                new FormMsgBoxWithoutAck("删除变量成功:["+VariableName+"]已被删除！", "删除变量").Show();
+                RefeVar();
             }
             catch (Exception ex)
             {
-                new FormMsgBoxWithoutAck("删除通信组失败：" + ex.Message, "删除通信组").Show();
+                new FormMsgBoxWithoutAck("删除变量失败:" + ex, "删除变量").Show();
             }
         }
 
@@ -204,43 +223,41 @@ namespace wgd.MTHProject
         {
             if (this.DgvData.SelectedRows.Count > 0)
             {
-                // 老通信组
-                Group oldGroup = TotalGroup[this.DgvData.SelectedRows[0].Index];
-                // 获取通信组名称
-                string groupName = this.TextGroupName.Text.Trim();
-
-                if (oldGroup.GroupName != groupName)
+                var oldVar = TotalVar[this.DgvData.SelectedRows[0].Index];
+                string VariableName = this.TextVarName.Text.Trim();
+                if (oldVar.VarName != VariableName)
                 {
-                    new FormMsgBoxWithoutAck("修改通信组失败：通信组名称不允许修改!", "修改通信组").Show();
-                    this.TextGroupName.Text = oldGroup.GroupName;
+                    new FormMsgBoxWithoutAck("变量名称不允许修改!", "删除变量").Show();
+                    this.TextVarName.Text = oldVar.VarName;
                     return;
                 }
-
-                var group = TotalGroup.Find(g => g.GroupName == groupName);
-                *//*group.GroupName = groupName;*//*
-                group.Start = (ushort)this.NumStart.Value;
-                group.Length = (ushort)this.NumStart.Value;
-                group.StoreArea = this.CmbGroupName.Text.Trim();
-                group.Remark = this.TextRemark.Text.Trim();
-
+               
+                var variable = TotalVar.Find(c => c.VarName == VariableName);
+                variable.Start = (ushort)this.NumStart.Value;
+                variable.OffsetOrLength = Convert.ToUInt16(this.NumLength.Value);
+                variable.DataType = this.CmbDataType.Text.Trim();
+                variable.GroupName = this.CmbGroupName.Text.Trim();
+                variable.PosAlarm = this.CheckPosAlarm.Checked;
+                variable.NegAlarm = this.CheckNegAlarm.Checked;
+                variable.Scale = Convert.ToSingle(this.NumScale.Value);
+                variable.Offset = Convert.ToSingle(this.NumOffset.Value);
+                variable.Remark = this.TextRemark.Text.Trim();
                 try
                 {
-                    MiniExcel.SaveAs(GroupPath, TotalGroup, overwriteFile: true);
-
-                    //刷新数据
-                    RefeGroup();
+                    MiniExcel.SaveAs(VarPath, TotalVar, overwriteFile: true);
+                    new FormMsgBoxWithoutAck("修改变量成功！", "修改变量").Show();
+                    RefeVar();
                 }
                 catch (Exception ex)
                 {
-                    new FormMsgBoxWithoutAck("修改通信组失败：" + ex.Message, "修改通信组").Show();
+                    new FormMsgBoxWithoutAck("修改变量失败:" + ex, "修改变量").Show();
                 }
-
             }
             else
             {
-                new FormMsgBoxWithoutAck("修改通信组失败：未选中任何通信组！", "修改通信组").Show();
+                new FormMsgBoxWithoutAck("未选中任何变量!", "修改变量").Show();
             }
-        }*/
+        }
 
         #region 通过窗体MouseDown、MouseMove、MouseUp事件实现窗体移动
         Point point; //鼠标按下时的点
@@ -268,5 +285,9 @@ namespace wgd.MTHProject
         }
         #endregion
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
