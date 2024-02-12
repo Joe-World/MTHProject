@@ -252,11 +252,6 @@ namespace wgd.MTHProject
             this.NumOffset.Name = "NumOffset";
             this.NumOffset.Size = new System.Drawing.Size(70, 29);
             this.NumOffset.TabIndex = 7;
-            this.NumOffset.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            65536});
             // 
             // label10
             // 
