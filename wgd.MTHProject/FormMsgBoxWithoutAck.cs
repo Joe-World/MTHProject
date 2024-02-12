@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using wgd.MTHModels;
 
 namespace wgd.MTHProject
 {
@@ -21,10 +22,11 @@ namespace wgd.MTHProject
             this.LblTitle.Text = title;
         }
 
-        public event EventHandler SureClick;
+        public delegate void MsgHandler(Object sender, EventArgPro e);
+        public event MsgHandler MsgBtnClick;
         private void BtnSure_Click(object sender, EventArgs e)
         {
-            this.SureClick?.Invoke(sender,e);
+            MsgBtnClick?.Invoke(sender, new EventArgPro() { IsOk = true });
             this.Close();
         }
 

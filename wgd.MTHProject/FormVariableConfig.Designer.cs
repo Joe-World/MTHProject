@@ -666,7 +666,7 @@ namespace wgd.MTHProject
         private System.Windows.Forms.DataGridViewTextBoxColumn Start;
         private System.Windows.Forms.DataGridViewTextBoxColumn OffsetOrLength;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Scale;
+        private new System.Windows.Forms.DataGridViewTextBoxColumn Scale;
         private System.Windows.Forms.DataGridViewTextBoxColumn Offset;
         private System.Windows.Forms.DataGridViewTextBoxColumn PosAlarm;
         private System.Windows.Forms.DataGridViewTextBoxColumn NegAlarm;

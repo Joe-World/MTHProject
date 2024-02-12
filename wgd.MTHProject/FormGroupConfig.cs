@@ -200,29 +200,36 @@ namespace wgd.MTHProject
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
-        {
+        {            
             // 获取通信组名称
             string groupName = this.TextGroupName.Text.Trim();
 
-            
-            if (!GroupNameIsExit(groupName))
+            var msgForm = new FormMsgBoxWithAck($"确认删除通信组[{groupName}]?", "删除通信组");
+            msgForm.MsgBtnClick += (Object s, EventArgPro ee) =>
             {
-                new FormMsgBoxWithoutAck("通信组不存在！", "删除通信组").Show();
-                return;
-            }
+                if (ee.IsOk)
+                {
+                    if (!GroupNameIsExit(groupName))
+                    {
+                        new FormMsgBoxWithoutAck("通信组不存在！", "删除通信组").Show();
+                        return;
+                    }
 
-            TotalGroup.RemoveAll(g => g.GroupName == groupName);
+                    TotalGroup.RemoveAll(g => g.GroupName == groupName);
 
-            try
-            {
-                MiniExcel.SaveAs(GroupPath, TotalGroup, overwriteFile: true);
-                //刷新数据
-                RefeGroup();
-            }
-            catch (Exception ex)
-            {
-                new FormMsgBoxWithoutAck("删除通信组失败：" + ex.Message, "删除通信组").Show();
-            }
+                    try
+                    {
+                        MiniExcel.SaveAs(GroupPath, TotalGroup, overwriteFile: true);
+                        //刷新数据
+                        RefeGroup();
+                    }
+                    catch (Exception ex)
+                    {
+                        new FormMsgBoxWithoutAck("删除通信组失败：" + ex.Message, "删除通信组").Show();
+                    }
+                }
+            };
+            msgForm.ShowDialog();
         }
 
         private void ModifyBtn_Click(object sender, EventArgs e)

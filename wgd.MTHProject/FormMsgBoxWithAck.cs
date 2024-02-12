@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using wgd.MTHModels;
 
 namespace wgd.MTHProject
 {
@@ -19,17 +20,22 @@ namespace wgd.MTHProject
             this.TopMost = true;
             this.LbLContent.Text = content;
             this.LblTitle.Text = title;
-        }
 
-        public event EventHandler SureClick;
+            
+        }
+        public delegate void MsgHandler(Object sender, EventArgPro e);
+        public event MsgHandler MsgBtnClick;
+        
+
         private void BtnSure_Click(object sender, EventArgs e)
         {
-            SureClick?.Invoke(sender, e);
+            MsgBtnClick?.Invoke(sender, new EventArgPro() { IsOk = true});
             this.DialogResult = DialogResult.OK;
         }
 
         private void BtnCanel_Click(object sender, EventArgs e)
         {
+            MsgBtnClick?.Invoke(sender, new EventArgPro() { IsOk = false });
             this.DialogResult = DialogResult.Cancel;
         }
 
@@ -38,8 +44,8 @@ namespace wgd.MTHProject
             this.DialogResult = DialogResult.Cancel;
         }
 
-       
 
+        #region 无边框拖动
         //通过窗体MouseDown、MouseMove、MouseUp事件实现窗体移动
         Point point; //鼠标按下时的点
         bool isMoving = false;//标识是否拖动
@@ -64,6 +70,6 @@ namespace wgd.MTHProject
         {
             isMoving = false;//停止
         }
-
+        #endregion
     }
 }

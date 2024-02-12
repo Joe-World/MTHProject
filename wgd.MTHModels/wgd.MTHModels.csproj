@@ -47,6 +47,7 @@
     <Compile Include="config\Device.cs" />
     <Compile Include="config\Group.cs" />
     <Compile Include="config\Variable.cs" />
+    <Compile Include="EventArgPro.cs" />
     <Compile Include="FormNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

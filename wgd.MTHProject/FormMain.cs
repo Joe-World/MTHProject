@@ -187,11 +187,19 @@ namespace wgd.MTHProject
         private void button1_Click(object sender, EventArgs e)
         {
             FormMsgBoxWithAck msgForm = new FormMsgBoxWithAck("确认退出系统？", "系统提示");
-            msgForm.SureClick += (s, ee) =>
+            msgForm.MsgBtnClick += (Object s, EventArgPro ee) =>
             {
-                this.Close();
+                if (ee.IsOk)
+                {
+                    this.Close();
+                }
+                /*else
+                {
+
+                }*/
             };
             msgForm.ShowDialog();
+
         }
     }
 }

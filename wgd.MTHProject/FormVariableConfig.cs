@@ -170,6 +170,13 @@ namespace wgd.MTHProject
                     e.Value = "---";
                 }
             }
+            if (e.ColumnIndex == 6 || e.ColumnIndex == 7)
+            {
+                if (e.Value != null)
+                {
+                    e.Value = e.Value.ToString() == "True" ? "启用" : "禁用";
+                }
+            }
         }
 
 
@@ -200,23 +207,31 @@ namespace wgd.MTHProject
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             string VariableName = this.TextVarName.Text.Trim();
-            if (!VarIsExit(VariableName))
+            var msgForm = new FormMsgBoxWithAck($"确定删除变量[{VariableName}]?", "删除变量");
+            msgForm.MsgBtnClick += (o, a) =>
             {
-                new FormMsgBoxWithoutAck("变量不存在", "删除变量").Show();
-                return;
-            }
-            TotalVar.RemoveAll(c => c.VarName == VariableName);
+                if (a.IsOk)
+                {
+                    if (!VarIsExit(VariableName))
+                    {
+                        new FormMsgBoxWithoutAck("变量不存在", "删除变量").Show();
+                        return;
+                    }
+                    TotalVar.RemoveAll(c => c.VarName == VariableName);
 
-            try
-            {
-                MiniExcel.SaveAs(VarPath, TotalVar, overwriteFile: true);
-                new FormMsgBoxWithoutAck("删除变量成功:["+VariableName+"]已被删除！", "删除变量").Show();
-                RefeVar();
-            }
-            catch (Exception ex)
-            {
-                new FormMsgBoxWithoutAck("删除变量失败:" + ex, "删除变量").Show();
-            }
+                    try
+                    {
+                        MiniExcel.SaveAs(VarPath, TotalVar, overwriteFile: true);
+                        /*new FormMsgBoxWithoutAck("删除变量成功:[" + VariableName + "]已被删除！", "删除变量").Show();*/
+                        RefeVar();
+                    }
+                    catch (Exception ex)
+                    {
+                        new FormMsgBoxWithoutAck("删除变量失败:" + ex, "删除变量").Show();
+                    }
+                }
+            };
+            msgForm.ShowDialog();
         }
 
         private void ModifyBtn_Click(object sender, EventArgs e)
