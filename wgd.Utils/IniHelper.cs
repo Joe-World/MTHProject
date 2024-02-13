@@ -53,6 +53,17 @@ namespace wgd.Utils
         }
         #endregion
 
+        public static string ReadDefult(string Section, string Key, string defultVal,string path)
+        {
+            StringBuilder temp = new StringBuilder(255);
+            int i = GetPrivateProfileString(Section, Key, "", temp, 255, path);
+            if (temp.ToString() == "")
+            {
+                return defultVal;
+            }
+            return temp.ToString();
+        }
+
         #region 配置节信息
         /// <summary>
         /// 读取一个ini里面所有的节
