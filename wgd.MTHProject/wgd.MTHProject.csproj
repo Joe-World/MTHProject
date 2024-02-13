@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="common\GlobalProperties.cs" />
     <Compile Include="FormVariableConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +214,10 @@
     <ProjectReference Include="..\wgd.MTHModels\wgd.MTHModels.csproj">
       <Project>{e0041c81-a17e-4650-8b43-0538aa109baf}</Project>
       <Name>wgd.MTHModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\wgd.Utils\wgd.Utils.csproj">
+      <Project>{c8bd6737-546e-413b-a45d-292eceff6d42}</Project>
+      <Name>wgd.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

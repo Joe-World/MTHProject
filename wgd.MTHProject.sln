@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wgd.MTHControlLib", "wgd.MT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wgd.MTHModels", "wgd.MTHModels\wgd.MTHModels.csproj", "{E0041C81-A17E-4650-8B43-0538AA109BAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wgd.Utils", "wgd.Utils\wgd.Utils.csproj", "{C8BD6737-546E-413B-A45D-292ECEFF6D42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E0041C81-A17E-4650-8B43-0538AA109BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0041C81-A17E-4650-8B43-0538AA109BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0041C81-A17E-4650-8B43-0538AA109BAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8BD6737-546E-413B-A45D-292ECEFF6D42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8BD6737-546E-413B-A45D-292ECEFF6D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8BD6737-546E-413B-A45D-292ECEFF6D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8BD6737-546E-413B-A45D-292ECEFF6D42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

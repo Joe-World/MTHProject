@@ -33,11 +33,11 @@ namespace wgd.MTHProject
             this.MainPanel = new wgd.MTHControlLib.PanelPromax();
             this.BtnVariable = new System.Windows.Forms.Button();
             this.BtnGroupConfig = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.CanelBtn = new System.Windows.Forms.Button();
+            this.SureBtn = new System.Windows.Forms.Button();
+            this.TextPort = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextIp = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.naviButton1 = new wgd.MTHControlLib.NaviButton();
             this.MainPanel.SuspendLayout();
@@ -50,11 +50,11 @@ namespace wgd.MTHProject
             this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MainPanel.Controls.Add(this.BtnVariable);
             this.MainPanel.Controls.Add(this.BtnGroupConfig);
-            this.MainPanel.Controls.Add(this.button2);
-            this.MainPanel.Controls.Add(this.button1);
-            this.MainPanel.Controls.Add(this.textBox2);
+            this.MainPanel.Controls.Add(this.CanelBtn);
+            this.MainPanel.Controls.Add(this.SureBtn);
+            this.MainPanel.Controls.Add(this.TextPort);
             this.MainPanel.Controls.Add(this.label2);
-            this.MainPanel.Controls.Add(this.textBox1);
+            this.MainPanel.Controls.Add(this.TextIp);
             this.MainPanel.Controls.Add(this.label1);
             this.MainPanel.Controls.Add(this.naviButton1);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -91,41 +91,43 @@ namespace wgd.MTHProject
             this.BtnGroupConfig.UseVisualStyleBackColor = false;
             this.BtnGroupConfig.Click += new System.EventHandler(this.BtnGroupConfig_Click);
             // 
-            // button2
+            // CanelBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(957, 30);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 36);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "取消设置";
-            this.button2.UseVisualStyleBackColor = false;
+            this.CanelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.CanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CanelBtn.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.CanelBtn.ForeColor = System.Drawing.Color.White;
+            this.CanelBtn.Location = new System.Drawing.Point(957, 30);
+            this.CanelBtn.Name = "CanelBtn";
+            this.CanelBtn.Size = new System.Drawing.Size(113, 36);
+            this.CanelBtn.TabIndex = 6;
+            this.CanelBtn.Text = "取消设置";
+            this.CanelBtn.UseVisualStyleBackColor = false;
+            this.CanelBtn.Click += new System.EventHandler(this.CanelBtn_Click);
             // 
-            // button1
+            // SureBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(802, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 36);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "确认设置";
-            this.button1.UseVisualStyleBackColor = false;
+            this.SureBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.SureBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SureBtn.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.SureBtn.ForeColor = System.Drawing.Color.White;
+            this.SureBtn.Location = new System.Drawing.Point(802, 30);
+            this.SureBtn.Name = "SureBtn";
+            this.SureBtn.Size = new System.Drawing.Size(113, 36);
+            this.SureBtn.TabIndex = 5;
+            this.SureBtn.Text = "确认设置";
+            this.SureBtn.UseVisualStyleBackColor = false;
+            this.SureBtn.Click += new System.EventHandler(this.SureBtn_Click);
             // 
-            // textBox2
+            // TextPort
             // 
-            this.textBox2.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.textBox2.Location = new System.Drawing.Point(628, 34);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(145, 29);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.Text = "8080";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TextPort.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.TextPort.Location = new System.Drawing.Point(628, 34);
+            this.TextPort.Name = "TextPort";
+            this.TextPort.Size = new System.Drawing.Size(145, 29);
+            this.TextPort.TabIndex = 4;
+            this.TextPort.Text = "8080";
+            this.TextPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -138,15 +140,15 @@ namespace wgd.MTHProject
             this.label2.TabIndex = 3;
             this.label2.Text = "端口号设置";
             // 
-            // textBox1
+            // TextIp
             // 
-            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.textBox1.Location = new System.Drawing.Point(304, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 29);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "127.0.0.1";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TextIp.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.TextIp.Location = new System.Drawing.Point(304, 34);
+            this.TextIp.Name = "TextIp";
+            this.TextIp.Size = new System.Drawing.Size(145, 29);
+            this.TextIp.TabIndex = 2;
+            this.TextIp.Text = "127.0.0.1";
+            this.TextIp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -195,11 +197,11 @@ namespace wgd.MTHProject
         private MTHControlLib.NaviButton naviButton1;
         private System.Windows.Forms.Button BtnVariable;
         private System.Windows.Forms.Button BtnGroupConfig;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button CanelBtn;
+        private System.Windows.Forms.Button SureBtn;
+        private System.Windows.Forms.TextBox TextPort;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextIp;
         private System.Windows.Forms.Label label1;
     }
 }

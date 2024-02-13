@@ -19,6 +19,11 @@ namespace wgd.MTHProject
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 项目配置文件路径
+        /// </summary>
+        private string DevPath = Application.StartupPath + "\\Config\\Device.int";
+
         //遍历所有导航栏,小与临界窗体的置后不显示（不关闭）
         private void OpenForm(Panel mainPanel, FormNames formNames)
         {
@@ -62,7 +67,7 @@ namespace wgd.MTHProject
                         frm = new FormAlarm();
                         break;
                     case FormNames.参数设置:
-                        frm = new FormParamSet();
+                        frm = new FormParamSet(DevPath);
                         break;
                     case FormNames.历史趋势:
                         frm = new FormHistory();
