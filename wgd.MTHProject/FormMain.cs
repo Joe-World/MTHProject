@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MiniExcelLibs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,19 +25,28 @@ namespace wgd.MTHProject
             this.Load += FormMain_Load;
         }
 
+        #region 属性
+        /// <summary>
+        /// 配置文件路径
+        /// </summary>
+        private string DevicePath = Application.StartupPath + "\\Config\\Device.int";
+        private string GroupPath = Application.StartupPath + "\\Config\\Group.xlsx";
+        private string VariablePath = Application.StartupPath + "\\Config\\Var.xlsx";
+        #endregion
         private void FormMain_Load(object sender, EventArgs e)
         {
             CommonNaviButton_Click(this.BtnMonitor, null);
-            GlobalProperties.AddLog(0, "登陆窗体");
-            GlobalProperties.AddLog(1, "测试-1");
-            GlobalProperties.AddLog(2, "测试-2");
-
-            GlobalProperties.Device = LoadDevice(DevPath);
+            GlobalProperties.Device = LoadDevice(GroupPath, DevicePath, VariablePath);
+            if (GlobalProperties.Device != null)
+            {
+                GlobalProperties.AddLog(0, "登陆窗体");
+            }
+            
         }
 
         #region 加载设备信息
         private Device LoadDevice(string path)
-        {
+        {   
             try
             {
                 return new Device()
@@ -238,6 +249,99 @@ namespace wgd.MTHProject
             };
             msgForm.ShowDialog();
 
+        }
+
+        /// <summary>
+        /// 添加设备信息
+        /// </summary>
+        /// <param name="groupPath"></param>
+        /// <param name="devicePath"></param>
+        /// <param name="variablePath"></param>
+        /// <returns></returns>
+        private Device LoadDevice(string groupPath, string devicePath, string variablePath)
+        {
+            if (!File.Exists(groupPath))
+            {
+                GlobalProperties.AddLog(1, "通信组文件不存在");
+                return null;
+            }
+            List<Group> GpList = LoadGroup(groupPath, variablePath);
+            if (GpList != null && GpList.Count > 0)
+            {
+                try
+                {
+                    return new Device()
+                    {
+                        IPAddress = IniHelper.ReadDefult("设备参数", "IP地址", "", devicePath),
+                        Port = Convert.ToInt32(IniHelper.ReadDefult("设备参数", "端口号", "502", devicePath)),
+                        GroupList = GpList,
+                    };
+                }
+                catch (Exception ex)
+                {
+                    GlobalProperties.AddLog(1, "通信组加载失败:" + ex.Message);
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 通信组及通信变量解析
+        /// </summary>
+        /// <param name="groupPath"></param>
+        /// <param name="variablePath"></param>
+        /// <returns></returns>
+        private List<Group> LoadGroup(string groupPath, string variablePath)
+        {
+            //判断文件是否存在
+            if (!File.Exists(groupPath))
+            {
+                GlobalProperties.AddLog(1, "通信组文件不存在");
+                return null;
+            }
+            if (!File.Exists(variablePath))
+            {
+                GlobalProperties.AddLog(1, "通信变量文件不存在");
+                return null;
+            }
+            //解析通信组
+            List<Group> GpList = null;
+            try
+            {
+                GpList = MiniExcel.Query<Group>(groupPath).ToList();
+            }
+            catch (Exception ex)
+            {
+                GlobalProperties.AddLog(1, "通信组加载失败:" + ex.Message);
+                return null;
+            }
+            //解析变量组,把variable添加到每个group中
+            List<Variable> VarList = null;
+            try
+            {
+                VarList = MiniExcel.Query<Variable>(variablePath).ToList();
+            }
+            catch (Exception ex)
+            {
+                GlobalProperties.AddLog(1, "通信变量加载失败:" + ex.Message);
+                return null;
+            }
+            if (VarList != null && GpList != null)
+            {
+                foreach (var group in GpList)
+                {
+                    group.VarList = VarList.FindAll(c => c.GroupName == group.GroupName).ToList();
+                }
+                return GpList;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
