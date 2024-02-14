@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using wgd.MTHControlLib;
 using wgd.MTHModels;
+using wgd.MTHProject.common;
+using wgd.Utils;
 
 namespace wgd.MTHProject
 {
@@ -17,8 +19,38 @@ namespace wgd.MTHProject
         public FormMain()
         {
             InitializeComponent();
+
+            this.Load += FormMain_Load;
         }
 
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            CommonNaviButton_Click(this.BtnMonitor, null);
+            GlobalProperties.AddLog(0, "登陆窗体");
+            GlobalProperties.AddLog(1, "测试-1");
+            GlobalProperties.AddLog(2, "测试-2");
+
+            GlobalProperties.Device = LoadDevice(DevPath);
+        }
+
+        #region 加载设备信息
+        private Device LoadDevice(string path)
+        {
+            try
+            {
+                return new Device()
+                {
+                    IPAddress = IniHelper.ReadDefult("设备参数", "IP地址", "127.0.0.0.1", path),
+                    Port = Convert.ToInt32(IniHelper.ReadDefult("设备参数", "端口号", "502", path)),
+                };
+            }
+            catch (Exception)
+            {
+                //日志写入
+                return null;
+            }
+        }
+        #endregion
         /// <summary>
         /// 项目配置文件路径
         /// </summary>
@@ -59,6 +91,7 @@ namespace wgd.MTHProject
                 {
                     case FormNames.集中监控:
                         frm = new FormMonitor();
+                        GlobalProperties.AddLog = ((FormMonitor)frm).AddLog;
                         break;
                     case FormNames.配方管理:
                         frm = new FormRecipe();

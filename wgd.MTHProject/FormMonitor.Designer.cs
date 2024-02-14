@@ -30,7 +30,7 @@ namespace wgd.MTHProject
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            SeeSharpTools.JY.GUI.StripChartXSeries stripChartXSeries1 = new SeeSharpTools.JY.GUI.StripChartXSeries();
+            SeeSharpTools.JY.GUI.StripChartXSeries stripChartXSeries3 = new SeeSharpTools.JY.GUI.StripChartXSeries();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMonitor));
             this.stripChartX1 = new SeeSharpTools.JY.GUI.StripChartX();
             this.ListInfo = new System.Windows.Forms.ListView();
@@ -167,15 +167,15 @@ namespace wgd.MTHProject
             this.stripChartX1.LegendFont = new System.Drawing.Font("微软雅黑", 11F);
             this.stripChartX1.LegendForeColor = System.Drawing.Color.White;
             this.stripChartX1.LegendVisible = true;
-            stripChartXSeries1.Color = System.Drawing.Color.Red;
-            stripChartXSeries1.Marker = SeeSharpTools.JY.GUI.StripChartXSeries.MarkerType.None;
-            stripChartXSeries1.Name = "1#站点温度";
-            stripChartXSeries1.Type = SeeSharpTools.JY.GUI.StripChartXSeries.LineType.FastLine;
-            stripChartXSeries1.Visible = true;
-            stripChartXSeries1.Width = SeeSharpTools.JY.GUI.StripChartXSeries.LineWidth.Thin;
-            stripChartXSeries1.XPlotAxis = SeeSharpTools.JY.GUI.StripChartXAxis.PlotAxis.Primary;
-            stripChartXSeries1.YPlotAxis = SeeSharpTools.JY.GUI.StripChartXAxis.PlotAxis.Primary;
-            this.stripChartX1.LineSeries.Add(stripChartXSeries1);
+            stripChartXSeries3.Color = System.Drawing.Color.Red;
+            stripChartXSeries3.Marker = SeeSharpTools.JY.GUI.StripChartXSeries.MarkerType.None;
+            stripChartXSeries3.Name = "1#站点温度";
+            stripChartXSeries3.Type = SeeSharpTools.JY.GUI.StripChartXSeries.LineType.FastLine;
+            stripChartXSeries3.Visible = true;
+            stripChartXSeries3.Width = SeeSharpTools.JY.GUI.StripChartXSeries.LineWidth.Thin;
+            stripChartXSeries3.XPlotAxis = SeeSharpTools.JY.GUI.StripChartXAxis.PlotAxis.Primary;
+            stripChartXSeries3.YPlotAxis = SeeSharpTools.JY.GUI.StripChartXAxis.PlotAxis.Primary;
+            this.stripChartX1.LineSeries.Add(stripChartXSeries3);
             this.stripChartX1.Location = new System.Drawing.Point(705, 48);
             this.stripChartX1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.stripChartX1.Miscellaneous.CheckInfinity = false;
@@ -219,6 +219,7 @@ namespace wgd.MTHProject
             this.ListInfo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
+            this.ListInfo.ForeColor = System.Drawing.Color.White;
             this.ListInfo.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.ListInfo.HideSelection = false;
             this.ListInfo.Location = new System.Drawing.Point(704, 536);
@@ -233,7 +234,7 @@ namespace wgd.MTHProject
             // columnHeader1
             // 
             this.columnHeader1.Text = "日志时间";
-            this.columnHeader1.Width = 200;
+            this.columnHeader1.Width = 170;
             // 
             // columnHeader2
             // 

@@ -13,7 +13,6 @@ namespace wgd.MTHProject
             InitializeComponent();
 
             this.DevPath = devPath;
-            GlobalProperties.Device = LoadDevice(DevPath);
             InitData();
         }
         private string DevPath = string.Empty;
@@ -23,24 +22,7 @@ namespace wgd.MTHProject
             this.TextPort.Text = GlobalProperties.Device.Port.ToString();
         }
 
-        #region 加载设备信息
-        private Device LoadDevice(string path)
-        {
-            try
-            {
-                return new Device()
-                {
-                    IPAddress = IniHelper.ReadDefult("设备参数", "IP地址", "127.0.0.0.1", path),
-                    Port = Convert.ToInt32(IniHelper.ReadDefult("设备参数", "端口号", "502", path)),
-                };
-            }
-            catch (Exception)
-            {
-                //日志写入
-                return null;
-            }
-        }
-        #endregion
+        
 
 
         private void BtnGroupConfig_Click(object sender, EventArgs e)
@@ -70,6 +52,8 @@ namespace wgd.MTHProject
         private void CanelBtn_Click(object sender, EventArgs e)
         {
             InitData();
+
+            SureBtn_Click(this.SureBtn, null);
         }
     }
 }

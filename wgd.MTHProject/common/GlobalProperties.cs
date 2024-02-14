@@ -10,5 +10,7 @@ namespace wgd.MTHProject.common
     public class GlobalProperties
     {
         public static Device Device { set; get; }
+
+        public static Action<int, string> AddLog;
     }
 }
