@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModbusTCPLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,7 @@ namespace wgd.MTHProject.common
         public static Device Device { set; get; }
 
         public static Action<int, string> AddLog;
+
+        public static ModbusTCP Modbus { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MiniExcelLibs;
+using ModbusTCPLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,8 +8,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using thinger.DataConvertLib;
 using wgd.MTHControlLib;
 using wgd.MTHModels;
 using wgd.MTHProject.common;
@@ -32,7 +35,107 @@ namespace wgd.MTHProject
         private string DevicePath = Application.StartupPath + "\\Config\\Device.int";
         private string GroupPath = Application.StartupPath + "\\Config\\Group.xlsx";
         private string VariablePath = Application.StartupPath + "\\Config\\Var.xlsx";
+        // 用于生成 CancellationToken 的类 === 通常用于取消正在进行的异步操作
+        private CancellationTokenSource cancelToken;
         #endregion
+
+        #region modbusTcp通信
+        private void DeviceCommunication(Device device)
+        {
+            // 判断异步循环是否取消
+            while (!cancelToken.IsCancellationRequested)
+            {
+                // 判断是否处于连接状态，false需要进行重连
+                if (device.IsConnected)
+                {
+                    //通信读取
+                    foreach (var gp in device.GroupList)
+                    {
+                        byte[] data = null;
+                        //返回字节长度
+                        int reqLength = 0;
+                        if (gp.StoreArea == "输入线圈" || gp.StoreArea == "输出线圈")
+                        {
+                            switch (gp.StoreArea)
+                            {
+                                case "输入线圈":
+                                    data = GlobalProperties.Modbus.ReadInputColls(gp.Start, gp.Length);
+                                    // 根据bool数量除以八算出准确字节
+                                    reqLength = ShortLib.GetByteLengthFromBoolLength(gp.Length);
+                                    break;
+                                case "输出线圈":
+                                    data = GlobalProperties.Modbus.ReadOutputColls(gp.Start, gp.Length);
+                                    reqLength = ShortLib.GetByteLengthFromBoolLength(gp.Length);
+                                    break;
+                            }
+                            if (data != null && data.Length == reqLength)
+                            {
+                                //变量解析
+                            }
+                            else
+                            {
+                                device.IsConnected = false;
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            switch (gp.StoreArea)
+                            {
+                                case "输入寄存器":
+                                    data = GlobalProperties.Modbus.ReadInputRegister(gp.Start, gp.Length);
+                                    // 一个寄存器俩个字节
+                                    reqLength = gp.Length * 2;
+                                    break;
+                                case "输出寄存器":
+                                    data = GlobalProperties.Modbus.ReadOutputRegister(gp.Start, gp.Length);
+                                    reqLength = gp.Length * 2;
+                                    break;
+
+
+                            }
+                            if (data != null && data.Length == reqLength)
+                            {
+                                //变量解析
+                            }
+                            else
+                            {
+                                device.IsConnected = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+                // 重连
+                else
+                {
+                    // 判断是否是第一次进行重连：意味着第一次连接，true则为第二次及以上重连
+                    if (device.ReConnect)
+                    {
+                        GlobalProperties.Modbus?.disConnect();
+                        Thread.Sleep(device.ReConnectTime);
+                    }
+                    //通信连接
+                    GlobalProperties.Modbus = new ModbusTCP();
+                    device.IsConnected = GlobalProperties.Modbus.Connect(device.IPAddress, device.Port);、
+                    // 判断是否
+                    if (device.ReConnect)
+                    {
+                        // 根据设备是否连接成功，输出日志，成功和失败俩个listview等级图标
+                        GlobalProperties.AddLog(device.IsConnected ? 0 : 1, device.IsConnected ? "控制器重新连接成功" : "控制器重新连接失败");
+                    }
+                    else
+                    {
+                        GlobalProperties.AddLog(device.IsConnected ? 0 : 1, device.IsConnected ? "控制器首次连接成功" : "控制器首次连接失败");
+                        device.ReConnect = true;
+                    }
+                }
+            }
+        }
+        #endregion
+
+
+        #region 加载设备信息
         private void FormMain_Load(object sender, EventArgs e)
         {
             CommonNaviButton_Click(this.BtnMonitor, null);
@@ -41,12 +144,10 @@ namespace wgd.MTHProject
             {
                 GlobalProperties.AddLog(0, "登陆窗体");
             }
-            
-        }
 
-        #region 加载设备信息
+        }
         private Device LoadDevice(string path)
-        {   
+        {
             try
             {
                 return new Device()
@@ -62,11 +163,9 @@ namespace wgd.MTHProject
             }
         }
         #endregion
-        /// <summary>
-        /// 项目配置文件路径
-        /// </summary>
-        private string DevPath = Application.StartupPath + "\\Config\\Device.int";
 
+
+        #region 主界面切换窗体逻辑
         //遍历所有导航栏,小与临界窗体的置后不显示（不关闭）
         private void OpenForm(Panel mainPanel, FormNames formNames)
         {
@@ -111,7 +210,7 @@ namespace wgd.MTHProject
                         frm = new FormAlarm();
                         break;
                     case FormNames.参数设置:
-                        frm = new FormParamSet(DevPath);
+                        frm = new FormParamSet(DevicePath);
                         break;
                     case FormNames.历史趋势:
                         frm = new FormHistory();
@@ -193,6 +292,7 @@ namespace wgd.MTHProject
                 }
             }
         }
+        #endregion
 
         #region 减少闪烁（事件）
         protected override CreateParams CreateParams

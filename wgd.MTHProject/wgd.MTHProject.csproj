@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DataConvertLib">
+      <HintPath>..\wgd.Utils\bin\Debug\DataConvertLib.dll</HintPath>
+    </Reference>
     <Reference Include="MiniExcel, Version=1.31.3.0, Culture=neutral, PublicKeyToken=e7310002a53eac39, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\MiniExcel.dll</HintPath>

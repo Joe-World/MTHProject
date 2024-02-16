@@ -30,10 +30,10 @@ namespace wgd.MTHModels
         /// <summary>
         /// 重连时间
         /// </summary>
-        public int ReCinnectTime { get; set; } = 2000;
+        public int ReConnectTime { get; set; } = 2000;
         /// <summary>
         /// 重连标志
         /// </summary>
-        public bool ReConnectAttempts { get; set; }
+        public bool ReConnect { get; set; }
     }
 }
