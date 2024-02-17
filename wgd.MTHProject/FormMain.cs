@@ -16,6 +16,7 @@ using wgd.MTHControlLib;
 using wgd.MTHModels;
 using wgd.MTHProject.common;
 using wgd.Utils;
+using DataType = wgd.MTHModels.DataType;
 
 namespace wgd.MTHProject
 {
@@ -37,6 +38,7 @@ namespace wgd.MTHProject
         private string VariablePath = Application.StartupPath + "\\Config\\Var.xlsx";
         // 用于生成 CancellationToken 的类 === 通常用于取消正在进行的异步操作
         private CancellationTokenSource cancelToken;
+        private DataFormat dataFormat = DataFormat.ABCD;
         #endregion
 
         #region modbusTcp通信
@@ -45,9 +47,11 @@ namespace wgd.MTHProject
             // 判断异步循环是否取消
             while (!cancelToken.IsCancellationRequested)
             {
+
                 // 判断是否处于连接状态，false需要进行重连
                 if (device.IsConnected)
                 {
+                    
                     //通信读取
                     foreach (var gp in device.GroupList)
                     {
@@ -68,9 +72,26 @@ namespace wgd.MTHProject
                                     reqLength = ShortLib.GetByteLengthFromBoolLength(gp.Length);
                                     break;
                             }
+                            
                             if (data != null && data.Length == reqLength)
                             {
                                 //变量解析
+                                foreach (var variable in gp.VarList)
+                                {
+                                    DataType dataType = (DataType)Enum.Parse(typeof(DataType), variable.DataType, true);
+                                    // 获取索引，起始索引
+                                    int start = variable.Start - gp.Start;
+                                    switch (dataType)
+                                    {
+                                        case DataType.Bool:
+                                            variable.VarValue = BitLib.GetBitFromByteArray(data, start, variable.OffsetOrLength);
+                                            break;
+                                        default:
+                                            break;
+                                    }
+
+                                    // 处理
+                                }
                             }
                             else
                             {
@@ -94,9 +115,63 @@ namespace wgd.MTHProject
 
 
                             }
+                            
                             if (data != null && data.Length == reqLength)
                             {
                                 //变量解析
+                                foreach (var variable in gp.VarList)
+                                {
+                                    DataType dataType = (DataType)Enum.Parse(typeof(DataType), variable.DataType, true);
+                                    int start = variable.Start - gp.Start;
+                                    start *= 2;
+                                    switch (dataType)
+                                    {
+                                        case DataType.Bool:
+                                            variable.VarValue = BitLib.GetBitFrom2BytesArray(data, start, variable.OffsetOrLength, dataFormat == DataFormat.BADC || dataFormat == DataFormat.DCBA);
+                                            break;
+                                        case DataType.Byte:
+                                            variable.VarValue = ByteLib.GetByteFromByteArray(data, dataFormat == DataFormat.BADC || dataFormat
+                                            == DataFormat.DCBA ? start : start + 1);
+                                            break;
+                                        case DataType.Short:
+                                            variable.VarValue = ShortLib.GetShortFromByteArray(data, start, dataFormat);
+                                            break;
+                                        case DataType.UShort:
+                                            variable.VarValue = UShortLib.GetUShortFromByteArray(data, start, dataFormat);
+                                            break;
+                                        case DataType.Int:
+                                            variable.VarValue = IntLib.GetIntFromByteArray(data, start, dataFormat);
+                                            break;
+                                        case DataType.UInt:
+                                            variable.VarValue = UIntLib.GetUIntFromByteArray(data, start, dataFormat);
+                                            break;
+                                        case DataType.Float:
+                                            variable.VarValue = FloatLib.GetFloatFromByteArray(data, start, dataFormat);
+                                            break;
+                                        case DataType.Double:
+                                            variable.VarValue = DoubleLib.GetDoubleFromByteArray(data, start, dataFormat);
+                                            break;
+                                        case DataType.Long:
+                                            variable.VarValue = LongLib.GetLongFromByteArray(data, start, dataFormat);
+                                            break;
+                                        case DataType.ULong:
+                                            variable.VarValue = ULongLib.GetULongFromByteArray(data, start, dataFormat);
+                                            break;
+                                        case DataType.String:
+                                            variable.VarValue = StringLib.GetStringFromByteArrayByEncoding(data, start, variable.OffsetOrLength,Encoding.ASCII);
+                                            break;
+                                        case DataType.ByteArray:
+                                            variable.VarValue = ByteArrayLib.GetByteArrayFromByteArray(data, start, variable.OffsetOrLength);
+                                            break;
+                                        case DataType.HexString:
+                                            variable.VarValue = StringLib.GetHexStringFromByteArray(data, start, variable.OffsetOrLength);
+                                            break;
+                                        default:
+                                            break;
+
+                                    }
+                                }
+
                             }
                             else
                             {
@@ -117,7 +192,7 @@ namespace wgd.MTHProject
                     }
                     //通信连接
                     GlobalProperties.Modbus = new ModbusTCP();
-                    device.IsConnected = GlobalProperties.Modbus.Connect(device.IPAddress, device.Port);、
+                    device.IsConnected = GlobalProperties.Modbus.Connect(device.IPAddress, device.Port);
                     // 判断是否
                     if (device.ReConnect)
                     {
@@ -130,6 +205,7 @@ namespace wgd.MTHProject
                         device.ReConnect = true;
                     }
                 }
+
             }
         }
         #endregion
@@ -143,7 +219,16 @@ namespace wgd.MTHProject
             if (GlobalProperties.Device != null)
             {
                 GlobalProperties.AddLog(0, "登陆窗体");
+
+                //开启多线程实时通信
+                cancelToken = new CancellationTokenSource();
+                Task.Run(new Action(() =>
+                { 
+                    DeviceCommunication(GlobalProperties.Device);
+                }), cancelToken.Token);
+
             }
+
 
         }
         private Device LoadDevice(string path)
@@ -152,7 +237,7 @@ namespace wgd.MTHProject
             {
                 return new Device()
                 {
-                    IPAddress = IniHelper.ReadDefult("设备参数", "IP地址", "127.0.0.0.1", path),
+                    IPAddress = IniHelper.ReadDefult("设备参数", "IP地址", "127.0.0.1", path),
                     Port = Convert.ToInt32(IniHelper.ReadDefult("设备参数", "端口号", "502", path)),
                 };
             }

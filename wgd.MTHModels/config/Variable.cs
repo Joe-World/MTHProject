@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniExcelLibs.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace wgd.MTHModels
 {
-     public class Variable
+    public class Variable
     {
         /// <summary>
         /// 变量名称
@@ -57,5 +58,12 @@ namespace wgd.MTHModels
         /// 偏移值
         /// </summary>
         public float Offset { get; set; } = 0.0f;
+
+
+        /// <summary>
+        /// 变量值
+        /// </summary>
+        [ExcelIgnore]
+        public object VarValue { get; set; }
     }
 }
