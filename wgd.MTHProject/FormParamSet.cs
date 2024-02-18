@@ -41,7 +41,17 @@ namespace wgd.MTHProject
             {
                 IniHelper.Write("设备参数", "IP地址", this.TextIp.Text.Trim(), DevPath);
                 IniHelper.Write("设备参数", "端口号", this.TextPort.Text.Trim(), DevPath);
-                new FormMsgBoxWithoutAck("设备信息设置成功！", "设备设置").Show();
+
+                DialogResult res = new FormMsgBoxWithAck("是否立即重连？", "通信设置").ShowDialog();
+                if (res == DialogResult.OK)
+                {
+                    GlobalProperties.Device.IPAddress = this.TextIp.Text.Trim();
+                    GlobalProperties.Device.Port = Convert.ToInt32(this.TextPort.Text.Trim());
+                    GlobalProperties.Device.IsConnected = false;
+                }
+
+
+                /*new FormMsgBoxWithoutAck("设备信息设置成功！", "设备设置").Show();*/
             }
             catch (Exception ee)
             {
@@ -53,7 +63,7 @@ namespace wgd.MTHProject
         {
             InitData();
 
-            SureBtn_Click(this.SureBtn, null);
+            /*SureBtn_Click(this.SureBtn, null);*/
         }
     }
 }

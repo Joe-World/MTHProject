@@ -65,5 +65,7 @@ namespace wgd.MTHModels
         /// </summary>
         [ExcelIgnore]
         public object VarValue { get; set; }
+        public bool PosCacheValue { get; internal set; } = false;
+        public bool NegCacheValue { get; internal set; } = true;
     }
 }

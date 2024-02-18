@@ -35,5 +35,88 @@ namespace wgd.MTHModels
         /// 重连标志
         /// </summary>
         public bool ReConnect { get; set; }
+
+        /// <summary>
+        /// slave实时读取数据
+        /// </summary>
+        public Dictionary<string, object> CurrentValue = new Dictionary<string, object>();
+
+        /// <summary>
+        /// 定义报警触发事件和消除事件
+        /// </summary>
+        public event Action<bool, Variable> AlarmTrigEvent;
+
+
+        public void UpdateVariable(Variable variable)
+        {
+            if (CurrentValue.ContainsKey(variable.VarName))
+            {
+                CurrentValue[variable.VarName] = variable.VarValue;
+            }
+            else
+            {
+                CurrentValue.Add(variable.VarName, variable.VarValue);
+            }
+
+            // 报警检测
+            CheckAlarm(variable);
+        }
+
+        private void CheckAlarm(Variable variable)
+        {
+            // 上升沿报警检测  
+            if (variable.PosAlarm)
+            {
+                bool currentValue = variable.VarValue.ToString() == "True";
+
+                if (variable.PosCacheValue == false && currentValue == true)
+                {
+                    // 检测到了报警触发 
+                    AlarmTrigEvent?.Invoke(true, variable);
+                }
+
+
+                if (variable.PosCacheValue == true && currentValue == false)
+                {
+                    // 检测到了报警消除  
+                    AlarmTrigEvent?.Invoke(false, variable);
+                }
+                variable.PosCacheValue = currentValue;
+            }
+
+            // 下降沿报警检测
+            if (variable.NegAlarm)
+            {
+                bool currentValue = variable.VarValue.ToString() == "True";
+                if (variable.NegCacheValue == true & currentValue == false)
+                {
+                    // 检测到了报警触发
+                    AlarmTrigEvent?.Invoke(true, variable);
+                }
+                if (variable.NegCacheValue == false & currentValue == true)
+                {
+                    // 检测到了报警消除
+                    AlarmTrigEvent?.Invoke(false, variable);
+                }
+                variable.NegCacheValue = currentValue;
+            }
+        }
+
+
+
+        public object this[string key]
+        {
+            get
+            {
+                if (CurrentValue.ContainsKey(key))
+                {
+                    return CurrentValue[key];
+                }
+                else { return null; }
+
+            }
+        }
+
+
     }
 }

@@ -108,7 +108,7 @@ namespace wgd.MTHControlLib
             }
         }
 
-        /*[Browsable(true)]
+        [Browsable(true)]
         [Category("自定义属性")]
         [Description("设置或者显示温度绑定变量名称")]
         public string TempVarName { get; set; } = string.Empty;
@@ -121,6 +121,6 @@ namespace wgd.MTHControlLib
         [Browsable(true)]
         [Category("自定义属性")]
         [Description("设置或者显示状态绑定变量名称")]
-        public string StateVarName { get; set; } = string.Empty;*/
+        public string StateVarName { get; set; } = string.Empty;
     }
 }

@@ -91,7 +91,10 @@ namespace wgd.MTHProject
                                     }
 
                                     // 处理
+                                    device.UpdateVariable(variable);
                                 }
+
+                                
                             }
                             else
                             {
@@ -170,6 +173,12 @@ namespace wgd.MTHProject
                                             break;
 
                                     }
+
+                                    //处理
+                                    //先做线性转换,再更新
+                                    variable.VarValue = MigrationLib.GetMigrationValue(variable.VarValue, variable.Scale.ToString(),
+                                    variable.Offset.ToString()).Content;
+                                    device.UpdateVariable(variable);
                                 }
 
                             }
