@@ -118,7 +118,8 @@ namespace wgd.MTHProject
 
 
                             }
-                            
+
+                            /*GlobalProperties.AddLog(0, $"{data.Length == reqLength}");*/
                             if (data != null && data.Length == reqLength)
                             {
                                 //变量解析
