@@ -64,7 +64,7 @@ namespace wgd.MTHControlLib
                 if (value != currentValue)
                 {
                     currentValue = value;
-                    this.LabTitle.Text = currentValue;
+                    this.LabVal.Text = currentValue;
                 }
 
             }

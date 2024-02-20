@@ -100,8 +100,8 @@ namespace wgd.MTHControlLib
             this.Led0.Location = new System.Drawing.Point(290, 8);
             this.Led0.Margin = new System.Windows.Forms.Padding(8, 8, 4, 5);
             this.Led0.Name = "Led0";
-            this.Led0.OffColor = System.Drawing.Color.Red;
-            this.Led0.OnColor = System.Drawing.Color.Lime;
+            this.Led0.OffColor = System.Drawing.Color.Lime;
+            this.Led0.OnColor = System.Drawing.Color.Red;
             this.Led0.Size = new System.Drawing.Size(26, 27);
             this.Led0.Style = SeeSharpTools.JY.GUI.LED.LedStyle.Circular;
             this.Led0.TabIndex = 0;
