@@ -16,7 +16,7 @@ using wgd.MTHControlLib;
 using wgd.MTHModels;
 using wgd.MTHProject.common;
 using wgd.Utils;
-using DataType = wgd.MTHModels.DataType;
+
 
 namespace wgd.MTHProject
 {
@@ -38,7 +38,7 @@ namespace wgd.MTHProject
         private string VariablePath = Application.StartupPath + "\\Config\\Var.xlsx";
         // 用于生成 CancellationToken 的类 === 通常用于取消正在进行的异步操作
         private CancellationTokenSource cancelToken;
-        private DataFormat dataFormat = DataFormat.ABCD;
+        /*private DataFormat dataFormat = DataFormat.ABCD;*/
         #endregion
 
         #region modbusTcp通信
@@ -131,35 +131,35 @@ namespace wgd.MTHProject
                                     switch (dataType)
                                     {
                                         case DataType.Bool:
-                                            variable.VarValue = BitLib.GetBitFrom2BytesArray(data, start, variable.OffsetOrLength, dataFormat == DataFormat.BADC || dataFormat == DataFormat.DCBA);
+                                            variable.VarValue = BitLib.GetBitFrom2BytesArray(data, start, variable.OffsetOrLength, GlobalProperties.dataFormat == DataFormat.BADC || GlobalProperties.dataFormat == DataFormat.DCBA);
                                             break;
                                         case DataType.Byte:
-                                            variable.VarValue = ByteLib.GetByteFromByteArray(data, dataFormat == DataFormat.BADC || dataFormat
+                                            variable.VarValue = ByteLib.GetByteFromByteArray(data, GlobalProperties.dataFormat == DataFormat.BADC || GlobalProperties.dataFormat
                                             == DataFormat.DCBA ? start : start + 1);
                                             break;
                                         case DataType.Short:
-                                            variable.VarValue = ShortLib.GetShortFromByteArray(data, start, dataFormat);
+                                            variable.VarValue = ShortLib.GetShortFromByteArray(data, start, GlobalProperties.dataFormat);
                                             break;
                                         case DataType.UShort:
-                                            variable.VarValue = UShortLib.GetUShortFromByteArray(data, start, dataFormat);
+                                            variable.VarValue = UShortLib.GetUShortFromByteArray(data, start, GlobalProperties.dataFormat);
                                             break;
                                         case DataType.Int:
-                                            variable.VarValue = IntLib.GetIntFromByteArray(data, start, dataFormat);
+                                            variable.VarValue = IntLib.GetIntFromByteArray(data, start, GlobalProperties.dataFormat);
                                             break;
                                         case DataType.UInt:
-                                            variable.VarValue = UIntLib.GetUIntFromByteArray(data, start, dataFormat);
+                                            variable.VarValue = UIntLib.GetUIntFromByteArray(data, start, GlobalProperties.dataFormat);
                                             break;
                                         case DataType.Float:
-                                            variable.VarValue = FloatLib.GetFloatFromByteArray(data, start, dataFormat);
+                                            variable.VarValue = FloatLib.GetFloatFromByteArray(data, start, GlobalProperties.dataFormat);
                                             break;
                                         case DataType.Double:
-                                            variable.VarValue = DoubleLib.GetDoubleFromByteArray(data, start, dataFormat);
+                                            variable.VarValue = DoubleLib.GetDoubleFromByteArray(data, start, GlobalProperties.dataFormat);
                                             break;
                                         case DataType.Long:
-                                            variable.VarValue = LongLib.GetLongFromByteArray(data, start, dataFormat);
+                                            variable.VarValue = LongLib.GetLongFromByteArray(data, start, GlobalProperties.dataFormat);
                                             break;
                                         case DataType.ULong:
-                                            variable.VarValue = ULongLib.GetULongFromByteArray(data, start, dataFormat);
+                                            variable.VarValue = ULongLib.GetULongFromByteArray(data, start, GlobalProperties.dataFormat);
                                             break;
                                         case DataType.String:
                                             variable.VarValue = StringLib.GetStringFromByteArrayByEncoding(data, start, variable.OffsetOrLength,Encoding.ASCII);

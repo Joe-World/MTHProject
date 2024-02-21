@@ -20,7 +20,7 @@ namespace wgd.MTHModels
         历史趋势,
         用户管理,
     }
-    //
+   /* //
     // 摘要:
     //     常规数据类型
     [Description("常规数据类型")]
@@ -78,5 +78,5 @@ namespace wgd.MTHModels
         // 摘要:
         //     16进制字符串
         HexString = 12
-    }
+    }*/
 }
