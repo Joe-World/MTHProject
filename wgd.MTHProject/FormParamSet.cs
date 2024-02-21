@@ -21,6 +21,8 @@ namespace wgd.MTHProject
 
             InitData();
 
+            CommonBindEvent();
+
             this.FormClosed += (sender, e) =>
              {
                  this.UpdateTimer.Stop();
@@ -66,7 +68,7 @@ namespace wgd.MTHProject
                 {
                     if (item.Tag != null && item.Tag.ToString().Length > 0)
                     {
-                        item.Checked = GlobalProperties.Device[item.Tag.ToString()].ToString() == "True"; 
+                        item.Checked = GlobalProperties.Device[item.Tag.ToString()].ToString() == "1";
                     }
                 }
             }
@@ -131,6 +133,56 @@ namespace wgd.MTHProject
 
             /*SureBtn_Click(this.SureBtn, null);*/
         }
+
+
+        private void CommonBindEvent()
+        {
+            foreach (var item in this.MainPanel.Controls.OfType<TextSet>())
+            {
+                if (item.BindVarName != null && item.BindVarName.ToString().Length > 0)
+                {
+                    item.ControlDoubleClick += All_ControlDoubleClick;
+                }
+            }
+            foreach (var item in this.MainPanel.Controls.OfType<CheckBoxPro>())
+            {
+                if (item.Tag != null && item.Tag.ToString().Length > 0)
+                {
+                    item.CheckedChanged += All_CheckedChanged;
+                }
+            }
+        }
+
+        private void All_ControlDoubleClick(object sender, EventArgs e)
+        {
+            if (sender is TextSet textset)
+            {
+                if (textset.BindVarName != null && textset.BindVarName.ToString().Length > 0)
+                {
+                    FormModify frmModify = new FormModify(textset.TitleName, textset.BindVarName, textset.CurrentValue);
+                    frmModify.ShowDialog();
+                }
+            }
+        }
+
+        private void All_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is CheckBoxPro checkbox)
+            {
+                if (checkbox.Tag != null && checkbox.Tag.ToString().Length > 0)
+                {
+                    bool result = GlobalProperties.CommonWrite(checkbox.Tag.ToString(), checkbox.Checked ? "1" : "0");
+                    if (result == false)
+                    {
+                        checkbox.CheckedChanged -= All_CheckedChanged; 
+                        checkbox.Checked = !checkbox.Checked;
+                        checkbox.CheckedChanged += All_CheckedChanged;
+                    }
+                }
+            }
+        }
+
+
     }
 }
 

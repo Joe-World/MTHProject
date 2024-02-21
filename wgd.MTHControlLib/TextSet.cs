@@ -100,6 +100,9 @@ namespace wgd.MTHControlLib
         }
 
         private bool isAlarm;
+        /// <summary>
+        /// Led-value为true开红色，反之绿色
+        /// </summary>
         [Browsable(true)]
         [Category("自定义属性")]
         [Description("设置或显示当前报警状态")]

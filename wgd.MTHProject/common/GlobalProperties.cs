@@ -56,7 +56,10 @@ namespace wgd.MTHProject.common
                     switch (dataType)
                     {
                         case DataType.Bool:
+
+                            // 简单改一下，记得注释回来
                             return Modbus.PreSetSingleColls(variable.Start, Convert.ToBoolean(result.Content));
+                            /*return Modbus.PreSetSingleRegister(variable.Start, Convert.ToInt16(result.Content));*/
                         case DataType.Short:
                             return Modbus.PreSetSingleRegister(variable.Start, Convert.ToInt16(result.Content));
                         case DataType.UShort:
@@ -88,6 +91,11 @@ namespace wgd.MTHProject.common
             }
 
             return false;
+        }
+
+        private static object FormMsgBoxWithoutAck(string v1, string v2)
+        {
+            throw new NotImplementedException();
         }
     }
 }
