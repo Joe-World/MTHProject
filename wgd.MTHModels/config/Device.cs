@@ -64,10 +64,10 @@ namespace wgd.MTHModels
 
         private void CheckAlarm(Variable variable)
         {
-            // 上升沿报警检测  
+            // 上升沿报警检测  只有相关报警变量才为T
             if (variable.PosAlarm)
             {
-                bool currentValue = variable.VarValue.ToString() == "True";
+                bool currentValue = variable.VarValue.ToString() == "1"?true:false;
 
                 if (variable.PosCacheValue == false && currentValue == true)
                 {

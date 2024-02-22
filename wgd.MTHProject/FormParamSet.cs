@@ -51,8 +51,27 @@ namespace wgd.MTHProject
                     }
                     if (item.AlarmVarName != null && item.AlarmVarName.ToString().Length > 0)
                     {
-                        item.IsAlarm = GlobalProperties.Device[item.AlarmVarName].ToString() == "True";
+                        // 检测模块温湿度是否超过限制，并更新data到slave
+                        // 到device找到这个模块对应的温度和湿度，并比较
+                        string alarmVarName = item.AlarmVarName.ToString();
+                        float tempOrHum = float.Parse(GlobalProperties.Device[alarmVarName.Remove(alarmVarName.Length - 1)].ToString());
+
+                        float limit = float.Parse(item.CurrentValue);
+                        bool res = alarmVarName.Last() == '高' ? tempOrHum >= limit : tempOrHum <= limit;
+                        if (res != item.IsAlarm)
+                        {
+                            // 写
+                            bool result = GlobalProperties.CommonWrite(alarmVarName, res ? "1" : "0");
+                            /*GlobalProperties.AddLog(0, $"{alarmVarName}状态切换，执行写入！");*/
+                            if (!result)
+                            {
+                                GlobalProperties.AddLog(2,"写入温度/湿度异常状态失败！");
+                            }
+                        }
+
+                        item.IsAlarm = GlobalProperties.Device[item.AlarmVarName].ToString() == "1";
                     }
+
                 }
             }
         }
@@ -174,15 +193,13 @@ namespace wgd.MTHProject
                     bool result = GlobalProperties.CommonWrite(checkbox.Tag.ToString(), checkbox.Checked ? "1" : "0");
                     if (result == false)
                     {
-                        checkbox.CheckedChanged -= All_CheckedChanged; 
+                        checkbox.CheckedChanged -= All_CheckedChanged;
                         checkbox.Checked = !checkbox.Checked;
                         checkbox.CheckedChanged += All_CheckedChanged;
                     }
                 }
             }
         }
-
-
     }
 }
 

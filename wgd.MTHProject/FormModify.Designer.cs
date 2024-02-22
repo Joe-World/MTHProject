@@ -80,7 +80,7 @@ namespace wgd.MTHProject
             this.BtnCancel.Location = new System.Drawing.Point(218, 251);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(80, 32);
-            this.BtnCancel.TabIndex = 14;
+            this.BtnCancel.TabIndex = 2;
             this.BtnCancel.Text = "取消";
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
@@ -94,7 +94,7 @@ namespace wgd.MTHProject
             this.BtnSure.Location = new System.Drawing.Point(88, 251);
             this.BtnSure.Name = "BtnSure";
             this.BtnSure.Size = new System.Drawing.Size(80, 32);
-            this.BtnSure.TabIndex = 14;
+            this.BtnSure.TabIndex = 1;
             this.BtnSure.Text = "确定";
             this.BtnSure.UseVisualStyleBackColor = false;
             this.BtnSure.Click += new System.EventHandler(this.BtnSure_Click);
@@ -104,7 +104,7 @@ namespace wgd.MTHProject
             this.TextSetVal.Location = new System.Drawing.Point(199, 175);
             this.TextSetVal.Name = "TextSetVal";
             this.TextSetVal.Size = new System.Drawing.Size(132, 28);
-            this.TextSetVal.TabIndex = 9;
+            this.TextSetVal.TabIndex = 0;
             this.TextSetVal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TextSetVal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextSetVal_KeyDown);
             // 

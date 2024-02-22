@@ -51,7 +51,7 @@ namespace wgd.MTHProject
                 // 判断是否处于连接状态，false需要进行重连
                 if (device.IsConnected)
                 {
-                    
+
                     //通信读取
                     foreach (var gp in device.GroupList)
                     {
@@ -72,7 +72,7 @@ namespace wgd.MTHProject
                                     reqLength = ShortLib.GetByteLengthFromBoolLength(gp.Length);
                                     break;
                             }
-                            
+
                             if (data != null && data.Length == reqLength)
                             {
                                 //变量解析
@@ -94,7 +94,7 @@ namespace wgd.MTHProject
                                     device.UpdateVariable(variable);
                                 }
 
-                                
+
                             }
                             else
                             {
@@ -162,7 +162,7 @@ namespace wgd.MTHProject
                                             variable.VarValue = ULongLib.GetULongFromByteArray(data, start, GlobalProperties.dataFormat);
                                             break;
                                         case DataType.String:
-                                            variable.VarValue = StringLib.GetStringFromByteArrayByEncoding(data, start, variable.OffsetOrLength,Encoding.ASCII);
+                                            variable.VarValue = StringLib.GetStringFromByteArrayByEncoding(data, start, variable.OffsetOrLength, Encoding.ASCII);
                                             break;
                                         case DataType.ByteArray:
                                             variable.VarValue = ByteArrayLib.GetByteArrayFromByteArray(data, start, variable.OffsetOrLength);
@@ -230,10 +230,13 @@ namespace wgd.MTHProject
             {
                 GlobalProperties.AddLog(0, "登陆窗体");
 
+                
+
                 //开启多线程实时通信
                 cancelToken = new CancellationTokenSource();
+                GlobalProperties.Device.AlarmTrigEvent += Device_AlarmTrigEvent;
                 Task.Run(new Action(() =>
-                { 
+                {
                     DeviceCommunication(GlobalProperties.Device);
                 }), cancelToken.Token);
 
@@ -241,6 +244,26 @@ namespace wgd.MTHProject
 
 
         }
+
+        // <summary>
+        ///报警触发事件
+        // </summary>
+        // <param name="ackType"></param>
+        // <param name="variable"></param>
+
+        private void Device_AlarmTrigEvent(bool ackType, Variable variable)
+        {
+            if (ackType)
+            {
+                GlobalProperties.AddLog(1, variable.Remark + "触发");
+            }
+            else
+            {
+                GlobalProperties.AddLog(0, variable.Remark + "消除");
+            }
+        }
+
+
         private Device LoadDevice(string path)
         {
             try
@@ -538,5 +561,15 @@ namespace wgd.MTHProject
                 return null;
             }
         }
+
+        /*private void FormMain_Shown(object sender, EventArgs e)
+        {
+            Task.Run(async () =>
+            {
+                var frm = new FormParamSet(DevicePath);
+                await Task.Delay(2000);
+                frm.Close();
+            }).Wait(); // 这会阻塞，直到Task完成，但主线程不会被阻塞  
+        }*/
     }
 }

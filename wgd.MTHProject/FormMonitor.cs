@@ -27,6 +27,11 @@ namespace wgd.MTHProject
             UpdateTimer.Start();
         }
 
+        /// <summary>
+        /// 根据Formmain上游建立的modbus通信返回的数据device，根据device不断更新温湿度控件属性
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateTimer_Tick(object sender, EventArgs e)
         {
             if (GlobalProperties.Device.IsConnected)
