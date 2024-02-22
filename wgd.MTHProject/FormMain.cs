@@ -2,6 +2,7 @@
 using ModbusTCPLib;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -26,8 +27,12 @@ namespace wgd.MTHProject
         {
             InitializeComponent();
 
+            actualAlarmList.CollectionChanged += ActualAlarmList_CollectionChanged;
+
             this.Load += FormMain_Load;
         }
+
+        
 
         #region 属性
         /// <summary>
@@ -39,6 +44,7 @@ namespace wgd.MTHProject
         // 用于生成 CancellationToken 的类 === 通常用于取消正在进行的异步操作
         private CancellationTokenSource cancelToken;
         /*private DataFormat dataFormat = DataFormat.ABCD;*/
+        private ObservableCollection<string> actualAlarmList = new ObservableCollection<string>();
         #endregion
 
         #region modbusTcp通信
@@ -256,13 +262,39 @@ namespace wgd.MTHProject
             if (ackType)
             {
                 GlobalProperties.AddLog(1, variable.Remark + "触发");
+
+                if (!this.actualAlarmList.Contains(variable.Remark))
+                {
+                    this.actualAlarmList.Add(variable.Remark);
+                }
             }
             else
             {
                 GlobalProperties.AddLog(0, variable.Remark + "消除");
+
+                if (this.actualAlarmList.Contains(variable.Remark))
+                {
+                    this.actualAlarmList.Remove(variable.Remark);
+                }
             }
         }
 
+
+        private void ActualAlarmList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            this.Invoke(new Action(() =>{
+            // 根据集合的数量进行处理
+                switch (actualAlarmList.Count) {
+                case 0:
+                    this.ScrollAlarm.Text = "当前系统无报警";
+                    break;
+                default:
+                    this.ScrollAlarm.Text = string.Join("  ", actualAlarmList);
+                    break;
+                }       
+            }));
+
+        }
 
         private Device LoadDevice(string path)
         {

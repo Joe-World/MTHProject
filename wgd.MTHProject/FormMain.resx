@@ -190,7 +190,7 @@
         IM/DXRl7BM9ZPFDbaYYPTni1p5Q/12HTHl9sZV4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="panel3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="AlarmPanel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAbsAAAA4CAYAAABkOlbcAAAABGdBTUEAALGPC/xhBQAAAWRJREFUeF7t
         20FOg0AAQNFudespPJkH0L09RO9Tb4bBRBNlbGKopPy8xVvAdBi6+pkAh9fpPAFA2UfsDtMRALo+Y3d3

@@ -43,7 +43,7 @@ namespace wgd.MTHProject
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.AlarmPanel = new System.Windows.Forms.Panel();
             this.LblTitle = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -53,9 +53,11 @@ namespace wgd.MTHProject
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.CorePanel = new wgd.MTHControlLib.PanelPro();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.ScrollAlarm = new SeeSharpTools.JY.GUI.ScrollingText();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.AlarmPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -219,7 +221,7 @@ namespace wgd.MTHProject
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.AlarmPanel);
             this.panel2.Controls.Add(this.LblTitle);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.pictureBox3);
@@ -246,14 +248,16 @@ namespace wgd.MTHProject
             this.label7.Text = "通信状态";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel3
+            // AlarmPanel
             // 
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(959, 15);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(346, 43);
-            this.panel3.TabIndex = 2;
+            this.AlarmPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AlarmPanel.BackgroundImage")));
+            this.AlarmPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AlarmPanel.Controls.Add(this.ScrollAlarm);
+            this.AlarmPanel.Location = new System.Drawing.Point(959, 15);
+            this.AlarmPanel.Name = "AlarmPanel";
+            this.AlarmPanel.Padding = new System.Windows.Forms.Padding(3);
+            this.AlarmPanel.Size = new System.Drawing.Size(346, 43);
+            this.AlarmPanel.TabIndex = 2;
             // 
             // LblTitle
             // 
@@ -358,6 +362,24 @@ namespace wgd.MTHProject
             this.MainPanel.Size = new System.Drawing.Size(1394, 724);
             this.MainPanel.TabIndex = 0;
             // 
+            // ScrollAlarm
+            // 
+            this.ScrollAlarm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(41)))), ((int)(((byte)(103)))));
+            this.ScrollAlarm.BorderColor = System.Drawing.Color.Transparent;
+            this.ScrollAlarm.BorderVisible = true;
+            this.ScrollAlarm.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ScrollAlarm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScrollAlarm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
+            this.ScrollAlarm.ForeColor = System.Drawing.Color.White;
+            this.ScrollAlarm.Location = new System.Drawing.Point(3, 3);
+            this.ScrollAlarm.Name = "ScrollAlarm";
+            this.ScrollAlarm.ScrollDirection = SeeSharpTools.JY.GUI.ScrollingText.TextDirection.RightToLeft;
+            this.ScrollAlarm.ScrollSpeed = 25;
+            this.ScrollAlarm.Size = new System.Drawing.Size(340, 37);
+            this.ScrollAlarm.TabIndex = 0;
+            this.ScrollAlarm.Text = "当前系统无报警";
+            this.ScrollAlarm.VerticleAligment = SeeSharpTools.JY.GUI.ScrollingText.TextVerticalAlignment.Center;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -379,6 +401,7 @@ namespace wgd.MTHProject
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.AlarmPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -402,7 +425,7 @@ namespace wgd.MTHProject
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel AlarmPanel;
         private System.Windows.Forms.Label LblTitle;
         private MTHControlLib.NaviButton BtnMonitor;
         private MTHControlLib.NaviButton naviButton6;
@@ -412,6 +435,7 @@ namespace wgd.MTHProject
         private MTHControlLib.NaviButton naviButton2;
         private MTHControlLib.PanelPro CorePanel;
         private System.Windows.Forms.Panel MainPanel;
+        private SeeSharpTools.JY.GUI.ScrollingText ScrollAlarm;
     }
 }
 
