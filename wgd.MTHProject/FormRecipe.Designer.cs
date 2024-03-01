@@ -29,34 +29,34 @@ namespace wgd.MTHProject
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            wgd.MTHModels.RecipeParam recipeParam6 = new wgd.MTHModels.RecipeParam();
-            wgd.MTHModels.RecipeParam recipeParam5 = new wgd.MTHModels.RecipeParam();
-            wgd.MTHModels.RecipeParam recipeParam2 = new wgd.MTHModels.RecipeParam();
-            wgd.MTHModels.RecipeParam recipeParam4 = new wgd.MTHModels.RecipeParam();
-            wgd.MTHModels.RecipeParam recipeParam3 = new wgd.MTHModels.RecipeParam();
-            wgd.MTHModels.RecipeParam recipeParam1 = new wgd.MTHModels.RecipeParam();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            wgd.MTHModels.RecipeParam recipeParam7 = new wgd.MTHModels.RecipeParam();
+            wgd.MTHModels.RecipeParam recipeParam8 = new wgd.MTHModels.RecipeParam();
+            wgd.MTHModels.RecipeParam recipeParam9 = new wgd.MTHModels.RecipeParam();
+            wgd.MTHModels.RecipeParam recipeParam10 = new wgd.MTHModels.RecipeParam();
+            wgd.MTHModels.RecipeParam recipeParam11 = new wgd.MTHModels.RecipeParam();
+            wgd.MTHModels.RecipeParam recipeParam12 = new wgd.MTHModels.RecipeParam();
             this.panelPromax1 = new wgd.MTHControlLib.PanelPromax();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.BtnAdd = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextERecipe = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DgvData = new System.Windows.Forms.DataGridView();
             this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recipeControl1 = new wgd.MTHControlLib.RecipeControl();
-            this.recipeControl2 = new wgd.MTHControlLib.RecipeControl();
-            this.recipeControl3 = new wgd.MTHControlLib.RecipeControl();
-            this.recipeControl4 = new wgd.MTHControlLib.RecipeControl();
-            this.recipeControl5 = new wgd.MTHControlLib.RecipeControl();
             this.recipeControl6 = new wgd.MTHControlLib.RecipeControl();
+            this.recipeControl3 = new wgd.MTHControlLib.RecipeControl();
+            this.recipeControl5 = new wgd.MTHControlLib.RecipeControl();
+            this.recipeControl4 = new wgd.MTHControlLib.RecipeControl();
+            this.recipeControl2 = new wgd.MTHControlLib.RecipeControl();
+            this.recipeControl1 = new wgd.MTHControlLib.RecipeControl();
             this.panelPromax1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -88,7 +88,7 @@ namespace wgd.MTHProject
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.BtnAdd);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.TextERecipe);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
@@ -158,14 +158,15 @@ namespace wgd.MTHProject
             this.BtnAdd.TabIndex = 14;
             this.BtnAdd.Text = "添加配方";
             this.BtnAdd.UseVisualStyleBackColor = false;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
-            // textBox1
+            // TextERecipe
             // 
-            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.textBox1.Location = new System.Drawing.Point(141, 548);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(95, 29);
-            this.textBox1.TabIndex = 0;
+            this.TextERecipe.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.TextERecipe.Location = new System.Drawing.Point(141, 548);
+            this.TextERecipe.Name = "TextERecipe";
+            this.TextERecipe.Size = new System.Drawing.Size(95, 29);
+            this.TextERecipe.TabIndex = 0;
             // 
             // label2
             // 
@@ -210,41 +211,41 @@ namespace wgd.MTHProject
             this.DgvData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(30)))), ((int)(((byte)(78)))));
             this.DgvData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgvData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(30)))), ((int)(((byte)(78)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(30)))), ((int)(((byte)(78)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvData.ColumnHeadersHeight = 35;
             this.DgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupName,
             this.Start});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(30)))), ((int)(((byte)(78)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(30)))), ((int)(((byte)(78)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvData.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(30)))), ((int)(((byte)(78)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(30)))), ((int)(((byte)(78)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvData.DefaultCellStyle = dataGridViewCellStyle5;
             this.DgvData.EnableHeadersVisualStyles = false;
             this.DgvData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.DgvData.Location = new System.Drawing.Point(21, 25);
             this.DgvData.Name = "DgvData";
             this.DgvData.ReadOnly = true;
             this.DgvData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(40)))), ((int)(((byte)(86)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(40)))), ((int)(((byte)(86)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(40)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(40)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DgvData.RowHeadersVisible = false;
             this.DgvData.RowHeadersWidth = 55;
             this.DgvData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -270,41 +271,23 @@ namespace wgd.MTHProject
             this.Start.ReadOnly = true;
             this.Start.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // recipeControl1
+            // recipeControl6
             // 
-            this.recipeControl1.BackColor = System.Drawing.Color.Transparent;
-            this.recipeControl1.DevName = "1#站点";
-            this.recipeControl1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.recipeControl1.Location = new System.Drawing.Point(19, 9);
-            this.recipeControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.recipeControl1.Name = "recipeControl1";
-            recipeParam6.HumidityAlarmEnable = false;
-            recipeParam6.HumidityHigh = 0F;
-            recipeParam6.HumidityLow = 0F;
-            recipeParam6.TempAlarmEnable = false;
-            recipeParam6.TempHigh = 0F;
-            recipeParam6.TempLow = 0F;
-            this.recipeControl1.RecipeParam = recipeParam6;
-            this.recipeControl1.Size = new System.Drawing.Size(327, 346);
-            this.recipeControl1.TabIndex = 0;
-            // 
-            // recipeControl2
-            // 
-            this.recipeControl2.BackColor = System.Drawing.Color.Transparent;
-            this.recipeControl2.DevName = "2#站点";
-            this.recipeControl2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.recipeControl2.Location = new System.Drawing.Point(391, 9);
-            this.recipeControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.recipeControl2.Name = "recipeControl2";
-            recipeParam5.HumidityAlarmEnable = false;
-            recipeParam5.HumidityHigh = 0F;
-            recipeParam5.HumidityLow = 0F;
-            recipeParam5.TempAlarmEnable = false;
-            recipeParam5.TempHigh = 0F;
-            recipeParam5.TempLow = 0F;
-            this.recipeControl2.RecipeParam = recipeParam5;
-            this.recipeControl2.Size = new System.Drawing.Size(327, 346);
-            this.recipeControl2.TabIndex = 0;
+            this.recipeControl6.BackColor = System.Drawing.Color.Transparent;
+            this.recipeControl6.DevName = "6#站点";
+            this.recipeControl6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.recipeControl6.Location = new System.Drawing.Point(763, 364);
+            this.recipeControl6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.recipeControl6.Name = "recipeControl6";
+            recipeParam7.HumidityAlarmEnable = false;
+            recipeParam7.HumidityHigh = 0F;
+            recipeParam7.HumidityLow = 0F;
+            recipeParam7.TempAlarmEnable = false;
+            recipeParam7.TempHigh = 0F;
+            recipeParam7.TempLow = 0F;
+            this.recipeControl6.RecipeParam = recipeParam7;
+            this.recipeControl6.Size = new System.Drawing.Size(327, 346);
+            this.recipeControl6.TabIndex = 0;
             // 
             // recipeControl3
             // 
@@ -314,33 +297,15 @@ namespace wgd.MTHProject
             this.recipeControl3.Location = new System.Drawing.Point(763, 9);
             this.recipeControl3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.recipeControl3.Name = "recipeControl3";
-            recipeParam2.HumidityAlarmEnable = false;
-            recipeParam2.HumidityHigh = 0F;
-            recipeParam2.HumidityLow = 0F;
-            recipeParam2.TempAlarmEnable = false;
-            recipeParam2.TempHigh = 0F;
-            recipeParam2.TempLow = 0F;
-            this.recipeControl3.RecipeParam = recipeParam2;
+            recipeParam8.HumidityAlarmEnable = false;
+            recipeParam8.HumidityHigh = 0F;
+            recipeParam8.HumidityLow = 0F;
+            recipeParam8.TempAlarmEnable = false;
+            recipeParam8.TempHigh = 0F;
+            recipeParam8.TempLow = 0F;
+            this.recipeControl3.RecipeParam = recipeParam8;
             this.recipeControl3.Size = new System.Drawing.Size(327, 346);
             this.recipeControl3.TabIndex = 0;
-            // 
-            // recipeControl4
-            // 
-            this.recipeControl4.BackColor = System.Drawing.Color.Transparent;
-            this.recipeControl4.DevName = "4#站点";
-            this.recipeControl4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.recipeControl4.Location = new System.Drawing.Point(19, 364);
-            this.recipeControl4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.recipeControl4.Name = "recipeControl4";
-            recipeParam4.HumidityAlarmEnable = false;
-            recipeParam4.HumidityHigh = 0F;
-            recipeParam4.HumidityLow = 0F;
-            recipeParam4.TempAlarmEnable = false;
-            recipeParam4.TempHigh = 0F;
-            recipeParam4.TempLow = 0F;
-            this.recipeControl4.RecipeParam = recipeParam4;
-            this.recipeControl4.Size = new System.Drawing.Size(327, 346);
-            this.recipeControl4.TabIndex = 0;
             // 
             // recipeControl5
             // 
@@ -350,33 +315,69 @@ namespace wgd.MTHProject
             this.recipeControl5.Location = new System.Drawing.Point(391, 364);
             this.recipeControl5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.recipeControl5.Name = "recipeControl5";
-            recipeParam3.HumidityAlarmEnable = false;
-            recipeParam3.HumidityHigh = 0F;
-            recipeParam3.HumidityLow = 0F;
-            recipeParam3.TempAlarmEnable = false;
-            recipeParam3.TempHigh = 0F;
-            recipeParam3.TempLow = 0F;
-            this.recipeControl5.RecipeParam = recipeParam3;
+            recipeParam9.HumidityAlarmEnable = false;
+            recipeParam9.HumidityHigh = 0F;
+            recipeParam9.HumidityLow = 0F;
+            recipeParam9.TempAlarmEnable = false;
+            recipeParam9.TempHigh = 0F;
+            recipeParam9.TempLow = 0F;
+            this.recipeControl5.RecipeParam = recipeParam9;
             this.recipeControl5.Size = new System.Drawing.Size(327, 346);
             this.recipeControl5.TabIndex = 0;
             // 
-            // recipeControl6
+            // recipeControl4
             // 
-            this.recipeControl6.BackColor = System.Drawing.Color.Transparent;
-            this.recipeControl6.DevName = "6#站点";
-            this.recipeControl6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.recipeControl6.Location = new System.Drawing.Point(763, 364);
-            this.recipeControl6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.recipeControl6.Name = "recipeControl6";
-            recipeParam1.HumidityAlarmEnable = false;
-            recipeParam1.HumidityHigh = 0F;
-            recipeParam1.HumidityLow = 0F;
-            recipeParam1.TempAlarmEnable = false;
-            recipeParam1.TempHigh = 0F;
-            recipeParam1.TempLow = 0F;
-            this.recipeControl6.RecipeParam = recipeParam1;
-            this.recipeControl6.Size = new System.Drawing.Size(327, 346);
-            this.recipeControl6.TabIndex = 0;
+            this.recipeControl4.BackColor = System.Drawing.Color.Transparent;
+            this.recipeControl4.DevName = "4#站点";
+            this.recipeControl4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.recipeControl4.Location = new System.Drawing.Point(19, 364);
+            this.recipeControl4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.recipeControl4.Name = "recipeControl4";
+            recipeParam10.HumidityAlarmEnable = false;
+            recipeParam10.HumidityHigh = 0F;
+            recipeParam10.HumidityLow = 0F;
+            recipeParam10.TempAlarmEnable = false;
+            recipeParam10.TempHigh = 0F;
+            recipeParam10.TempLow = 0F;
+            this.recipeControl4.RecipeParam = recipeParam10;
+            this.recipeControl4.Size = new System.Drawing.Size(327, 346);
+            this.recipeControl4.TabIndex = 0;
+            // 
+            // recipeControl2
+            // 
+            this.recipeControl2.BackColor = System.Drawing.Color.Transparent;
+            this.recipeControl2.DevName = "2#站点";
+            this.recipeControl2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.recipeControl2.Location = new System.Drawing.Point(391, 9);
+            this.recipeControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.recipeControl2.Name = "recipeControl2";
+            recipeParam11.HumidityAlarmEnable = false;
+            recipeParam11.HumidityHigh = 0F;
+            recipeParam11.HumidityLow = 0F;
+            recipeParam11.TempAlarmEnable = false;
+            recipeParam11.TempHigh = 0F;
+            recipeParam11.TempLow = 0F;
+            this.recipeControl2.RecipeParam = recipeParam11;
+            this.recipeControl2.Size = new System.Drawing.Size(327, 346);
+            this.recipeControl2.TabIndex = 0;
+            // 
+            // recipeControl1
+            // 
+            this.recipeControl1.BackColor = System.Drawing.Color.Transparent;
+            this.recipeControl1.DevName = "1#站点";
+            this.recipeControl1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.recipeControl1.Location = new System.Drawing.Point(19, 9);
+            this.recipeControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.recipeControl1.Name = "recipeControl1";
+            recipeParam12.HumidityAlarmEnable = false;
+            recipeParam12.HumidityHigh = 0F;
+            recipeParam12.HumidityLow = 0F;
+            recipeParam12.TempAlarmEnable = false;
+            recipeParam12.TempHigh = 0F;
+            recipeParam12.TempLow = 0F;
+            this.recipeControl1.RecipeParam = recipeParam12;
+            this.recipeControl1.Size = new System.Drawing.Size(327, 346);
+            this.recipeControl1.TabIndex = 0;
             // 
             // FormRecipe
             // 
@@ -405,7 +406,7 @@ namespace wgd.MTHProject
         private MTHControlLib.PanelPromax panelPromax1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView DgvData;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextERecipe;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
