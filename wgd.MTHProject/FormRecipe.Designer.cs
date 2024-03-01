@@ -32,22 +32,35 @@ namespace wgd.MTHProject
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            wgd.MTHModels.RecipeParam recipeParam6 = new wgd.MTHModels.RecipeParam();
+            wgd.MTHModels.RecipeParam recipeParam5 = new wgd.MTHModels.RecipeParam();
+            wgd.MTHModels.RecipeParam recipeParam2 = new wgd.MTHModels.RecipeParam();
+            wgd.MTHModels.RecipeParam recipeParam4 = new wgd.MTHModels.RecipeParam();
+            wgd.MTHModels.RecipeParam recipeParam3 = new wgd.MTHModels.RecipeParam();
+            wgd.MTHModels.RecipeParam recipeParam1 = new wgd.MTHModels.RecipeParam();
             this.panelPromax1 = new wgd.MTHControlLib.PanelPromax();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.BtnAdd = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.DgvData = new System.Windows.Forms.DataGridView();
             this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.BtnAdd = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.recipeControl1 = new wgd.MTHControlLib.RecipeControl();
+            this.recipeControl2 = new wgd.MTHControlLib.RecipeControl();
+            this.recipeControl3 = new wgd.MTHControlLib.RecipeControl();
+            this.recipeControl4 = new wgd.MTHControlLib.RecipeControl();
+            this.recipeControl5 = new wgd.MTHControlLib.RecipeControl();
+            this.recipeControl6 = new wgd.MTHControlLib.RecipeControl();
             this.panelPromax1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvData)).BeginInit();
             this.SuspendLayout();
@@ -80,10 +93,113 @@ namespace wgd.MTHProject
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.DgvData);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.recipeControl6);
+            this.splitContainer1.Panel2.Controls.Add(this.recipeControl3);
+            this.splitContainer1.Panel2.Controls.Add(this.recipeControl5);
+            this.splitContainer1.Panel2.Controls.Add(this.recipeControl4);
+            this.splitContainer1.Panel2.Controls.Add(this.recipeControl2);
+            this.splitContainer1.Panel2.Controls.Add(this.recipeControl1);
             this.splitContainer1.Size = new System.Drawing.Size(1394, 724);
             this.splitContainer1.SplitterDistance = 284;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(147, 660);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(90, 36);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "应用配方";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(147, 604);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 36);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "修改配方";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(41, 660);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 36);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "删除配方";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // BtnAdd
+            // 
+            this.BtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAdd.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.BtnAdd.ForeColor = System.Drawing.Color.White;
+            this.BtnAdd.Location = new System.Drawing.Point(41, 604);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(90, 36);
+            this.BtnAdd.TabIndex = 14;
+            this.BtnAdd.Text = "添加配方";
+            this.BtnAdd.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.textBox1.Location = new System.Drawing.Point(141, 548);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(95, 29);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(40, 551);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 23);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "配方管理：";
+            // 
+            // label3
+            // 
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(141, 491);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 36);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "THPR";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(40, 498);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "当前配方：";
             // 
             // DgvData
             // 
@@ -154,99 +270,113 @@ namespace wgd.MTHProject
             this.Start.ReadOnly = true;
             this.Start.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // label1
+            // recipeControl1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(40, 498);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "当前配方：";
+            this.recipeControl1.BackColor = System.Drawing.Color.Transparent;
+            this.recipeControl1.DevName = "1#站点";
+            this.recipeControl1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.recipeControl1.Location = new System.Drawing.Point(19, 9);
+            this.recipeControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.recipeControl1.Name = "recipeControl1";
+            recipeParam6.HumidityAlarmEnable = false;
+            recipeParam6.HumidityHigh = 0F;
+            recipeParam6.HumidityLow = 0F;
+            recipeParam6.TempAlarmEnable = false;
+            recipeParam6.TempHigh = 0F;
+            recipeParam6.TempLow = 0F;
+            this.recipeControl1.RecipeParam = recipeParam6;
+            this.recipeControl1.Size = new System.Drawing.Size(327, 346);
+            this.recipeControl1.TabIndex = 0;
             // 
-            // label2
+            // recipeControl2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(40, 551);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 23);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "配方管理：";
+            this.recipeControl2.BackColor = System.Drawing.Color.Transparent;
+            this.recipeControl2.DevName = "2#站点";
+            this.recipeControl2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.recipeControl2.Location = new System.Drawing.Point(391, 9);
+            this.recipeControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.recipeControl2.Name = "recipeControl2";
+            recipeParam5.HumidityAlarmEnable = false;
+            recipeParam5.HumidityHigh = 0F;
+            recipeParam5.HumidityLow = 0F;
+            recipeParam5.TempAlarmEnable = false;
+            recipeParam5.TempHigh = 0F;
+            recipeParam5.TempLow = 0F;
+            this.recipeControl2.RecipeParam = recipeParam5;
+            this.recipeControl2.Size = new System.Drawing.Size(327, 346);
+            this.recipeControl2.TabIndex = 0;
             // 
-            // label3
+            // recipeControl3
             // 
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(141, 491);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 36);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "THPR";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.recipeControl3.BackColor = System.Drawing.Color.Transparent;
+            this.recipeControl3.DevName = "3#站点";
+            this.recipeControl3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.recipeControl3.Location = new System.Drawing.Point(763, 9);
+            this.recipeControl3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.recipeControl3.Name = "recipeControl3";
+            recipeParam2.HumidityAlarmEnable = false;
+            recipeParam2.HumidityHigh = 0F;
+            recipeParam2.HumidityLow = 0F;
+            recipeParam2.TempAlarmEnable = false;
+            recipeParam2.TempHigh = 0F;
+            recipeParam2.TempLow = 0F;
+            this.recipeControl3.RecipeParam = recipeParam2;
+            this.recipeControl3.Size = new System.Drawing.Size(327, 346);
+            this.recipeControl3.TabIndex = 0;
             // 
-            // textBox1
+            // recipeControl4
             // 
-            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.textBox1.Location = new System.Drawing.Point(141, 548);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(95, 29);
-            this.textBox1.TabIndex = 0;
+            this.recipeControl4.BackColor = System.Drawing.Color.Transparent;
+            this.recipeControl4.DevName = "4#站点";
+            this.recipeControl4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.recipeControl4.Location = new System.Drawing.Point(19, 364);
+            this.recipeControl4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.recipeControl4.Name = "recipeControl4";
+            recipeParam4.HumidityAlarmEnable = false;
+            recipeParam4.HumidityHigh = 0F;
+            recipeParam4.HumidityLow = 0F;
+            recipeParam4.TempAlarmEnable = false;
+            recipeParam4.TempHigh = 0F;
+            recipeParam4.TempLow = 0F;
+            this.recipeControl4.RecipeParam = recipeParam4;
+            this.recipeControl4.Size = new System.Drawing.Size(327, 346);
+            this.recipeControl4.TabIndex = 0;
             // 
-            // BtnAdd
+            // recipeControl5
             // 
-            this.BtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAdd.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.BtnAdd.ForeColor = System.Drawing.Color.White;
-            this.BtnAdd.Location = new System.Drawing.Point(41, 604);
-            this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(90, 36);
-            this.BtnAdd.TabIndex = 14;
-            this.BtnAdd.Text = "添加配方";
-            this.BtnAdd.UseVisualStyleBackColor = false;
+            this.recipeControl5.BackColor = System.Drawing.Color.Transparent;
+            this.recipeControl5.DevName = "5#站点";
+            this.recipeControl5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.recipeControl5.Location = new System.Drawing.Point(391, 364);
+            this.recipeControl5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.recipeControl5.Name = "recipeControl5";
+            recipeParam3.HumidityAlarmEnable = false;
+            recipeParam3.HumidityHigh = 0F;
+            recipeParam3.HumidityLow = 0F;
+            recipeParam3.TempAlarmEnable = false;
+            recipeParam3.TempHigh = 0F;
+            recipeParam3.TempLow = 0F;
+            this.recipeControl5.RecipeParam = recipeParam3;
+            this.recipeControl5.Size = new System.Drawing.Size(327, 346);
+            this.recipeControl5.TabIndex = 0;
             // 
-            // button1
+            // recipeControl6
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(147, 604);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 36);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "修改配方";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(41, 660);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 36);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "删除配方";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(147, 660);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 36);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "应用配方";
-            this.button3.UseVisualStyleBackColor = false;
+            this.recipeControl6.BackColor = System.Drawing.Color.Transparent;
+            this.recipeControl6.DevName = "6#站点";
+            this.recipeControl6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.recipeControl6.Location = new System.Drawing.Point(763, 364);
+            this.recipeControl6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.recipeControl6.Name = "recipeControl6";
+            recipeParam1.HumidityAlarmEnable = false;
+            recipeParam1.HumidityHigh = 0F;
+            recipeParam1.HumidityLow = 0F;
+            recipeParam1.TempAlarmEnable = false;
+            recipeParam1.TempHigh = 0F;
+            recipeParam1.TempLow = 0F;
+            this.recipeControl6.RecipeParam = recipeParam1;
+            this.recipeControl6.Size = new System.Drawing.Size(327, 346);
+            this.recipeControl6.TabIndex = 0;
             // 
             // FormRecipe
             // 
@@ -262,6 +392,7 @@ namespace wgd.MTHProject
             this.panelPromax1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgvData)).EndInit();
@@ -284,5 +415,11 @@ namespace wgd.MTHProject
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button BtnAdd;
+        private MTHControlLib.RecipeControl recipeControl6;
+        private MTHControlLib.RecipeControl recipeControl3;
+        private MTHControlLib.RecipeControl recipeControl5;
+        private MTHControlLib.RecipeControl recipeControl4;
+        private MTHControlLib.RecipeControl recipeControl2;
+        private MTHControlLib.RecipeControl recipeControl1;
     }
 }

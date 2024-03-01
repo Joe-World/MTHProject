@@ -54,7 +54,6 @@ namespace wgd.MTHControlLib
             this.Led.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.Led.Size = new System.Drawing.Size(300, 40);
             this.Led.TabIndex = 0;
-            
             // 
             // LabUnit
             // 
@@ -75,7 +74,6 @@ namespace wgd.MTHControlLib
             this.LabTitle.TabIndex = 1;
             this.LabTitle.Text = "1#站点温度高限";
             this.LabTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            
             // 
             // NumVal
             // 

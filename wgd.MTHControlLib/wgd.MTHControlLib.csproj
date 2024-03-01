@@ -85,6 +85,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RecipeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecipeControl.Designer.cs">
+      <DependentUpon>RecipeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextSetPro.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +121,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecipeControl.resx">
+      <DependentUpon>RecipeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TextSetPro.resx">
       <DependentUpon>TextSetPro.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +139,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\unselected_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wgd.MTHModels\wgd.MTHModels.csproj">
+      <Project>{e0041c81-a17e-4650-8b43-0538aa109baf}</Project>
+      <Name>wgd.MTHModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
