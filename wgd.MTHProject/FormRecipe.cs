@@ -19,7 +19,7 @@ namespace wgd.MTHProject
         public FormRecipe()
         {
             InitializeComponent();
-            
+
             RefreshRecipe();
         }
 
@@ -59,6 +59,20 @@ namespace wgd.MTHProject
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
+            // 非空验证
+            if (this.TextERecipe.Text.Trim().Length == 0)
+            {
+                new FormMsgBoxWithoutAck("配方名称为空,请检查!", "添加配方").Show();
+                return;
+            }
+            var info = recipelnfos.Where(c => c.RecipeName == this.TextERecipe.Text.Trim()).FirstOrDefault();
+            if (info != null)
+            {
+                new FormMsgBoxWithoutAck("当前配方名称已存在,请检查!", "添加配方").Show();
+                return;
+            }
+
+
             var recipelnfo = GetRecipelnfo();
             try
             {
@@ -86,6 +100,15 @@ namespace wgd.MTHProject
                     this.DgvData.Rows.Add();
                     this.DgvData.Rows[i].Cells[0].Value = (i + 1).ToString();
                     this.DgvData.Rows[i].Cells[1].Value = recipelnfos[i].RecipeName;
+
+                    if (this.TextERecipe.Text == recipelnfos[i].RecipeName){
+                        this.DgvData.Rows[i].Selected = true;
+                    }
+                    else
+                    {
+                        this.DgvData.Rows[i].Selected = false;
+                    }
+
                 }
             }
         }
@@ -112,9 +135,115 @@ namespace wgd.MTHProject
             return JsonHelper.JSONToObject<RecipeInfo>(IniHelper.Read("配方", "配方数据", path));
         }
         #endregion
-    }
 
+        private void ModifyBtn_Click(object sender, EventArgs e)
+        {
+            // 非空验证
+            if (this.TextERecipe.Text.Trim().Length == 0)
+            {
+                new FormMsgBoxWithoutAck("配方名称为空,请检查!", "修改配方").Show();
+                return;
+            }
+            var info = recipelnfos.Where(c => c.RecipeName == this.TextERecipe.Text.Trim()).FirstOrDefault();
+            if (info == null)
+            {
+                new FormMsgBoxWithoutAck("当前配方名称不存在,请检查!", "修改配方").Show();
+                return;
+            }
+
+
+            var recipelnfo = GetRecipelnfo();
+            try
+            {
+                AddRecipe(recipelnfo);
+            }
+            catch (Exception exception)
+            {
+                new FormMsgBoxWithoutAck($"配方修改失败:{exception.Message}", "修改配方").Show();
+                return;
+            }
+
+            RefreshRecipe();
+            new FormMsgBoxWithoutAck("配方修改成功!", "修改配方").Show();
+        }
+
+
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            // 非空验证
+            if (this.TextERecipe.Text.Trim().Length == 0)
+            {
+                new FormMsgBoxWithoutAck("配方名称为空,请检查!", "删除配方").Show();
+                return;
+            }
+            var info = recipelnfos.Where(c => c.RecipeName == this.TextERecipe.Text.Trim()).FirstOrDefault();
+            if (info == null)
+            {
+                new FormMsgBoxWithoutAck("当前配方名称不存在,请检查!", "删除配方").Show();
+                return;
+            }
+
+            DialogResult dialogResult = new FormMsgBoxWithAck("是否确定要删除该配方?", "删除配方").ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                bool result = DeleteRecipe(this.TextERecipe.Text.Trim());
+                if (result)
+                {
+                    RefreshRecipe();
+                    new FormMsgBoxWithoutAck("配方删除成功!", "删除配方").Show();
+                }
+                else
+                {
+
+                    new FormMsgBoxWithoutAck("配方删除失败!", "删除配方").Show();
+                }
+            }
+        }
+
+        #region 删除配方
+        private bool DeleteRecipe(string recipeName)
+        {
+            try
+            {
+                File.Delete(basePath + "\\" + recipeName + ".ini");
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+        #endregion
+
+
+        #region 显示当前配方
+        private void SetRecipelnfo(RecipeInfo recipelnfo)
+        {
+            this.TextERecipe.Text = recipelnfo.RecipeName;
+            if (recipelnfo.RecipeParams.Count == 6)
+            {
+                this.recipeControl1.RecipeParam = recipelnfo.RecipeParams[0];
+                this.recipeControl2.RecipeParam = recipelnfo.RecipeParams[1];
+                this.recipeControl3.RecipeParam = recipelnfo.RecipeParams[2];
+                this.recipeControl4.RecipeParam = recipelnfo.RecipeParams[3];
+                this.recipeControl5.RecipeParam = recipelnfo.RecipeParams[4];
+                this.recipeControl6.RecipeParam = recipelnfo.RecipeParams[5];
+            }
+        }
+        #endregion
+
+        private void DgvData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var recipelnfo = recipelnfos[e.RowIndex];
+                SetRecipelnfo(recipelnfo);
+            }
+        }
+    }
 }
+
 
 
 
