@@ -47,8 +47,8 @@ namespace wgd.Utils
         /// <returns>值（字符串）</returns>
         public static string Read(string Section, string Key, string path)
         {
-            StringBuilder temp = new StringBuilder(255);
-            int i = GetPrivateProfileString(Section, Key, "", temp, 255, path);
+            StringBuilder temp = new StringBuilder(2550);
+            int i = GetPrivateProfileString(Section, Key, "", temp, 2550, path);
             return temp.ToString();
         }
         #endregion
