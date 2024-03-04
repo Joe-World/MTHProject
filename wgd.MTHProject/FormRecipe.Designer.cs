@@ -40,7 +40,7 @@ namespace wgd.MTHProject
             wgd.MTHModels.RecipeParam recipeParam6 = new wgd.MTHModels.RecipeParam();
             this.panelPromax1 = new wgd.MTHControlLib.PanelPromax();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ApplyBtn = new System.Windows.Forms.Button();
             this.ModifyBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.BtnAdd = new System.Windows.Forms.Button();
@@ -84,7 +84,7 @@ namespace wgd.MTHProject
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.button3);
+            this.splitContainer1.Panel1.Controls.Add(this.ApplyBtn);
             this.splitContainer1.Panel1.Controls.Add(this.ModifyBtn);
             this.splitContainer1.Panel1.Controls.Add(this.DeleteBtn);
             this.splitContainer1.Panel1.Controls.Add(this.BtnAdd);
@@ -107,18 +107,19 @@ namespace wgd.MTHProject
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 0;
             // 
-            // button3
+            // ApplyBtn
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("微软雅黑", 12.5F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(147, 660);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 36);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "应用配方";
-            this.button3.UseVisualStyleBackColor = false;
+            this.ApplyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.ApplyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ApplyBtn.Font = new System.Drawing.Font("微软雅黑", 12.5F);
+            this.ApplyBtn.ForeColor = System.Drawing.Color.White;
+            this.ApplyBtn.Location = new System.Drawing.Point(147, 660);
+            this.ApplyBtn.Name = "ApplyBtn";
+            this.ApplyBtn.Size = new System.Drawing.Size(90, 36);
+            this.ApplyBtn.TabIndex = 14;
+            this.ApplyBtn.Text = "应用配方";
+            this.ApplyBtn.UseVisualStyleBackColor = false;
+            this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
             // 
             // ModifyBtn
             // 
@@ -414,7 +415,7 @@ namespace wgd.MTHProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Start;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ApplyBtn;
         private System.Windows.Forms.Button ModifyBtn;
         private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Button BtnAdd;

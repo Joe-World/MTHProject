@@ -9,7 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using thinger.DataConvertLib;
 using wgd.MTHModels;
+using wgd.MTHProject.common;
 using wgd.Utils;
 
 namespace wgd.MTHProject
@@ -101,7 +103,8 @@ namespace wgd.MTHProject
                     this.DgvData.Rows[i].Cells[0].Value = (i + 1).ToString();
                     this.DgvData.Rows[i].Cells[1].Value = recipelnfos[i].RecipeName;
 
-                    if (this.TextERecipe.Text == recipelnfos[i].RecipeName){
+                    if (this.TextERecipe.Text == recipelnfos[i].RecipeName)
+                    {
                         this.DgvData.Rows[i].Selected = true;
                     }
                     else
@@ -241,6 +244,65 @@ namespace wgd.MTHProject
                 SetRecipelnfo(recipelnfo);
             }
         }
+
+        private void ApplyBtn_Click(object sender, EventArgs e)
+        {
+            // 非空验证
+            if (this.TextERecipe.Text.Trim().Length == 0)
+            {
+                new FormMsgBoxWithoutAck("配方名称为空,请检查!", "应用配方").Show();
+                return;
+            }
+            var info = recipelnfos.Where(c => c.RecipeName == this.TextERecipe.Text.Trim()).FirstOrDefault();
+            if (info == null)
+            {
+                new FormMsgBoxWithoutAck("当前配方名称不存在,无法应用!", "应用配方").Show();
+                return;
+            }
+            if
+            (!GlobalProperties.Device.IsConnected)
+            {
+                new FormMsgBoxWithoutAck("请检查设备是否连接正常!", "应用配方").Show();
+                return;
+            }
+
+            if (info.RecipeParams.Count == 6)
+            {
+                List<short> values = new List<short>();
+                // 添加温度和湿度的高低限
+                for (int i = 0; i < 6; i++)
+                {
+                    values.Add(Convert.ToInt16(info.RecipeParams[i].TempHigh * 10));
+                    values.Add(Convert.ToInt16(info.RecipeParams[i].TempLow * 10));
+                    values.Add(Convert.ToInt16(info.RecipeParams[i].HumidityHigh * 10));
+                    values.Add(Convert.ToInt16(info.RecipeParams[i].HumidityLow * 10));
+                }
+
+                // 继续添加报警启用
+                for (int i = 0; i < 6; i++)
+                {
+                    values.Add(info.RecipeParams[i].TempAlarmEnable ? (short)1 : (short)0);
+                    values.Add(info.RecipeParams[i].HumidityAlarmEnable ? (short)1 : (short)0);
+                }
+
+                bool result = GlobalProperties.Modbus.PreSetMultiRegister(42, ByteArrayLib.GetByteArrayFromShortArray(values.ToArray(), GlobalProperties.dataFormat));
+                if (result)
+                {
+                    new FormMsgBoxWithoutAck("配方数据写入成功!", "应用配方").Show();
+                }
+                else
+                {
+                    new FormMsgBoxWithoutAck("配方数据写入失败,请检查!", "应用配方").Show();
+                }
+
+            }
+            else
+            {
+                new FormMsgBoxWithoutAck("配方数据不完整,请检查!", "应用配方").Show();
+            }
+        }
+
+
     }
 }
 
