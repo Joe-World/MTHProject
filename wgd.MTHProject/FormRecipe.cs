@@ -18,13 +18,21 @@ namespace wgd.MTHProject
 {
     public partial class FormRecipe : Form
     {
-        public FormRecipe()
+        public FormRecipe(string devicePath)
         {
             InitializeComponent();
+            this.DevPath = devicePath;
+            string currentRecipe = GlobalProperties.Device.CurrentRecipe;
+            this.LabRecipeName.Text = currentRecipe;
+            this.TextERecipe.Text = currentRecipe;
 
             RefreshRecipe();
+
+            
+           
         }
 
+        private string DevPath = String.Empty;
         private string basePath = Application.StartupPath + "\\Recipe";
         private List<RecipeInfo> recipelnfos = new List<RecipeInfo>();
 
@@ -288,6 +296,11 @@ namespace wgd.MTHProject
                 bool result = GlobalProperties.Modbus.PreSetMultiRegister(42, ByteArrayLib.GetByteArrayFromShortArray(values.ToArray(), GlobalProperties.dataFormat));
                 if (result)
                 {
+                    string recipeName = this.TextERecipe.Text.Trim();
+                    IniHelper.Write("配方参数", "当前配方", recipeName, DevPath);
+                    GlobalProperties.Device.CurrentRecipe = recipeName;
+                    this.LabRecipeName.Text = recipeName;
+
                     new FormMsgBoxWithoutAck("配方数据写入成功!", "应用配方").Show();
                 }
                 else

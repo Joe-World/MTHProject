@@ -19,6 +19,11 @@ namespace wgd.MTHModels
         public int Port { get; set; }
 
         /// <summary>
+        /// 当前配方
+        /// </summary>
+        public string CurrentRecipe { get; set; }
+
+        /// <summary>
         /// 通信类集合
         /// </summary>
         public List<Group> GroupList { get; set; }

@@ -354,7 +354,7 @@ namespace wgd.MTHProject
                         GlobalProperties.AddLog = ((FormMonitor)frm).AddLog;
                         break;
                     case FormNames.配方管理:
-                        frm = new FormRecipe();
+                        frm = new FormRecipe(DevicePath);
                         break;
                     case FormNames.报警追溯:
                         frm = new FormAlarm();
@@ -524,6 +524,7 @@ namespace wgd.MTHProject
                     {
                         IPAddress = IniHelper.ReadDefult("设备参数", "IP地址", "", devicePath),
                         Port = Convert.ToInt32(IniHelper.ReadDefult("设备参数", "端口号", "502", devicePath)),
+                        CurrentRecipe = IniHelper.ReadDefult("配方参数", "当前配方", "", devicePath),
                         GroupList = GpList,
                     };
                 }
