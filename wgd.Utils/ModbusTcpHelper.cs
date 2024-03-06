@@ -277,7 +277,7 @@ namespace ModbusTCPLib
         }
 
         #endregion
-        #region 预制多寄存器
+        #region 10H预制多寄存器
         public bool PreSetMultiRegister(ushort start, byte[] values)
         {
             if (values == null || values.Length == 0 || values.Length % 2 == 1)
@@ -292,12 +292,14 @@ namespace ModbusTCPLib
             //寄存器数量
             SendCommand.Add((short)(values.Length / 2));
             //字节计算
-            SendCommand.Add((short)(values.Length));
+            SendCommand.Add((byte)(values.Length));
+            //字节数据
+            SendCommand.Add(values);
             byte[] receive = null;
 
             if (SendAndReceive(SendCommand.Array, ref receive))
             {
-                byte[] send = new byte[1024];
+                byte[] send = new byte[12];
                 Array.Copy(SendCommand.Array, 0, send, 0, 12);
                 send[4] = 0x00;
                 send[5] = 0x06;
