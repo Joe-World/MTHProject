@@ -228,6 +228,10 @@
     <None Include="bin\Debug\images\drawio %286%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\wgd.MTHBLL\wgd.MTHBLL.csproj">
+      <Project>{86b88e72-d3af-4638-9f43-40757d971697}</Project>
+      <Name>wgd.MTHBLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wgd.MTHControlLib\wgd.MTHControlLib.csproj">
       <Project>{d2133cc0-6894-47ab-88db-3ad6ceb600db}</Project>
       <Name>wgd.MTHControlLib</Name>

@@ -14,6 +14,8 @@ namespace wgd.MTHProject.common
 
         public static Action<int, string> AddLog;
 
+        public static SysAdmin CurrentAdmin;
+
         public static ModbusTCP Modbus { get; set; }
         ///<summary>
         ///确定大小端

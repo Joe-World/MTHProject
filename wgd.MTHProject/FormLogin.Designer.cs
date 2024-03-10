@@ -65,6 +65,7 @@ namespace wgd.MTHProject
             this.TextPwd.Size = new System.Drawing.Size(192, 28);
             this.TextPwd.TabIndex = 1;
             this.TextPwd.Text = "******";
+            this.TextPwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextPwd_KeyDown);
             // 
             // BtnLogin
             // 
@@ -78,6 +79,7 @@ namespace wgd.MTHProject
             this.BtnLogin.TabIndex = 2;
             this.BtnLogin.Text = "登录";
             this.BtnLogin.UseVisualStyleBackColor = false;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // button2
             // 
@@ -94,6 +96,7 @@ namespace wgd.MTHProject
             this.button2.TabIndex = 9;
             this.button2.Text = "X";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormLogin
             // 
@@ -112,7 +115,11 @@ namespace wgd.MTHProject
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "`";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 

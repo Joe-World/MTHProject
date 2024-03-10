@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E0041C81-A17E-4650-8B43-0538AA109BAF}</ProjectGuid>
+    <ProjectGuid>{86B88E72-D3AF-4638-9F43-40757D971697}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>wgd.MTHModels</RootNamespace>
-    <AssemblyName>wgd.MTHModels</AssemblyName>
+    <RootNamespace>wgd.MTHBLL</RootNamespace>
+    <AssemblyName>wgd.MTHBLL</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MiniExcel">
-      <HintPath>..\wgd.MTHProject\bin\Debug\MiniExcel.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,15 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="config\Device.cs" />
-    <Compile Include="config\Group.cs" />
-    <Compile Include="config\Variable.cs" />
-    <Compile Include="EventArgPro.cs" />
-    <Compile Include="FormNames.cs" />
+    <Compile Include="SysAmdinManage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecipeInfo.cs" />
-    <Compile Include="RecipeParam.cs" />
-    <Compile Include="SysAdmin.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wgd.MTHDAL\wgd.MTHDAL.csproj">
+      <Project>{16190afd-e811-4f5f-8578-be7f10e03d59}</Project>
+      <Name>wgd.MTHDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\wgd.MTHModels\wgd.MTHModels.csproj">
+      <Project>{e0041c81-a17e-4650-8b43-0538aa109baf}</Project>
+      <Name>wgd.MTHModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,7 +16,16 @@ namespace wgd.MTHProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            FormLogin frmLogin = new FormLogin();
+            frmLogin.TopMost = true;
+            if (frmLogin.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new FormMain());
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }
