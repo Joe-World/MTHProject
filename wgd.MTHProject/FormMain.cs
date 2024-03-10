@@ -273,14 +273,14 @@ namespace wgd.MTHProject
                 GlobalProperties.AddLog(1, variable.Remark + "触发");
 
                 // 持久化
-                /*sysLogManage.AddSysLog(new SysLog()
+                sysLogManage.AddSysLog(new SysLog()
                 {
                     InsertTime = CurrentTime,
                     Note = variable.Remark,
                     AlarmType = "触发",
                     Operator = GlobalProperties.CurrentAdmin.LoginName,
                     VarName = variable.VarName
-                });*/
+                });
 
 
                 if (!this.actualAlarmList.Contains(variable.Remark))
@@ -293,14 +293,14 @@ namespace wgd.MTHProject
                 GlobalProperties.AddLog(0, variable.Remark + "消除");
 
                 // 持久化
-                /*sysLogManage.AddSysLog(new SysLog()
+                sysLogManage.AddSysLog(new SysLog()
                 {
                     InsertTime = CurrentTime,
                     Note = variable.Remark,
                     AlarmType = "消除",
                     Operator = GlobalProperties.CurrentAdmin.LoginName,
                     VarName = variable.VarName
-                });*/
+                });
 
                 if (this.actualAlarmList.Contains(variable.Remark))
                 {

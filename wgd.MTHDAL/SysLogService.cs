@@ -19,7 +19,7 @@ namespace wgd.MTHDAL
         public int AddSysLog(SysLog sysLog)
         {
             string sql = "Insert into SysLog(InsertTime,Note,Operator,VarName,AlarmType) ";
-            sql += "values(@InsertTime,@Note,@Operator,@VariName,@AlarmType)";
+            sql += "values(@InsertTime,@Note,@Operator,@VarName,@AlarmType)";
             SqlParameter[] sqlParameters = new SqlParameter[] {
                 new SqlParameter("@InsertTime", sysLog.InsertTime),
                 new SqlParameter("@Note", sysLog.Note),
