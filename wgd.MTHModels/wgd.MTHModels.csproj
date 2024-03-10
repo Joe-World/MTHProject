@@ -53,6 +53,7 @@
     <Compile Include="RecipeInfo.cs" />
     <Compile Include="RecipeParam.cs" />
     <Compile Include="SysAdmin.cs" />
+    <Compile Include="SysLog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using thinger.DataConvertLib;
+using wgd.MTHBLL;
 using wgd.MTHControlLib;
 using wgd.MTHModels;
 using wgd.MTHProject.common;
@@ -32,7 +33,7 @@ namespace wgd.MTHProject
             this.Load += FormMain_Load;
         }
 
-        
+
 
         #region 属性
         /// <summary>
@@ -45,6 +46,15 @@ namespace wgd.MTHProject
         private CancellationTokenSource cancelToken;
         /*private DataFormat dataFormat = DataFormat.ABCD;*/
         private ObservableCollection<string> actualAlarmList = new ObservableCollection<string>();
+        private string CurrentTime
+        {
+            get
+            {
+                return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            }
+        }
+
+        private SysLogManage sysLogManage = new SysLogManage();
         #endregion
 
         #region modbusTcp通信
@@ -236,7 +246,7 @@ namespace wgd.MTHProject
             {
                 GlobalProperties.AddLog(0, "登陆窗体");
 
-                
+
 
                 //开启多线程实时通信
                 cancelToken = new CancellationTokenSource();
@@ -256,12 +266,22 @@ namespace wgd.MTHProject
         // </summary>
         // <param name="ackType"></param>
         // <param name="variable"></param>
-
         private void Device_AlarmTrigEvent(bool ackType, Variable variable)
         {
             if (ackType)
             {
                 GlobalProperties.AddLog(1, variable.Remark + "触发");
+
+                // 持久化
+                /*sysLogManage.AddSysLog(new SysLog()
+                {
+                    InsertTime = CurrentTime,
+                    Note = variable.Remark,
+                    AlarmType = "触发",
+                    Operator = GlobalProperties.CurrentAdmin.LoginName,
+                    VarName = variable.VarName
+                });*/
+
 
                 if (!this.actualAlarmList.Contains(variable.Remark))
                 {
@@ -271,6 +291,16 @@ namespace wgd.MTHProject
             else
             {
                 GlobalProperties.AddLog(0, variable.Remark + "消除");
+
+                // 持久化
+                /*sysLogManage.AddSysLog(new SysLog()
+                {
+                    InsertTime = CurrentTime,
+                    Note = variable.Remark,
+                    AlarmType = "消除",
+                    Operator = GlobalProperties.CurrentAdmin.LoginName,
+                    VarName = variable.VarName
+                });*/
 
                 if (this.actualAlarmList.Contains(variable.Remark))
                 {
@@ -282,16 +312,18 @@ namespace wgd.MTHProject
 
         private void ActualAlarmList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            this.Invoke(new Action(() =>{
-            // 根据集合的数量进行处理
-                switch (actualAlarmList.Count) {
-                case 0:
-                    this.ScrollAlarm.Text = "当前系统无报警";
-                    break;
-                default:
-                    this.ScrollAlarm.Text = string.Join("  ", actualAlarmList);
-                    break;
-                }       
+            this.Invoke(new Action(() =>
+            {
+                // 根据集合的数量进行处理
+                switch (actualAlarmList.Count)
+                {
+                    case 0:
+                        this.ScrollAlarm.Text = "当前系统无报警";
+                        break;
+                    default:
+                        this.ScrollAlarm.Text = string.Join("  ", actualAlarmList);
+                        break;
+                }
             }));
 
         }
