@@ -54,7 +54,7 @@ namespace wgd.MTHProject
             this.TextAdmin.Location = new System.Drawing.Point(129, 129);
             this.TextAdmin.Name = "TextAdmin";
             this.TextAdmin.Size = new System.Drawing.Size(192, 28);
-            this.TextAdmin.TabIndex = 1;
+            this.TextAdmin.TabIndex = 0;
             this.TextAdmin.Text = "Admin";
             // 
             // TextPwd
@@ -62,9 +62,9 @@ namespace wgd.MTHProject
             this.TextPwd.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             this.TextPwd.Location = new System.Drawing.Point(129, 170);
             this.TextPwd.Name = "TextPwd";
+            this.TextPwd.PasswordChar = '*';
             this.TextPwd.Size = new System.Drawing.Size(192, 28);
             this.TextPwd.TabIndex = 1;
-            this.TextPwd.Text = "******";
             this.TextPwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextPwd_KeyDown);
             // 
             // BtnLogin
