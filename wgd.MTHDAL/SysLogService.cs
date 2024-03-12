@@ -39,14 +39,14 @@ namespace wgd.MTHDAL
         /// <returns></returns>
         public DataTable QuerySysLogByCondition(string start, string end, string alarmType)
         {
-            string sql = "Select InsertTime,Note,Operator,VarNlame, AlarmType from SysLog where InsertTime between @Start and @End";
+            string sql = "Select InsertTime,Note,Operator,VarName, AlarmType from SysLog where InsertTime between @Start and @End";
             List<SqlParameter> sqlParameters = new List<SqlParameter> {
                 new SqlParameter("@Start", start),
                 new SqlParameter("@End", end)
             };
             if (alarmType.Length > 0)
             {
-                sql += "and AlarmType=@AlarmType";
+                sql += " and AlarmType=@AlarmType";
                 sqlParameters.Add(new SqlParameter("@AlarmType", alarmType));
             }
             DataSet dataSet = SQLHelper.GetDataSet(sql, sqlParameters.ToArray());

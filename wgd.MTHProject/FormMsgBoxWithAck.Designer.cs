@@ -52,6 +52,8 @@ namespace wgd.MTHProject
             // 
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
             this.BtnClose.FlatAppearance.BorderSize = 0;
+            this.BtnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnClose.Font = new System.Drawing.Font("微软雅黑", 16F, System.Drawing.FontStyle.Bold);
             this.BtnClose.ForeColor = System.Drawing.Color.White;

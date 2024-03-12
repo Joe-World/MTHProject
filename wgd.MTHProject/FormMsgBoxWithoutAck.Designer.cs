@@ -51,6 +51,8 @@ namespace wgd.MTHProject
             // 
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
             this.BtnClose.FlatAppearance.BorderSize = 0;
+            this.BtnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnClose.Font = new System.Drawing.Font("微软雅黑", 16F, System.Drawing.FontStyle.Bold);
             this.BtnClose.ForeColor = System.Drawing.Color.White;
@@ -77,6 +79,8 @@ namespace wgd.MTHProject
             // BtnSure
             // 
             this.BtnSure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(78)))));
+            this.BtnSure.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(100)))));
+            this.BtnSure.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(100)))));
             this.BtnSure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSure.Font = new System.Drawing.Font("微软雅黑", 12.5F);
             this.BtnSure.ForeColor = System.Drawing.Color.White;

@@ -27,9 +27,6 @@ namespace wgd.MTHProject
             this.TextERecipe.Text = currentRecipe;
 
             RefreshRecipe();
-
-            
-           
         }
 
         private string DevPath = String.Empty;
@@ -114,6 +111,7 @@ namespace wgd.MTHProject
                     if (this.TextERecipe.Text == recipelnfos[i].RecipeName)
                     {
                         this.DgvData.Rows[i].Selected = true;
+                        SetRecipelnfo(recipelnfos[i]);
                     }
                     else
                     {
