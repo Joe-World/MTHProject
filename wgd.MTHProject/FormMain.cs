@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using thinger.DataConvertLib;
 using wgd.MTHBLL;
@@ -30,16 +31,68 @@ namespace wgd.MTHProject
 
             actualAlarmList.CollectionChanged += ActualAlarmList_CollectionChanged;
 
+            Timer.Interval = 1000;
+            Timer.AutoReset = true;
+            Timer.Elapsed += Timer_Elapsed;
+            Timer.Start();
+
+
             this.Load += FormMain_Load;
+            this.FormClosed += FormMain_FormClosed;
+        }
+
+        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Timer.Stop();
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            if (GlobalProperties.Device.IsConnected) {
+                // 判断
+                bool result = GlobalProperties.Device["模块1温度"] != null;
+                result &= GlobalProperties.Device["模块1湿度"] != null;
+                result &= GlobalProperties.Device["模块2温度"] != null;
+                result &= GlobalProperties.Device["模块2湿度"] != null;
+                result &= GlobalProperties.Device["模块3温度"] != null;
+                result &= GlobalProperties.Device["模块3湿度"] != null;
+                result &= GlobalProperties.Device["模块4温度"] != null;
+                result &= GlobalProperties.Device["模块4湿度"] != null;
+                result &= GlobalProperties.Device["模块5湿度"] != null;
+                result &= GlobalProperties.Device["模块5温度"] != null;
+                result &= GlobalProperties.Device["模块6湿度"] != null;
+                result &= GlobalProperties.Device["模块6温度"] != null;
+
+                if (result)
+                {
+                    ActualDataManage.AddActualData(new ActualData()
+                    {
+                        InsertTime = CurrentTime,
+                        Station1Temp = GlobalProperties.Device["模块1温度"].ToString(),
+                        Station1Humidity = GlobalProperties.Device["模块1湿度"].ToString(),
+                        Station2Temp = GlobalProperties.Device["模块2温度"].ToString(),
+                        Station2Humidity = GlobalProperties.Device["模块2湿度"].ToString(),
+                        Station3Temp = GlobalProperties.Device["模块3温度"].ToString(),
+                        Station3Humidity = GlobalProperties.Device["模块3湿度"].ToString(),
+                        Station4Temp = GlobalProperties.Device["模块4温度"].ToString(),
+                        Station4Humidity = GlobalProperties.Device["模块4湿度"].ToString(),
+                        Station5Temp = GlobalProperties.Device["模块5温度"].ToString(),
+                        Station5Humidity = GlobalProperties.Device["模块5湿度"].ToString(),
+                        Station6Temp = GlobalProperties.Device["模块6温度"].ToString(),
+                        Station6Humidity = GlobalProperties.Device["模块6湿度"].ToString(),
+                    }); ;
+                }
+            }
+            
         }
 
 
 
-        #region 属性
-        /// <summary>
-        /// 配置文件路径
-        /// </summary>
-        private string DevicePath = Application.StartupPath + "\\Config\\Device.int";
+    #region 属性
+    /// <summary>
+    /// 配置文件路径
+    /// </summary>
+    private string DevicePath = Application.StartupPath + "\\Config\\Device.int";
         private string GroupPath = Application.StartupPath + "\\Config\\Group.xlsx";
         private string VariablePath = Application.StartupPath + "\\Config\\Var.xlsx";
         // 用于生成 CancellationToken 的类 === 通常用于取消正在进行的异步操作
@@ -55,6 +108,8 @@ namespace wgd.MTHProject
         }
 
         private SysLogManage sysLogManage = new SysLogManage();
+        private ActualDataManage ActualDataManage = new ActualDataManage();
+        private System.Timers.Timer Timer = new System.Timers.Timer();
         #endregion
 
         #region modbusTcp通信

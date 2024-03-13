@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActualData.cs" />
     <Compile Include="config\Device.cs" />
     <Compile Include="config\Group.cs" />
     <Compile Include="config\Variable.cs" />
