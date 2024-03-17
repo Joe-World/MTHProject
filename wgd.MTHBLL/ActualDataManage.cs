@@ -19,7 +19,7 @@ namespace wgd.MTHBLL
         }
 
         public DataTable QueryActualDataByCondition(string start, string end, List<string> columns)
-            {
+        {
             return actualDataServicee.QueryActualDataByCondition(start, end, columns);
         }
 

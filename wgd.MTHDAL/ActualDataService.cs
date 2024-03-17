@@ -47,7 +47,7 @@ namespace wgd.MTHDAL
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append("Select InsertTime,");
             stringBuilder.Append(string.Join(",", columns));
-            stringBuilder.Append(" from ActualData where InsertTiime between @Start and @End");
+            stringBuilder.Append(" from ActualData where InsertTime between @Start and @End");
             SqlParameter[] sqlParameters = new SqlParameter[] {
                 new SqlParameter("@Start", start),
                 new SqlParameter("@End", end),
