@@ -29,17 +29,17 @@ namespace wgd.MTHProject
         /// </summary>
         private void InitializeComponent()
         {
-            SeeSharpTools.JY.GUI.StripChartXSeries stripChartXSeries2 = new SeeSharpTools.JY.GUI.StripChartXSeries();
-            this.checkBoxPro9 = new wgd.MTHControlLib.CheckBoxPro();
-            this.checkBoxPro10 = new wgd.MTHControlLib.CheckBoxPro();
-            this.checkBoxPro11 = new wgd.MTHControlLib.CheckBoxPro();
+            SeeSharpTools.JY.GUI.StripChartXSeries stripChartXSeries1 = new SeeSharpTools.JY.GUI.StripChartXSeries();
             this.checkBoxPro12 = new wgd.MTHControlLib.CheckBoxPro();
-            this.checkBoxPro5 = new wgd.MTHControlLib.CheckBoxPro();
-            this.checkBoxPro6 = new wgd.MTHControlLib.CheckBoxPro();
-            this.checkBoxPro7 = new wgd.MTHControlLib.CheckBoxPro();
-            this.CheckT1 = new wgd.MTHControlLib.CheckBoxPro();
+            this.checkBoxPro11 = new wgd.MTHControlLib.CheckBoxPro();
+            this.checkBoxPro10 = new wgd.MTHControlLib.CheckBoxPro();
+            this.checkBoxPro9 = new wgd.MTHControlLib.CheckBoxPro();
             this.checkBoxPro8 = new wgd.MTHControlLib.CheckBoxPro();
-            this.CheckH1 = new wgd.MTHControlLib.CheckBoxPro();
+            this.checkBoxPro7 = new wgd.MTHControlLib.CheckBoxPro();
+            this.checkBoxPro6 = new wgd.MTHControlLib.CheckBoxPro();
+            this.checkBoxPro1 = new wgd.MTHControlLib.CheckBoxPro();
+            this.checkBoxPro5 = new wgd.MTHControlLib.CheckBoxPro();
+            this.checkBoxPro2 = new wgd.MTHControlLib.CheckBoxPro();
             this.checkBoxPro4 = new wgd.MTHControlLib.CheckBoxPro();
             this.checkBoxPro3 = new wgd.MTHControlLib.CheckBoxPro();
             this.BtnQuery = new System.Windows.Forms.Button();
@@ -52,55 +52,8 @@ namespace wgd.MTHProject
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnExport = new System.Windows.Forms.Button();
             this.PanelParam = new System.Windows.Forms.Panel();
+            this.PanelParam.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // checkBoxPro9
-            // 
-            this.checkBoxPro9.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxPro9.BoxBackColor = System.Drawing.Color.White;
-            this.checkBoxPro9.CheckBoxWidth = 20;
-            this.checkBoxPro9.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            this.checkBoxPro9.ForeColor = System.Drawing.Color.White;
-            this.checkBoxPro9.Location = new System.Drawing.Point(521, 102);
-            this.checkBoxPro9.Name = "checkBoxPro9";
-            this.checkBoxPro9.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
-            this.checkBoxPro9.Size = new System.Drawing.Size(127, 33);
-            this.checkBoxPro9.TabIndex = 33;
-            this.checkBoxPro9.Tag = "Station6Humidity";
-            this.checkBoxPro9.Text = "6#站点湿度";
-            this.checkBoxPro9.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxPro10
-            // 
-            this.checkBoxPro10.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxPro10.BoxBackColor = System.Drawing.Color.White;
-            this.checkBoxPro10.CheckBoxWidth = 20;
-            this.checkBoxPro10.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            this.checkBoxPro10.ForeColor = System.Drawing.Color.White;
-            this.checkBoxPro10.Location = new System.Drawing.Point(359, 102);
-            this.checkBoxPro10.Name = "checkBoxPro10";
-            this.checkBoxPro10.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
-            this.checkBoxPro10.Size = new System.Drawing.Size(127, 33);
-            this.checkBoxPro10.TabIndex = 32;
-            this.checkBoxPro10.Tag = "Station6Temp";
-            this.checkBoxPro10.Text = "6#站点温度";
-            this.checkBoxPro10.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxPro11
-            // 
-            this.checkBoxPro11.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxPro11.BoxBackColor = System.Drawing.Color.White;
-            this.checkBoxPro11.CheckBoxWidth = 20;
-            this.checkBoxPro11.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            this.checkBoxPro11.ForeColor = System.Drawing.Color.White;
-            this.checkBoxPro11.Location = new System.Drawing.Point(197, 102);
-            this.checkBoxPro11.Name = "checkBoxPro11";
-            this.checkBoxPro11.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
-            this.checkBoxPro11.Size = new System.Drawing.Size(127, 33);
-            this.checkBoxPro11.TabIndex = 31;
-            this.checkBoxPro11.Tag = "Station5Humidity";
-            this.checkBoxPro11.Text = "5#站点湿度";
-            this.checkBoxPro11.UseVisualStyleBackColor = false;
             // 
             // checkBoxPro12
             // 
@@ -109,80 +62,62 @@ namespace wgd.MTHProject
             this.checkBoxPro12.CheckBoxWidth = 20;
             this.checkBoxPro12.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             this.checkBoxPro12.ForeColor = System.Drawing.Color.White;
-            this.checkBoxPro12.Location = new System.Drawing.Point(35, 102);
+            this.checkBoxPro12.Location = new System.Drawing.Point(521, 102);
             this.checkBoxPro12.Name = "checkBoxPro12";
             this.checkBoxPro12.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
             this.checkBoxPro12.Size = new System.Drawing.Size(127, 33);
-            this.checkBoxPro12.TabIndex = 30;
-            this.checkBoxPro12.Tag = "Station5Temp";
-            this.checkBoxPro12.Text = "5#站点温度";
+            this.checkBoxPro12.TabIndex = 33;
+            this.checkBoxPro12.Tag = "Station6Humidity";
+            this.checkBoxPro12.Text = "6#站点湿度";
             this.checkBoxPro12.UseVisualStyleBackColor = false;
             // 
-            // checkBoxPro5
+            // checkBoxPro11
             // 
-            this.checkBoxPro5.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxPro5.BoxBackColor = System.Drawing.Color.White;
-            this.checkBoxPro5.CheckBoxWidth = 20;
-            this.checkBoxPro5.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            this.checkBoxPro5.ForeColor = System.Drawing.Color.White;
-            this.checkBoxPro5.Location = new System.Drawing.Point(521, 63);
-            this.checkBoxPro5.Name = "checkBoxPro5";
-            this.checkBoxPro5.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
-            this.checkBoxPro5.Size = new System.Drawing.Size(127, 33);
-            this.checkBoxPro5.TabIndex = 29;
-            this.checkBoxPro5.Tag = "Station4Humidity";
-            this.checkBoxPro5.Text = "4#站点湿度";
-            this.checkBoxPro5.UseVisualStyleBackColor = false;
+            this.checkBoxPro11.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxPro11.BoxBackColor = System.Drawing.Color.White;
+            this.checkBoxPro11.CheckBoxWidth = 20;
+            this.checkBoxPro11.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            this.checkBoxPro11.ForeColor = System.Drawing.Color.White;
+            this.checkBoxPro11.Location = new System.Drawing.Point(359, 102);
+            this.checkBoxPro11.Name = "checkBoxPro11";
+            this.checkBoxPro11.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
+            this.checkBoxPro11.Size = new System.Drawing.Size(127, 33);
+            this.checkBoxPro11.TabIndex = 32;
+            this.checkBoxPro11.Tag = "Station6Temp";
+            this.checkBoxPro11.Text = "6#站点温度";
+            this.checkBoxPro11.UseVisualStyleBackColor = false;
             // 
-            // checkBoxPro6
+            // checkBoxPro10
             // 
-            this.checkBoxPro6.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxPro6.BoxBackColor = System.Drawing.Color.White;
-            this.checkBoxPro6.CheckBoxWidth = 20;
-            this.checkBoxPro6.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            this.checkBoxPro6.ForeColor = System.Drawing.Color.White;
-            this.checkBoxPro6.Location = new System.Drawing.Point(359, 63);
-            this.checkBoxPro6.Name = "checkBoxPro6";
-            this.checkBoxPro6.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
-            this.checkBoxPro6.Size = new System.Drawing.Size(127, 33);
-            this.checkBoxPro6.TabIndex = 28;
-            this.checkBoxPro6.Tag = "Station4Temp";
-            this.checkBoxPro6.Text = "4#站点温度";
-            this.checkBoxPro6.UseVisualStyleBackColor = false;
+            this.checkBoxPro10.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxPro10.BoxBackColor = System.Drawing.Color.White;
+            this.checkBoxPro10.CheckBoxWidth = 20;
+            this.checkBoxPro10.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            this.checkBoxPro10.ForeColor = System.Drawing.Color.White;
+            this.checkBoxPro10.Location = new System.Drawing.Point(197, 102);
+            this.checkBoxPro10.Name = "checkBoxPro10";
+            this.checkBoxPro10.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
+            this.checkBoxPro10.Size = new System.Drawing.Size(127, 33);
+            this.checkBoxPro10.TabIndex = 31;
+            this.checkBoxPro10.Tag = "Station5Humidity";
+            this.checkBoxPro10.Text = "5#站点湿度";
+            this.checkBoxPro10.UseVisualStyleBackColor = false;
             // 
-            // checkBoxPro7
+            // checkBoxPro9
             // 
-            this.checkBoxPro7.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxPro7.BoxBackColor = System.Drawing.Color.White;
-            this.checkBoxPro7.CheckBoxWidth = 20;
-            this.checkBoxPro7.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            this.checkBoxPro7.ForeColor = System.Drawing.Color.White;
-            this.checkBoxPro7.Location = new System.Drawing.Point(197, 63);
-            this.checkBoxPro7.Name = "checkBoxPro7";
-            this.checkBoxPro7.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
-            this.checkBoxPro7.Size = new System.Drawing.Size(127, 33);
-            this.checkBoxPro7.TabIndex = 27;
-            this.checkBoxPro7.Tag = "Station3Humidity";
-            this.checkBoxPro7.Text = "3#站点湿度";
-            this.checkBoxPro7.UseVisualStyleBackColor = false;
-            // 
-            // CheckT1
-            // 
-            this.CheckT1.BackColor = System.Drawing.Color.Transparent;
-            this.CheckT1.BoxBackColor = System.Drawing.Color.White;
-            this.CheckT1.CheckBoxWidth = 20;
-            this.CheckT1.Checked = true;
-            this.CheckT1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CheckT1.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            this.CheckT1.ForeColor = System.Drawing.Color.White;
-            this.CheckT1.Location = new System.Drawing.Point(35, 24);
-            this.CheckT1.Name = "CheckT1";
-            this.CheckT1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
-            this.CheckT1.Size = new System.Drawing.Size(127, 33);
-            this.CheckT1.TabIndex = 22;
-            this.CheckT1.Tag = "Station1Temp";
-            this.CheckT1.Text = "1#站点温度";
-            this.CheckT1.UseVisualStyleBackColor = false;
+            this.checkBoxPro9.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxPro9.BoxBackColor = System.Drawing.Color.White;
+            this.checkBoxPro9.CheckBoxWidth = 20;
+            this.checkBoxPro9.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            this.checkBoxPro9.ForeColor = System.Drawing.Color.White;
+            this.checkBoxPro9.Location = new System.Drawing.Point(35, 102);
+            this.checkBoxPro9.Name = "checkBoxPro9";
+            this.checkBoxPro9.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
+            this.checkBoxPro9.Size = new System.Drawing.Size(127, 33);
+            this.checkBoxPro9.TabIndex = 30;
+            this.checkBoxPro9.Tag = "Station5Temp";
+            this.checkBoxPro9.Text = "5#站点温度";
+            this.checkBoxPro9.UseVisualStyleBackColor = false;
             // 
             // checkBoxPro8
             // 
@@ -191,32 +126,98 @@ namespace wgd.MTHProject
             this.checkBoxPro8.CheckBoxWidth = 20;
             this.checkBoxPro8.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             this.checkBoxPro8.ForeColor = System.Drawing.Color.White;
-            this.checkBoxPro8.Location = new System.Drawing.Point(35, 63);
+            this.checkBoxPro8.Location = new System.Drawing.Point(521, 63);
             this.checkBoxPro8.Name = "checkBoxPro8";
             this.checkBoxPro8.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
             this.checkBoxPro8.Size = new System.Drawing.Size(127, 33);
-            this.checkBoxPro8.TabIndex = 26;
-            this.checkBoxPro8.Tag = "Station3Temp";
-            this.checkBoxPro8.Text = "3#站点温度";
+            this.checkBoxPro8.TabIndex = 29;
+            this.checkBoxPro8.Tag = "Station4Humidity";
+            this.checkBoxPro8.Text = "4#站点湿度";
             this.checkBoxPro8.UseVisualStyleBackColor = false;
             // 
-            // CheckH1
+            // checkBoxPro7
             // 
-            this.CheckH1.BackColor = System.Drawing.Color.Transparent;
-            this.CheckH1.BoxBackColor = System.Drawing.Color.White;
-            this.CheckH1.CheckBoxWidth = 20;
-            this.CheckH1.Checked = true;
-            this.CheckH1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CheckH1.Font = new System.Drawing.Font("微软雅黑", 11.5F);
-            this.CheckH1.ForeColor = System.Drawing.Color.White;
-            this.CheckH1.Location = new System.Drawing.Point(197, 24);
-            this.CheckH1.Name = "CheckH1";
-            this.CheckH1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
-            this.CheckH1.Size = new System.Drawing.Size(127, 33);
-            this.CheckH1.TabIndex = 23;
-            this.CheckH1.Tag = "Station1Humidity";
-            this.CheckH1.Text = "1#站点湿度";
-            this.CheckH1.UseVisualStyleBackColor = false;
+            this.checkBoxPro7.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxPro7.BoxBackColor = System.Drawing.Color.White;
+            this.checkBoxPro7.CheckBoxWidth = 20;
+            this.checkBoxPro7.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            this.checkBoxPro7.ForeColor = System.Drawing.Color.White;
+            this.checkBoxPro7.Location = new System.Drawing.Point(359, 63);
+            this.checkBoxPro7.Name = "checkBoxPro7";
+            this.checkBoxPro7.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
+            this.checkBoxPro7.Size = new System.Drawing.Size(127, 33);
+            this.checkBoxPro7.TabIndex = 28;
+            this.checkBoxPro7.Tag = "Station4Temp";
+            this.checkBoxPro7.Text = "4#站点温度";
+            this.checkBoxPro7.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxPro6
+            // 
+            this.checkBoxPro6.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxPro6.BoxBackColor = System.Drawing.Color.White;
+            this.checkBoxPro6.CheckBoxWidth = 20;
+            this.checkBoxPro6.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            this.checkBoxPro6.ForeColor = System.Drawing.Color.White;
+            this.checkBoxPro6.Location = new System.Drawing.Point(197, 63);
+            this.checkBoxPro6.Name = "checkBoxPro6";
+            this.checkBoxPro6.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
+            this.checkBoxPro6.Size = new System.Drawing.Size(127, 33);
+            this.checkBoxPro6.TabIndex = 27;
+            this.checkBoxPro6.Tag = "Station3Humidity";
+            this.checkBoxPro6.Text = "3#站点湿度";
+            this.checkBoxPro6.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxPro1
+            // 
+            this.checkBoxPro1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxPro1.BoxBackColor = System.Drawing.Color.White;
+            this.checkBoxPro1.CheckBoxWidth = 20;
+            this.checkBoxPro1.Checked = true;
+            this.checkBoxPro1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxPro1.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            this.checkBoxPro1.ForeColor = System.Drawing.Color.White;
+            this.checkBoxPro1.Location = new System.Drawing.Point(35, 24);
+            this.checkBoxPro1.Name = "checkBoxPro1";
+            this.checkBoxPro1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
+            this.checkBoxPro1.Size = new System.Drawing.Size(127, 33);
+            this.checkBoxPro1.TabIndex = 22;
+            this.checkBoxPro1.Tag = "Station1Temp";
+            this.checkBoxPro1.Text = "1#站点温度";
+            this.checkBoxPro1.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxPro5
+            // 
+            this.checkBoxPro5.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxPro5.BoxBackColor = System.Drawing.Color.White;
+            this.checkBoxPro5.CheckBoxWidth = 20;
+            this.checkBoxPro5.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            this.checkBoxPro5.ForeColor = System.Drawing.Color.White;
+            this.checkBoxPro5.Location = new System.Drawing.Point(35, 63);
+            this.checkBoxPro5.Name = "checkBoxPro5";
+            this.checkBoxPro5.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
+            this.checkBoxPro5.Size = new System.Drawing.Size(127, 33);
+            this.checkBoxPro5.TabIndex = 26;
+            this.checkBoxPro5.Tag = "Station3Temp";
+            this.checkBoxPro5.Text = "3#站点温度";
+            this.checkBoxPro5.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxPro2
+            // 
+            this.checkBoxPro2.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxPro2.BoxBackColor = System.Drawing.Color.White;
+            this.checkBoxPro2.CheckBoxWidth = 20;
+            this.checkBoxPro2.Checked = true;
+            this.checkBoxPro2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxPro2.Font = new System.Drawing.Font("微软雅黑", 11.5F);
+            this.checkBoxPro2.ForeColor = System.Drawing.Color.White;
+            this.checkBoxPro2.Location = new System.Drawing.Point(197, 24);
+            this.checkBoxPro2.Name = "checkBoxPro2";
+            this.checkBoxPro2.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
+            this.checkBoxPro2.Size = new System.Drawing.Size(127, 33);
+            this.checkBoxPro2.TabIndex = 23;
+            this.checkBoxPro2.Tag = "Station1Humidity";
+            this.checkBoxPro2.Text = "1#站点湿度";
+            this.checkBoxPro2.UseVisualStyleBackColor = false;
             // 
             // checkBoxPro4
             // 
@@ -241,7 +242,7 @@ namespace wgd.MTHProject
             this.checkBoxPro3.CheckBoxWidth = 20;
             this.checkBoxPro3.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             this.checkBoxPro3.ForeColor = System.Drawing.Color.White;
-            this.checkBoxPro3.Location = new System.Drawing.Point(359, 24);
+            this.checkBoxPro3.Location = new System.Drawing.Point(324, 12);
             this.checkBoxPro3.Name = "checkBoxPro3";
             this.checkBoxPro3.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(25)))), ((int)(((byte)(66)))));
             this.checkBoxPro3.Size = new System.Drawing.Size(127, 33);
@@ -418,15 +419,15 @@ namespace wgd.MTHProject
             this.CharData.LegendFont = new System.Drawing.Font("微软雅黑", 11F);
             this.CharData.LegendForeColor = System.Drawing.Color.White;
             this.CharData.LegendVisible = true;
-            stripChartXSeries2.Color = System.Drawing.Color.Red;
-            stripChartXSeries2.Marker = SeeSharpTools.JY.GUI.StripChartXSeries.MarkerType.None;
-            stripChartXSeries2.Name = "1#站点温度";
-            stripChartXSeries2.Type = SeeSharpTools.JY.GUI.StripChartXSeries.LineType.FastLine;
-            stripChartXSeries2.Visible = true;
-            stripChartXSeries2.Width = SeeSharpTools.JY.GUI.StripChartXSeries.LineWidth.Thin;
-            stripChartXSeries2.XPlotAxis = SeeSharpTools.JY.GUI.StripChartXAxis.PlotAxis.Primary;
-            stripChartXSeries2.YPlotAxis = SeeSharpTools.JY.GUI.StripChartXAxis.PlotAxis.Primary;
-            this.CharData.LineSeries.Add(stripChartXSeries2);
+            stripChartXSeries1.Color = System.Drawing.Color.Red;
+            stripChartXSeries1.Marker = SeeSharpTools.JY.GUI.StripChartXSeries.MarkerType.None;
+            stripChartXSeries1.Name = "1#站点温度";
+            stripChartXSeries1.Type = SeeSharpTools.JY.GUI.StripChartXSeries.LineType.FastLine;
+            stripChartXSeries1.Visible = true;
+            stripChartXSeries1.Width = SeeSharpTools.JY.GUI.StripChartXSeries.LineWidth.Thin;
+            stripChartXSeries1.XPlotAxis = SeeSharpTools.JY.GUI.StripChartXAxis.PlotAxis.Primary;
+            stripChartXSeries1.YPlotAxis = SeeSharpTools.JY.GUI.StripChartXAxis.PlotAxis.Primary;
+            this.CharData.LineSeries.Add(stripChartXSeries1);
             this.CharData.Location = new System.Drawing.Point(35, 145);
             this.CharData.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CharData.Miscellaneous.CheckInfinity = false;
@@ -509,6 +510,7 @@ namespace wgd.MTHProject
             // PanelParam
             // 
             this.PanelParam.BackColor = System.Drawing.Color.Transparent;
+            this.PanelParam.Controls.Add(this.checkBoxPro3);
             this.PanelParam.Location = new System.Drawing.Point(35, 12);
             this.PanelParam.Name = "PanelParam";
             this.PanelParam.Size = new System.Drawing.Size(624, 125);
@@ -530,18 +532,17 @@ namespace wgd.MTHProject
             this.Controls.Add(this.DateStart);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.checkBoxPro9);
-            this.Controls.Add(this.checkBoxPro10);
-            this.Controls.Add(this.checkBoxPro11);
             this.Controls.Add(this.checkBoxPro12);
-            this.Controls.Add(this.checkBoxPro5);
-            this.Controls.Add(this.checkBoxPro6);
-            this.Controls.Add(this.checkBoxPro7);
-            this.Controls.Add(this.CheckT1);
+            this.Controls.Add(this.checkBoxPro11);
+            this.Controls.Add(this.checkBoxPro10);
+            this.Controls.Add(this.checkBoxPro9);
             this.Controls.Add(this.checkBoxPro8);
-            this.Controls.Add(this.CheckH1);
+            this.Controls.Add(this.checkBoxPro7);
+            this.Controls.Add(this.checkBoxPro6);
+            this.Controls.Add(this.checkBoxPro1);
+            this.Controls.Add(this.checkBoxPro5);
+            this.Controls.Add(this.checkBoxPro2);
             this.Controls.Add(this.checkBoxPro4);
-            this.Controls.Add(this.checkBoxPro3);
             this.Controls.Add(this.PanelParam);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -549,6 +550,7 @@ namespace wgd.MTHProject
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormHistory";
             this.Text = "历史趋势";
+            this.PanelParam.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -556,16 +558,16 @@ namespace wgd.MTHProject
 
         #endregion
 
-        private MTHControlLib.CheckBoxPro checkBoxPro9;
-        private MTHControlLib.CheckBoxPro checkBoxPro10;
-        private MTHControlLib.CheckBoxPro checkBoxPro11;
         private MTHControlLib.CheckBoxPro checkBoxPro12;
-        private MTHControlLib.CheckBoxPro checkBoxPro5;
-        private MTHControlLib.CheckBoxPro checkBoxPro6;
-        private MTHControlLib.CheckBoxPro checkBoxPro7;
-        private MTHControlLib.CheckBoxPro CheckT1;
+        private MTHControlLib.CheckBoxPro checkBoxPro11;
+        private MTHControlLib.CheckBoxPro checkBoxPro10;
+        private MTHControlLib.CheckBoxPro checkBoxPro9;
         private MTHControlLib.CheckBoxPro checkBoxPro8;
-        private MTHControlLib.CheckBoxPro CheckH1;
+        private MTHControlLib.CheckBoxPro checkBoxPro7;
+        private MTHControlLib.CheckBoxPro checkBoxPro6;
+        private MTHControlLib.CheckBoxPro checkBoxPro1;
+        private MTHControlLib.CheckBoxPro checkBoxPro5;
+        private MTHControlLib.CheckBoxPro checkBoxPro2;
         private MTHControlLib.CheckBoxPro checkBoxPro4;
         private MTHControlLib.CheckBoxPro checkBoxPro3;
         private System.Windows.Forms.Button BtnQuery;

@@ -20,6 +20,20 @@ namespace wgd.MTHProject
         {
             InitializeComponent();
 
+            CheckBoxList.Add(this.checkBoxPro1);
+            CheckBoxList.Add(this.checkBoxPro2);
+            CheckBoxList.Add(this.checkBoxPro3);
+            CheckBoxList.Add(this.checkBoxPro4);
+            CheckBoxList.Add(this.checkBoxPro5);
+            CheckBoxList.Add(this.checkBoxPro6);
+            CheckBoxList.Add(this.checkBoxPro7);
+            CheckBoxList.Add(this.checkBoxPro8);
+            CheckBoxList.Add(this.checkBoxPro9);
+            CheckBoxList.Add(this.checkBoxPro10);
+            CheckBoxList.Add(this.checkBoxPro11);
+            CheckBoxList.Add(this.checkBoxPro12);
+            
+
             this.DateStart.Value = DateTime.Now.AddHours(-2.0f);
             this.DateEnd.Value = DateTime.Now;
             // 设置X轴类型
@@ -37,6 +51,7 @@ namespace wgd.MTHProject
         // 属性
         private Dictionary<string, string> ParamList = new Dictionary<string, string>();
         private ActualDataManage ActualDataManage = new ActualDataManage();
+        private List<CheckBoxPro> CheckBoxList = new List<CheckBoxPro>();
 
         private void BtnQuery_Click(object sender, EventArgs e)
         {
@@ -116,7 +131,7 @@ namespace wgd.MTHProject
         private Dictionary<string, string> GetParamList()
         {
             Dictionary<string, string> paramList = new Dictionary<string, string>();
-            foreach (var item in this.Controls.OfType<CheckBoxPro>())
+            foreach (var item in CheckBoxList)
             {
                 if (item.Tag != null && item.Tag.ToString().Length > 0)
                 {
