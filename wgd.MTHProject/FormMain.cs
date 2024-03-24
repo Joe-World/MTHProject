@@ -291,7 +291,7 @@ namespace wgd.MTHProject
                     }
                     else
                     {
-                        GlobalProperties.AddLog(device.IsConnected ? 0 : 1, device.IsConnected ? "控制器首次连接成功" : "控制器首次连接失败");
+                        /*GlobalProperties.AddLog(device.IsConnected ? 0 : 1, device.IsConnected ? "控制器首次连接成功" : "控制器首次连接失败");*/
                         device.ReConnect = true;
                     }
                 }
