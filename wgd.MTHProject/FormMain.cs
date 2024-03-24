@@ -48,7 +48,16 @@ namespace wgd.MTHProject
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            if (GlobalProperties.Device.IsConnected) {
+            //更新时间和通信状态
+            this.Invoke(new Action(() =>
+            {
+                this.LabTime.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                this.LedDeviceState.Value = GlobalProperties.Device.IsConnected;
+            }));
+
+
+            if (GlobalProperties.Device.IsConnected)
+            {
                 // 判断
                 bool result = GlobalProperties.Device["模块1温度"] != null;
                 result &= GlobalProperties.Device["模块1湿度"] != null;
@@ -83,16 +92,16 @@ namespace wgd.MTHProject
                     }); ;
                 }
             }
-            
+
         }
 
 
 
-    #region 属性
-    /// <summary>
-    /// 配置文件路径
-    /// </summary>
-    private string DevicePath = Application.StartupPath + "\\Config\\Device.int";
+        #region 属性
+        /// <summary>
+        /// 配置文件路径
+        /// </summary>
+        private string DevicePath = Application.StartupPath + "\\Config\\Device.int";
         private string GroupPath = Application.StartupPath + "\\Config\\Group.xlsx";
         private string VariablePath = Application.StartupPath + "\\Config\\Var.xlsx";
         // 用于生成 CancellationToken 的类 === 通常用于取消正在进行的异步操作
@@ -295,6 +304,8 @@ namespace wgd.MTHProject
         #region 加载设备信息
         private void FormMain_Load(object sender, EventArgs e)
         {
+            this.LabUser.Text = GlobalProperties.CurrentAdmin.LoginName;
+
             CommonNaviButton_Click(this.BtnMonitor, null);
             GlobalProperties.Device = LoadDevice(GroupPath, DevicePath, VariablePath);
             if (GlobalProperties.Device != null)
@@ -519,6 +530,50 @@ namespace wgd.MTHProject
                 {
                     //拿到导航按钮对应的窗体枚举值
                     FormNames formNames = (FormNames)Enum.Parse(typeof(FormNames), navi.TitleName, true);
+
+
+                    //用户权限处理
+                    switch (formNames)
+                    {
+                        case FormNames.参数设置:
+                            if (!GlobalProperties.CurrentAdmin.ParamSet)
+                            {
+                                new FormMsgBoxWithoutAck("用户权限不足，请切换用户!", "权限不足").ShowDialog();
+                                return;
+                            }
+                            break;
+                        case FormNames.配方管理:
+                            if (!GlobalProperties.CurrentAdmin.Recipe)
+                            {
+                                new FormMsgBoxWithoutAck("用户权限不足，请切换用户!", "权限不足").ShowDialog();
+                                return;
+                            }
+                            break;
+                        case FormNames.报警追溯:
+                            if (!GlobalProperties.CurrentAdmin.HistoryLog)
+                            {
+                                new FormMsgBoxWithoutAck("用户权限不足，请切换用户!", "权限不足").ShowDialog();
+                                return;
+                            }
+                            break;
+                        case FormNames.历史趋势:
+                            if (!GlobalProperties.CurrentAdmin.HistoryTrend)
+                            {
+                                new FormMsgBoxWithoutAck("用户权限不足，请切换用户!", "权限不足").ShowDialog();
+                                return;
+                            }
+                            break;
+                        case FormNames.用户管理:
+                            if (!GlobalProperties.CurrentAdmin.UserManage)
+                            {
+                                new FormMsgBoxWithoutAck("用户权限不足，请切换用户!", "权限不足").ShowDialog();
+                                return;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
                     //窗体切换
                     OpenForm(this.MainPanel, formNames);
                     //设置Title

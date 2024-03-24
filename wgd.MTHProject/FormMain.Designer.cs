@@ -44,16 +44,17 @@ namespace wgd.MTHProject
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.AlarmPanel = new System.Windows.Forms.Panel();
+            this.ScrollAlarm = new SeeSharpTools.JY.GUI.ScrollingText();
             this.LblTitle = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.LabTime = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LabUser = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.CorePanel = new wgd.MTHControlLib.PanelPro();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.ScrollAlarm = new SeeSharpTools.JY.GUI.ScrollingText();
+            this.LedDeviceState = new SeeSharpTools.JY.GUI.LED();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -220,14 +221,15 @@ namespace wgd.MTHProject
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.LedDeviceState);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.AlarmPanel);
             this.panel2.Controls.Add(this.LblTitle);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.LabTime);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.LabUser);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 140);
@@ -258,6 +260,24 @@ namespace wgd.MTHProject
             this.AlarmPanel.Padding = new System.Windows.Forms.Padding(3);
             this.AlarmPanel.Size = new System.Drawing.Size(346, 43);
             this.AlarmPanel.TabIndex = 2;
+            // 
+            // ScrollAlarm
+            // 
+            this.ScrollAlarm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(41)))), ((int)(((byte)(103)))));
+            this.ScrollAlarm.BorderColor = System.Drawing.Color.Transparent;
+            this.ScrollAlarm.BorderVisible = true;
+            this.ScrollAlarm.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ScrollAlarm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScrollAlarm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
+            this.ScrollAlarm.ForeColor = System.Drawing.Color.White;
+            this.ScrollAlarm.Location = new System.Drawing.Point(3, 3);
+            this.ScrollAlarm.Name = "ScrollAlarm";
+            this.ScrollAlarm.ScrollDirection = SeeSharpTools.JY.GUI.ScrollingText.TextDirection.RightToLeft;
+            this.ScrollAlarm.ScrollSpeed = 25;
+            this.ScrollAlarm.Size = new System.Drawing.Size(340, 37);
+            this.ScrollAlarm.TabIndex = 0;
+            this.ScrollAlarm.Text = "当前系统无报警";
+            this.ScrollAlarm.VerticleAligment = SeeSharpTools.JY.GUI.ScrollingText.TextVerticalAlignment.Center;
             // 
             // LblTitle
             // 
@@ -291,17 +311,17 @@ namespace wgd.MTHProject
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             // 
-            // label5
+            // LabTime
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
-            this.label5.Location = new System.Drawing.Point(313, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(188, 25);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "2024/1/23 14:18:12";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LabTime.AutoSize = true;
+            this.LabTime.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Bold);
+            this.LabTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
+            this.LabTime.Location = new System.Drawing.Point(313, 24);
+            this.LabTime.Name = "LabTime";
+            this.LabTime.Size = new System.Drawing.Size(247, 25);
+            this.LabTime.TabIndex = 5;
+            this.LabTime.Text = "2024/1/23 14:18:12 星期一";
+            this.LabTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
@@ -316,16 +336,16 @@ namespace wgd.MTHProject
             this.label4.Text = "欢迎登陆！Time:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // LabUser
             // 
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
-            this.label3.Location = new System.Drawing.Point(68, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 43);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "管理员";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LabUser.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Bold);
+            this.LabUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
+            this.LabUser.Location = new System.Drawing.Point(68, 15);
+            this.LabUser.Name = "LabUser";
+            this.LabUser.Size = new System.Drawing.Size(82, 43);
+            this.LabUser.TabIndex = 3;
+            this.LabUser.Text = "管理员";
+            this.LabUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox2
             // 
@@ -362,23 +382,22 @@ namespace wgd.MTHProject
             this.MainPanel.Size = new System.Drawing.Size(1394, 724);
             this.MainPanel.TabIndex = 0;
             // 
-            // ScrollAlarm
+            // LedDeviceState
             // 
-            this.ScrollAlarm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(41)))), ((int)(((byte)(103)))));
-            this.ScrollAlarm.BorderColor = System.Drawing.Color.Transparent;
-            this.ScrollAlarm.BorderVisible = true;
-            this.ScrollAlarm.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ScrollAlarm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ScrollAlarm.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
-            this.ScrollAlarm.ForeColor = System.Drawing.Color.White;
-            this.ScrollAlarm.Location = new System.Drawing.Point(3, 3);
-            this.ScrollAlarm.Name = "ScrollAlarm";
-            this.ScrollAlarm.ScrollDirection = SeeSharpTools.JY.GUI.ScrollingText.TextDirection.RightToLeft;
-            this.ScrollAlarm.ScrollSpeed = 25;
-            this.ScrollAlarm.Size = new System.Drawing.Size(340, 37);
-            this.ScrollAlarm.TabIndex = 0;
-            this.ScrollAlarm.Text = "当前系统无报警";
-            this.ScrollAlarm.VerticleAligment = SeeSharpTools.JY.GUI.ScrollingText.TextVerticalAlignment.Center;
+            this.LedDeviceState.BlinkColor = System.Drawing.Color.Lime;
+            this.LedDeviceState.BlinkInterval = 1000;
+            this.LedDeviceState.BlinkOn = false;
+            this.LedDeviceState.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.LedDeviceState.Interacton = SeeSharpTools.JY.GUI.LED.InteractionStyle.Indicator;
+            this.LedDeviceState.Location = new System.Drawing.Point(1403, 24);
+            this.LedDeviceState.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.LedDeviceState.Name = "LedDeviceState";
+            this.LedDeviceState.OffColor = System.Drawing.Color.Red;
+            this.LedDeviceState.OnColor = System.Drawing.Color.Lime;
+            this.LedDeviceState.Size = new System.Drawing.Size(27, 27);
+            this.LedDeviceState.Style = SeeSharpTools.JY.GUI.LED.LedStyle.Circular;
+            this.LedDeviceState.TabIndex = 10;
+            this.LedDeviceState.Value = false;
             // 
             // FormMain
             // 
@@ -421,9 +440,9 @@ namespace wgd.MTHProject
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LabTime;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LabUser;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel AlarmPanel;
         private System.Windows.Forms.Label LblTitle;
@@ -436,6 +455,7 @@ namespace wgd.MTHProject
         private MTHControlLib.PanelPro CorePanel;
         private System.Windows.Forms.Panel MainPanel;
         private SeeSharpTools.JY.GUI.ScrollingText ScrollAlarm;
+        private SeeSharpTools.JY.GUI.LED LedDeviceState;
     }
 }
 

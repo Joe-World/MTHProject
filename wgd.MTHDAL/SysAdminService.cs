@@ -69,9 +69,9 @@ namespace wgd.MTHDAL
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append("Update SysAdmin set LoginName=@LoginName,LoginPwd=@LoginPwd,");
-            stringBuilder.Append("ParamSet=@ParamSet,Recipbe=@Recipe,");
-            stringBuilder.Append("HistoryLog=@HistoryLog,History Trend=@History Trend,");
-            stringBuilder.Append("UserManage=@UserManagewhere Loginid=@Loginld");
+            stringBuilder.Append("ParamSet=@ParamSet,Recipe=@Recipe,");
+            stringBuilder.Append("HistoryLog=@HistoryLog,HistoryTrend=@HistoryTrend,");
+            stringBuilder.Append("UserManage=@UserManage where LoginId=@Loginld");
             SqlParameter[] sqlParameters = new SqlParameter[] {
                 new SqlParameter("@Loginld", sysAdmin.LoginId),
                 new SqlParameter("@LoginName", sysAdmin.LoginName),
