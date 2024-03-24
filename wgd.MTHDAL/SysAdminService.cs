@@ -23,7 +23,7 @@ namespace wgd.MTHDAL
             DataSet dataSet = SQLHelper.GetDataSet(sql, parameters);
             if (dataSet != null && dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count == 1)
             {
-                sysAdmin.Loginld = Convert.ToInt32(dataSet.Tables[0].Rows[0]["Loginid"]);
+                sysAdmin.LoginId = Convert.ToInt32(dataSet.Tables[0].Rows[0]["LoginId"]);
                 sysAdmin.ParamSet = Convert.ToBoolean(dataSet.Tables[0].Rows[0]["ParamSet"]);
                 sysAdmin.Recipe = Convert.ToBoolean(dataSet.Tables[0].Rows[0]["Recipe"]);
                 sysAdmin.HistoryLog = Convert.ToBoolean(dataSet.Tables[0].Rows[0]["HistoryLog"]);
@@ -38,6 +38,75 @@ namespace wgd.MTHDAL
             }
         }
 
+        public int AddSysAdmin(SysAdmin sysAdmin)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("Insert into SysAdmin(LoginName,LoginPwd,ParamSet,Recipe, HistoryLog,HistoryTrend,UserManage)");
+            stringBuilder.Append(" values(@LoginName,@LoginPwd,@ParamSet,@Recipe,@HistoryLog,@HistoryTrend,@UserManage)");
+            SqlParameter[] sqlParameters = new SqlParameter[] {
+                new SqlParameter("@LoginName", sysAdmin.LoginName),
+                new SqlParameter("@LoginPwd", sysAdmin.LoginPwd),
+                new SqlParameter("@ParamSet", sysAdmin.ParamSet),
+                new SqlParameter("@Recipe", sysAdmin.Recipe),
+                new SqlParameter("@HistoryLog", sysAdmin.HistoryLog),
+                new SqlParameter("@HistoryTrend", sysAdmin.HistoryTrend),
+                new SqlParameter("@UserManage", sysAdmin.UserManage)
+            };
+            return SQLHelper.ExecuteNonQuery(stringBuilder.ToString(), sqlParameters);
+        }
 
+        public int DeleteSysAdmin(int loginld)
+        {
+            string sql = "Delete from SysAdmin where LoginId=@LoginId";
+            SqlParameter[] parameters = new SqlParameter[] {
+                new SqlParameter("@LoginId", loginld),
+            };
+            return SQLHelper.ExecuteNonQuery(sql, parameters);
+        }
+
+
+        public int ModifySysAdmin(SysAdmin sysAdmin)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("Update SysAdmin set LoginName=@LoginName,LoginPwd=@LoginPwd,");
+            stringBuilder.Append("ParamSet=@ParamSet,Recipbe=@Recipe,");
+            stringBuilder.Append("HistoryLog=@HistoryLog,History Trend=@History Trend,");
+            stringBuilder.Append("UserManage=@UserManagewhere Loginid=@Loginld");
+            SqlParameter[] sqlParameters = new SqlParameter[] {
+                new SqlParameter("@Loginld", sysAdmin.LoginId),
+                new SqlParameter("@LoginName", sysAdmin.LoginName),
+                new SqlParameter("@LoginPwd", sysAdmin.LoginPwd),
+                new SqlParameter("@ParamSet", sysAdmin.ParamSet),
+                new SqlParameter("@Recipe", sysAdmin.Recipe),
+                new SqlParameter("@HistoryLog", sysAdmin.HistoryLog),
+                new SqlParameter("@HistoryTrend", sysAdmin.HistoryTrend),
+                new SqlParameter("@UserManage", sysAdmin.UserManage)
+            };
+            return SQLHelper.ExecuteNonQuery(stringBuilder.ToString(), sqlParameters);
+        }
+
+        public List<SysAdmin> QuerySysAdmins()
+        {
+            string sql = "Select LoginId,LoginName,LoginPwd,ParamSet,Recipe, HistoryLog,HistoryTrend,UserManage from SysAdmin";
+            SqlDataReader sqlDataReader = SQLHelper.ExecuteReader(sql);
+            List<SysAdmin> sysAdmins = new List<SysAdmin>();
+            while (sqlDataReader.Read())
+            {
+                sysAdmins.Add(new SysAdmin()
+                {
+                    LoginId = Convert.ToInt32(sqlDataReader["LoginId"]),
+                    LoginName = sqlDataReader["LoginName"].ToString(),
+                    LoginPwd = sqlDataReader["LoginPwd"].ToString(),
+                    ParamSet = Convert.ToBoolean(sqlDataReader["ParamSet"]),
+                    Recipe = Convert.ToBoolean(sqlDataReader["Recipe"]),
+                    HistoryLog = Convert.ToBoolean(sqlDataReader["HistoryLog"]),
+                    HistoryTrend = Convert.ToBoolean(sqlDataReader["HistoryTrend"]),
+                    UserManage = Convert.ToBoolean(sqlDataReader["UserManage"]),
+                });
+            };
+            return sysAdmins;
+
+        }
     }
 }
+

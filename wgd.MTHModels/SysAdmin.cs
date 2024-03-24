@@ -8,7 +8,7 @@ namespace wgd.MTHModels
 {
     public class SysAdmin
     {
-        public int Loginld { get; set; }
+        public int LoginId { get; set; }
 
         public string LoginName { get; set; }
 
